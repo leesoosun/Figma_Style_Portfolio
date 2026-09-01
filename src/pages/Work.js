@@ -24,11 +24,11 @@ export default function Work() {
     <Page file="mahendra-mili.fig — work" note={`${visible.length} frame${visible.length === 1 ? '' : 's'}`}>
       <section className="wrap work-head">
         <Frame tag="Work / All projects">
-          <h1>Everything I've shipped, prototyped, or broken along the way.</h1>
+          <h1>Things I’ve built, shipped, and learned from.</h1>
         </Frame>
         <p>
-          A mix of shipped product work, personal explorations, and case studies. Filter by
-          type, or just scroll — each project opens into its own page.
+          A collection of product work, experiments, personal explorations, and case
+          studies. Browse by type or wander through — every project has a story behind it.
         </p>
         <div className="filters">
           {workFilters.map((f) => (
