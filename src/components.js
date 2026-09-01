@@ -108,7 +108,12 @@ export function SampleBanner({ children }) {
     <div className="sample-banner">
       {children || (
         <>
-          SAMPLE CONTENT&nbsp;&nbsp;<b>—</b>&nbsp;&nbsp;demo copy and invented metrics. Replace before sharing.
+          <span className="banner-full">
+            SAMPLE CONTENT&nbsp;&nbsp;<b>—</b>&nbsp;&nbsp;demo copy and invented metrics. Replace before sharing.
+          </span>
+          <span className="banner-short">
+            SAMPLE&nbsp;CONTENT&nbsp;&nbsp;<b>—</b>&nbsp;&nbsp;not real projects
+          </span>
         </>
       )}
     </div>
@@ -179,7 +184,9 @@ export function Toolbar() {
         <WorkIcon /> Work
       </Link>
       <Link to="/ai" className={pathname === '/ai' ? 'active' : undefined}>
-        <SparkIcon /> How I use AI
+        <SparkIcon />
+        <span className="lbl-full">How I use AI</span>
+        <span className="lbl-short">AI</span>
       </Link>
       <div className="sep" />
       <a href="#" title={resumeHint} onClick={(e) => e.preventDefault()}>

@@ -61,3 +61,7 @@
   .caveat-list{ grid-template-columns:1fr; }
   .page-head{ padding-top:150px; }
 }
+
+@media (max-width:480px){
+  .stack-grid{ grid-template-columns:1fr; }
+}
