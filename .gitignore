@@ -13,3 +13,7 @@
 node_modules/
 npm-debug.log*
 *.log
+
+# Build output / deps
+dist/
+.vite/

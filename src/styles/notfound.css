@@ -1,0 +1,8 @@
+.nf{ padding-top:200px; padding-bottom:160px; text-align:center; }
+.nf .code{
+  font-family:var(--mono); font-size:13px; color:var(--blue); margin-bottom:24px; display:block;
+}
+.nf h1{ font-size:clamp(34px, 5.5vw, 60px); font-weight:800; letter-spacing:-.02em; max-width:620px; margin:0 auto; }
+.nf p{ color:var(--muted); font-size:16.5px; max-width:440px; margin:20px auto 0; line-height:1.65; }
+.nf .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+@media (max-width:760px){ .nf{ padding-top:150px; } }

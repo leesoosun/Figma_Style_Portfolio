@@ -1,0 +1,109 @@
+/* ============================================================
+   Animation layer
+   Every effect here is additive: with prefers-reduced-motion the
+   elements land in their final state with no transition, so nothing
+   is ever hidden behind an animation that will not play.
+   ============================================================ */
+
+/* ---------- Scroll reveal (see useReveal in components.js) ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .55s cubic-bezier(.22,.61,.36,1),
+             transform .55s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity, transform;
+}
+.reveal.is-in{ opacity:1; transform:none; }
+
+/* ---------- Route transition ---------- */
+@keyframes page-in{
+  from{ opacity:0; transform:translateY(8px); }
+  to  { opacity:1; transform:none; }
+}
+.page-fade{ animation:page-in .4s cubic-bezier(.22,.61,.36,1) both; }
+
+/* ---------- Hero selection box draws itself in ---------- */
+@keyframes frame-in{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes handle-pop{
+  0%  { transform:scale(0); }
+  70% { transform:scale(1.35); }
+  100%{ transform:scale(1); }
+}
+.frame.show .box{ animation:frame-in .5s ease .25s both; }
+.frame.show .box i{ animation:handle-pop .32s cubic-bezier(.34,1.56,.64,1) both; }
+.frame.show .box i.tl{ animation-delay:.55s; }
+.frame.show .box i.tr{ animation-delay:.62s; }
+.frame.show .box i.bl{ animation-delay:.69s; }
+.frame.show .box i.br{ animation-delay:.76s; }
+.frame.show .tag{ animation:frame-in .4s ease .15s both; }
+.frame.show .dim{ animation:frame-in .4s ease .8s both; }
+
+/* ---------- Toolbar lift on mount ---------- */
+@keyframes toolbar-in{
+  from{ opacity:0; transform:translateX(-50%) translateY(16px); }
+  to  { opacity:1; transform:translateX(-50%) translateY(0); }
+}
+.toolbar{ animation:toolbar-in .5s cubic-bezier(.22,.61,.36,1) .1s both; }
+
+/* Nudge the active pill, and let the icon lead the hover */
+.toolbar a{ transition:background .2s, color .2s, transform .18s ease; }
+.toolbar a:hover{ transform:translateY(-1px); }
+.toolbar svg{ transition:transform .25s cubic-bezier(.34,1.56,.64,1); }
+.toolbar a:hover svg{ transform:scale(1.14) rotate(-4deg); }
+
+/* ---------- Banner slides down ---------- */
+@keyframes banner-in{ from{ transform:translateY(-100%); } to{ transform:none; } }
+.sample-banner{ animation:banner-in .45s cubic-bezier(.22,.61,.36,1) both; }
+
+/* ---------- Cards ---------- */
+.gcard .thumb{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,.61,.36,1); }
+.gcard:hover .thumb{ transform:translateY(-4px); }
+.gcard .label{ transition:color .2s ease; }
+.gcard:hover .label{ color:var(--blue); }
+
+.pcard .thumb{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,.61,.36,1); }
+.pcard h3{ transition:color .2s ease; }
+.pcard:not(.pending):hover h3{ color:var(--blue); }
+
+.stack-cell, .bring-cell{ transition:border-color .2s ease, transform .25s ease, background .25s ease; }
+.bring-cell:hover{ background:#FBFDFF; }
+.bring-cell .glyph{ transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
+.bring-cell:hover .glyph{ transform:scale(1.12) rotate(-5deg); }
+
+/* ---------- Work rows ---------- */
+.work-row .go{ transition:gap .2s ease; }
+.work-row .go::after{ content:''; }
+.work-row:hover .go{ gap:11px; }
+
+/* ---------- Filter pills ---------- */
+.filter-pill{ transition:all .18s ease, transform .18s ease; }
+.filter-pill:active{ transform:scale(.96); }
+
+/* ---------- Buttons ---------- */
+.btn{ transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, color .18s ease; }
+.btn.primary:active, .btn.ghost:active{ transform:translateY(0); }
+
+/* ---------- Case-study section labels track the sticky scroll ---------- */
+.cs-block .b-label{ transition:color .3s ease; }
+
+/* ---------- Footer links ---------- */
+.foot-links a{ transition:color .2s ease, transform .2s ease; display:inline-block; }
+.foot-links a:hover{ transform:translateY(-1px); }
+
+/* ============================================================
+   Honour the OS-level preference. Anything animated above must
+   resolve to its finished state here.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{ opacity:1 !important; transform:none !important; }
+  .frame.show .box, .frame.show .box i,
+  .frame.show .tag, .frame.show .dim{ opacity:1 !important; transform:none !important; }
+  .toolbar{ opacity:1 !important; transform:translateX(-50%) !important; }
+  .sample-banner{ transform:none !important; }
+}

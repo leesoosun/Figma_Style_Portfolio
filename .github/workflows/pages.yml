@@ -10,30 +10,43 @@ permissions:
   pages: write
   id-token: write
 
-# Let a newer push cancel an in-flight deploy, but never cancel a running one
-# halfway — that can leave Pages serving a partial upload.
+# Let a newer push supersede a queued deploy, but never cancel one mid-flight —
+# that can leave Pages serving a partial upload.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `npm ci` installs exactly what package-lock.json pins, so CI can never
+      # resolve a different dependency tree than the one built locally.
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Vite emits the site into dist/ — that is what gets published, not the repo root.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-
-      # Static site — the whole repo root is the artifact. No build step.
-      # enablement: true turns Pages on via the API if it has never been enabled,
-      # instead of failing and requiring the Settings -> Pages toggle by hand.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
       - id: deployment
         uses: actions/deploy-pages@v4

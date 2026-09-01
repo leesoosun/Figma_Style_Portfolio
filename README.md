@@ -1,122 +1,159 @@
 # Figma-style portfolio
 
-A static portfolio site for **Mahendra Mili**, product designer. The visual language
-borrows from the Figma canvas: a dot-grid background, selection boxes with corner
-handles and live dimension labels, a floating toolbar for navigation, and a custom
-cursor built from the Figma pointer glyph.
+A portfolio site for **Mahendra Mili**, product designer, built with **React + Vite**.
+The visual language borrows from the Figma canvas: a dot-grid background, selection
+boxes with corner handles and a live dimension readout, a floating toolbar for
+navigation, and a cursor drawn from the Figma pointer glyph.
 
-No build step, no dependencies, no framework. Plain HTML and one stylesheet — open
-`index.html` in a browser and it works.
+**Live:** https://leesoosun.github.io/Figma_Style_Portfolio/
 
 > [!IMPORTANT]
 > **All project content is sample content.** The case studies, metrics, and personal
 > copy are realistic-sounding demo filler written to show the layout, not real
-> projects. Every page carries a black banner saying so. See
-> [Replacing the sample content](#replacing-the-sample-content) before you share
-> this with anyone.
+> projects. Every page carries a banner saying so. See
+> [Replacing the sample content](#replacing-the-sample-content) before sharing this.
 
 ---
 
-## Pages
-
-| File | Purpose |
-| --- | --- |
-| `index.html` | Landing page — hero, horizontal work strip, selected work, capabilities grid, personal note, contact |
-| `work.html` | Full project index with working category filters |
-| `case-study-1.html` | Case study — product design / mobile / 0→1 |
-| `case-study-2.html` | Case study — design systems |
-| `case-study-3.html` | Case study — research-led |
-| `ai.html` | "How I use AI" — tooling, workflow, a sample prompt, and stated limits |
-| `case-study.html` | **Template.** Not linked from the site and marked `noindex` |
-| `404.html` | Not-found page, styled to match |
-| `styles.css` | All shared tokens and components |
-
-## Structure
-
-Design tokens and every shared component live in `styles.css` — colours, type scale,
-the toolbar, the top bar, buttons, section headers, the placeholder thumbnail
-treatment, the footer, and the whole case-study layout. Page-specific layout stays in
-a `<style>` block in the page that needs it.
-
-That split matters: the case-study CSS used to be copy-pasted into all four case-study
-files, so a change to the layout meant four identical edits. It's now defined once
-under `Case-study page components` in `styles.css`.
-
-## Running it locally
-
-Open `index.html` directly, or serve the folder so that relative paths and the 404
-behave like they do in production:
+## Quick start
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+npm install
+npm run dev      # dev server with hot reload
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
 ```
+
+Requires Node 20 or newer.
+
+## Project structure
+
+```
+index.html               Vite entry — <head> metadata and the SPA path-restore script
+vite.config.js           base path, JSX-in-.js loader, build options
+public/
+  404.html               GitHub Pages SPA fallback (see Routing below)
+  favicon.svg
+  .nojekyll
+src/
+  main.js                React root + BrowserRouter
+  App.js                 Route table, including redirects from the old .html URLs
+  components.js          Shared component library + animation primitives
+  data.js                All site content
+  pages/
+    Home.js  Work.js  CaseStudy.js  AI.js  NotFound.js
+  styles/
+    global.css           Design tokens and every shared component
+    animation.css        Scroll reveals, route transitions, hover motion
+    home.css  work.css  ai.css  notfound.css
+```
+
+### Why content lives in `data.js`
+
+The static version of this site had three case-study HTML files that were
+structurally identical — same four-part spine, same markup, different words. A layout
+change meant editing three files.
+
+Now `src/data.js` holds the content and a single `<CaseStudy>` component renders any
+of it. **Adding a project is appending one object to `caseStudies`** — no new file, no
+duplicated markup, and it appears on the work grid and in the next/previous
+navigation automatically.
+
+### `components.js`
+
+Everything used by more than one page:
+
+| Export | Purpose |
+| --- | --- |
+| `Page` | Page shell — banner, topbar, content, footer, toolbar |
+| `Toolbar` | Floating nav; derives its active tab from the current route |
+| `TopBar`, `SampleBanner`, `Footer`, `BackLink` | Site chrome |
+| `Frame` | Figma selection box; `live` adds the width × height readout |
+| `Thumb`, `SectionHead`, `Eyebrow`, `Btn`, `MetaRow`, `StatRow`, `CaseBlock`, `Paras` | Content primitives |
+| `Reveal`, `useReveal`, `usePrefersReducedMotion`, `ScrollToTop` | Animation |
+| `glyphs` | The capability icons, keyed by name |
+
+## Animations
+
+Motion is deliberately small — it should make the page feel responsive, not
+choreographed.
+
+- **Scroll reveal.** `useReveal` adds `.is-in` via `IntersectionObserver` the first
+  time an element enters the viewport, then unobserves it. Passing `delay` to
+  `<Reveal>` staggers a row of cards.
+- **Route transition.** A short fade-and-rise on the page container.
+- **Hero selection box.** The Figma frame fades in and its four corner handles pop in
+  sequence, then the dimension label appears.
+- **Hover motion.** Card lift, toolbar icon rotate, footer link nudge, button press.
+
+All of it is gated behind `prefers-reduced-motion: reduce`, which collapses every
+duration and forces revealed elements to their final state — so content is never
+hidden behind an animation that will not play.
+
+## Routing
+
+Routes are `/`, `/work`, `/work/:slug`, `/ai`, and a catch-all 404. Old
+`*.html` URLs from the static version redirect to their new equivalents.
+
+GitHub Pages has no server-side rewrites, so a deep link like `/work/splitting-the-bill`
+would normally 404 on a hard refresh. `public/404.html` encodes the path into a query
+string and bounces to `index.html`, whose inline script restores the real URL before
+React Router mounts. That pair is what makes deep links work — if you change
+`base` in `vite.config.js`, keep `basename` in `src/main.js` and
+`pathSegmentsToKeep` in `public/404.html` in sync with it.
 
 ## Deployment
 
-A GitHub Actions workflow (`.github/workflows/pages.yml`) publishes the repo root to
-GitHub Pages on every push to `main`. It needs one manual step, once:
-
-1. Go to **Settings → Pages**
-2. Under **Build and deployment → Source**, choose **GitHub Actions**
-
-The site then goes live at `https://leesoosun.github.io/Figma_Style_Portfolio/`, and
-redeploys on each push. You can watch runs under the **Actions** tab.
-
-Prefer not to use Actions? Delete the workflow and set **Source** to *Deploy from a
-branch* → `main` / `/ (root)` instead. The `.nojekyll` file is already present so
-Jekyll won't try to process anything.
+`.github/workflows/pages.yml` runs `npm ci && npm run build` and publishes `dist/` to
+GitHub Pages on every push to `main`. **Settings → Pages → Source** must be set to
+**GitHub Actions** (already done).
 
 ---
 
 ## Replacing the sample content
 
+Almost everything is in `src/data.js`.
+
 ### 1. Contact details
 
-Every page footer currently reads `your-email@example.com`, and the social and resume
-links point at `#` with a `title` attribute describing what belongs there. Search for
-these and replace across all pages:
-
-- `your-email@example.com` — footer text, plus the `mailto:` on the `index.html` contact button
-- `title="Add your LinkedIn URL"` and the sibling X / Dribbble links
-- `title="Add resume.pdf to the repo and link it here"` — drop a `resume.pdf` in the repo root and point these at it
+`owner` at the top of `data.js` holds the name, role, email, and social links. The
+email is `your-email@example.com` and the socials point at `#` with a `hint` naming
+what belongs there. For the resume, drop `resume.pdf` into `public/` and point the
+`Resume` social — and the two `Download resume` buttons in `pages/Home.js` — at
+`/Figma_Style_Portfolio/resume.pdf`.
 
 ### 2. Case studies
 
-Rewrite `case-study-1.html`, `case-study-2.html`, and `case-study-3.html` with your
-real projects. Each follows the same four-part spine: **Problem → Process → Solution →
-Outcome**, with a metadata row (role, timeline, team, tools) and three outcome stats.
+Rewrite the three objects in `caseStudies`. Each has `problem`, `process`,
+`decision`, `solution`, and `outcome` arrays (one string per paragraph), a `meta`
+table, and three `stats`. `slug` becomes the URL.
 
-To add a fourth, copy `case-study.html`, fill it in, and add a card for it in the
-`.project-grid` in `work.html`.
-
-The three archived cards in `work.html` are marked `class="pcard pending"` with a
-*Write-up in progress* chip. Once a write-up exists, turn the `<div>` back into an
-`<a href="...">` and delete the `pending` class and the `soon` chip.
+`archivedProjects` are the entries with no write-up yet — they render as
+non-clickable cards with a *Write-up in progress* chip. Move one into `caseStudies`
+when it's written.
 
 ### 3. Images
 
-Every image is a striped `.thumb-placeholder` block labelled with what belongs there
-(`IMAGE PLACEHOLDER — hero shot`, `— sketch/flow`, and so on). Replace each with an
-`<img>` and keep the surrounding container so the sizing holds.
+Every image is a striped `<Thumb>` labelled with what belongs there. Put real files
+in `public/` and swap `<Thumb …/>` for an `<img>`, keeping the wrapper so sizing holds.
 
-### 4. Remove the banner
+### 4. Remove the sample banner
 
-Once nothing on the site is fake, delete:
+Set `SAMPLE_CONTENT = false` in `src/data.js`. That hides the banner everywhere. Then
+delete the `Sample-content banner` block in `src/styles/global.css`, including the
+`body { padding-top }` and `.topbar { top }` offsets it introduces.
 
-- the `<div class="sample-banner">…</div>` line from each page
-- the `Sample-content banner` block in `styles.css`, including the `body { padding-top }`
-  and `.topbar { top }` offsets it introduces
+## Notes
 
-## Accessibility and browser notes
-
-- The custom cursor is set with an SVG `data:` URI and falls back to `auto` / `pointer`.
-- `prefers-reduced-motion` is **not** yet handled; transitions are short (.15–.35s) but
-  if you add larger motion, gate it behind that media query.
-- The site is light-mode only. There is no dark palette defined — adding one means
-  extending the `:root` token block in `styles.css`.
+- **Light mode only.** There is no dark palette; adding one means extending the
+  `:root` token block in `global.css`.
+- **Client-rendered.** The HTML shell ships without content, so the page needs JS.
+  Fine for a portfolio; if you ever want the copy in the initial HTML for SEO, that
+  means adding prerendering or moving to a framework with SSG.
+- **The static HTML version** this replaced is tagged
+  [`static-site-v1`](https://github.com/leesoosun/Figma_Style_Portfolio/tree/static-site-v1).
 
 ## Licence
 
-No licence file is included, so all rights are reserved by default. If you want others
-to be able to reuse the markup and CSS, add one (MIT is the usual pick).
+No licence file is included, so all rights are reserved by default. Add one (MIT is
+the usual pick) if you want others to reuse the markup and CSS.
