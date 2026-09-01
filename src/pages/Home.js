@@ -16,12 +16,12 @@ export default function Home() {
         <Eyebrow>// Product Designer</Eyebrow>
         <Frame tag="Hero / Headline" live>
           <h1>
-            I turn <span>complex problems</span> into <span>simple product experiences</span>.
+            Turning Ideas Into <span>Experiences</span>.
           </h1>
         </Frame>
         <p className="sub">
-          {owner.name} — I turn messy problems into interfaces that feel obvious in
-          hindsight. Currently exploring where AI and product design intersect.
+          I turn complex problems into simple product experiences. Currently exploring
+          where AI and product design intersect.
         </p>
         <div className="actions">
           <Btn href="#work">View selected work</Btn>
