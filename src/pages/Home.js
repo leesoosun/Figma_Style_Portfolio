@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import {
   Page, Frame, Thumb, SectionHead, Eyebrow, Btn, Reveal, glyphs,
 } from '../components.js'
-import { caseStudies, glimpse, capabilities, aboutParagraphs, owner } from '../data.js'
+import {
+  caseStudies, archivedProjects, glimpse, capabilities, aboutParagraphs, owner,
+} from '../data.js'
 import '../styles/home.css'
 
 export default function Home() {
@@ -86,6 +88,11 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="work-cta">
+          <Btn to="/work" variant="ghost">
+            See all {caseStudies.length + archivedProjects.length} projects →
+          </Btn>
+        </Reveal>
       </section>
 
       {/* ---------------- What I bring ---------------- */}

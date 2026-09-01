@@ -92,6 +92,8 @@
 .work-row:nth-child(even) .thumb{ order:1; }
 .work-row:nth-child(even) .info{ order:2; }
 
+.work-cta{ margin-top:44px; display:flex; justify-content:center; }
+
 /* ---------- What I bring ---------- */
 .bring-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
 .bring-cell{ background:var(--panel); padding:34px 28px; }
