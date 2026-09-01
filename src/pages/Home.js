@@ -13,7 +13,7 @@ export default function Home() {
     <Page file="mahendra-mili.fig — landing" note="100%">
       {/* ---------------- Hero ---------------- */}
       <section className="hero wrap">
-        <Eyebrow>// Product Designer</Eyebrow>
+        <Eyebrow>// {owner.name} - {owner.role}</Eyebrow>
         <Frame tag="Hero / Headline" live>
           <h1>
             Turning Ideas Into <span>Experiences</span>.
