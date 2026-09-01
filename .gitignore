@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs / deps (in case a build step is added later)
+node_modules/
+npm-debug.log*
+*.log

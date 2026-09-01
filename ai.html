@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I use AI — Mahendra Mili</title>
+<meta name="description" content="A specific, non-hype breakdown of where AI tools sit in my design process — and where they don't.">
+<meta name="theme-color" content="#FAFAFA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mahendra Mili — Product Designer">
+<meta property="og:title" content="How I use AI — Mahendra Mili">
+<meta property="og:description" content="A specific, non-hype breakdown of where AI tools sit in my design process — and where they don't.">
+<meta property="og:url" content="https://leesoosun.github.io/Figma_Style_Portfolio/ai.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-head{ padding-top:190px; padding-bottom:20px; text-align:center; }
+  .page-head h1{ font-size:clamp(34px, 5.5vw, 58px); font-weight:800; letter-spacing:-.02em; max-width:720px; margin:0 auto; }
+  .page-head p{ color:var(--muted); font-size:16px; max-width:480px; margin:18px auto 0; line-height:1.65; }
+
+  /* ---------- Stack grid ---------- */
+  .stack-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+  .stack-cell{
+    border:1px solid var(--line); border-radius:12px; padding:22px 18px;
+    background:var(--panel); transition:border-color .2s, transform .2s;
+  }
+  .stack-cell:hover{ border-color:var(--blue); transform:translateY(-3px); }
+  .stack-cell .role{ font-family:var(--mono); font-size:10.5px; color:var(--blue); margin-bottom:10px; }
+  .stack-cell h4{ font-size:15px; font-weight:700; }
+  .stack-cell p{ font-size:12.5px; color:var(--muted); margin-top:7px; line-height:1.55; }
+
+  /* ---------- Workflow timeline ---------- */
+  .flow{ display:flex; flex-direction:column; }
+  .flow-step{
+    display:grid; grid-template-columns:56px 1fr; gap:26px;
+    padding:30px 0; border-top:1px solid var(--line); position:relative;
+  }
+  .flow-step:last-child{ border-bottom:1px solid var(--line); }
+  .flow-step .fnum{
+    font-family:var(--mono); font-size:13px; color:var(--blue);
+    display:flex; align-items:flex-start; padding-top:2px;
+  }
+  .flow-step h3{ font-size:19px; font-weight:700; margin-bottom:8px; }
+  .flow-step p{ font-size:14.5px; color:var(--muted); line-height:1.65; max-width:520px; }
+
+  /* ---------- Prompt panel ---------- */
+  .prompt-panel{
+    border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-top:16px;
+    background:var(--panel);
+  }
+  .prompt-head{
+    display:flex; align-items:center; gap:8px; padding:11px 16px;
+    border-bottom:1px solid var(--line); background:#FAFAFA;
+  }
+  .prompt-head .dot{ width:8px; height:8px; border-radius:50%; background:var(--line); }
+  .prompt-head span{ font-family:var(--mono); font-size:11px; color:var(--muted); margin-left:4px; }
+  .prompt-body{ padding:18px 20px; font-family:var(--mono); font-size:13px; line-height:1.75; color:#3C3C3C; }
+  .prompt-body .blue{ color:var(--blue); }
+
+  /* ---------- Philosophy quote ---------- */
+  .philosophy{ text-align:center; padding:70px 0; }
+  .philosophy blockquote{
+    font-size:clamp(22px, 3vw, 32px); font-weight:700; letter-spacing:-.01em;
+    max-width:680px; margin:0 auto; line-height:1.35;
+  }
+  .philosophy cite{ display:block; margin-top:20px; font-family:var(--mono); font-size:12.5px; color:var(--muted); font-style:normal; }
+
+  /* ---------- Honest caveats ---------- */
+  .caveat-list{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .caveat{ border-left:2px solid var(--blue); padding-left:18px; }
+  .caveat h4{ font-size:15px; font-weight:700; margin-bottom:8px; }
+  .caveat p{ font-size:13.5px; color:var(--muted); line-height:1.6; }
+
+  @media (max-width:760px){
+    .stack-grid{ grid-template-columns:repeat(2, 1fr); }
+    .flow-step{ grid-template-columns:32px 1fr; gap:16px; }
+    .caveat-list{ grid-template-columns:1fr; }
+    .page-head{ padding-top:150px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="sample-banner">SAMPLE CONTENT&nbsp;&nbsp;<b>&mdash;</b>&nbsp;&nbsp;demo copy and invented metrics. Replace before sharing.</div>
+
+  <div class="topbar">
+    <div class="dotstat">mahendra-mili.fig — how-i-use-ai</div>
+    <div class="placeholder-note">100%</div>
+  </div>
+
+  <section class="wrap page-head">
+    <span class="eyebrow">// A note on process</span>
+    <h1>How I actually use AI in my design work</h1>
+    <p>Not a hype page. A real, specific breakdown of where AI tools sit in my process — and where they don't.</p>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="wrap" style="padding-top:60px;">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>The stack</h2>
+      <p>The tools I reach for most, and what each one is actually for.</p>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-cell">
+        <div class="role">Research</div>
+        <h4>Claude</h4>
+        <p>Synthesizing interview notes, spotting patterns across research, first-draft user stories.</p>
+      </div>
+      <div class="stack-cell">
+        <div class="role">Prototyping</div>
+        <h4>Figma AI</h4>
+        <p>Turning rough wireframes into higher-fidelity explorations faster, without skipping the thinking.</p>
+      </div>
+      <div class="stack-cell">
+        <div class="role">Copy</div>
+        <h4>Claude / ChatGPT</h4>
+        <p>Drafting UI copy and microcopy variants to react to — a starting point, never shipped untouched.</p>
+      </div>
+      <div class="stack-cell">
+        <div class="role">Dev handoff</div>
+        <h4>v0 / Claude Code</h4>
+        <p>Quick functional prototypes so engineers can feel an interaction, not just read a spec.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKFLOW ============ -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Where it fits in my process</h2>
+      <p>AI shows up at specific points — not as a layer over the whole workflow.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="fnum">01</div>
+        <div>
+          <h3>Synthesizing research</h3>
+          <p>After a round of interviews I paste anonymised transcripts in and ask for candidate themes with the supporting quotes attached. The quotes are the point: a theme I can't trace back to something someone actually said gets dropped. I still do my own pass first, then compare — where the model and I disagree is usually where the interesting ambiguity is.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">02</div>
+        <div>
+          <h3>Exploring more directions, faster</h3>
+          <p>Early on, the constraint is rarely quality — it's how many genuinely different directions I can afford to sketch before I commit. I'll ask for eight approaches to a flow, throw out six immediately, and usually find that one of the remaining two is something I wouldn't have reached on my own. The bad options are cheap and they still narrow the space.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">03</div>
+        <div>
+          <h3>Stress-testing a decision</h3>
+          <p>Before a design review I ask for the strongest argument against the thing I'm about to present, and for the edge cases I've probably skipped — empty states, slow networks, the user who has 400 of something. It's much less painful to hear a weak spot from a model on Tuesday than from a staff engineer on Wednesday.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum">04</div>
+        <div>
+          <h3>Closing the gap to engineering</h3>
+          <p>For anything with real interaction behaviour — drag ordering, optimistic updates, a multi-step form that can fail halfway — I build a working prototype instead of annotating a static frame. Engineers can open it, break it, and tell me what I got wrong about the states, which is a much faster conversation than a spec document.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE PROMPT ============ -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>A real prompt I use</h2>
+      <p>One example, so this page isn't just abstract claims. Replace with a prompt from your actual workflow.</p>
+    </div>
+    <div class="prompt-panel">
+      <div class="prompt-head">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span>prompt.txt — placeholder</span>
+      </div>
+      <div class="prompt-body">
+        <span class="blue">You:</span> Here are 12 interview quotes about our onboarding flow. Group them into themes, attach the supporting quote to each, and flag anything that <i>contradicts</i> our assumption that users want fewer steps rather than more guidance. If a theme rests on only one quote, say so.<br><br>
+        <span class="blue">Why this works:</span> the default output of a summarisation prompt is a tidy narrative, which is exactly the thing that makes bad research feel finished. Asking for disconfirming evidence and for weakly-supported themes to be labelled turns it from a summary into something I can actually argue with.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section class="wrap philosophy">
+    <blockquote>&ldquo;AI has made it much cheaper to produce work, and no cheaper at all to know whether the work is right. The second part is still the job.&rdquo;</blockquote>
+    <cite>— Mahendra Mili</cite>
+  </section>
+
+  <!-- ============ HONEST CAVEATS ============ -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>What I don't hand off</h2>
+      <p>Being specific about limits is more credible than pretending there aren't any.</p>
+    </div>
+    <div class="caveat-list">
+      <div class="caveat">
+        <h4>Taste and final calls</h4>
+        <p>AI widens the option set; it has no stake in the outcome. Deciding which of eight directions is actually right for this product and these users is a judgement call, and I'd rather own a wrong one than inherit an unowned one.</p>
+      </div>
+      <div class="caveat">
+        <h4>Talking to real users</h4>
+        <p>Synthesis can be assisted. The interview itself can't. Most of what I learn in a session is in the hesitation before the answer, and none of that survives into a transcript.</p>
+      </div>
+      <div class="caveat">
+        <h4>Anything shipped without review</h4>
+        <p>Nothing generated reaches a user without me reading every word of it. This is less about quality than accountability: if it ships under my name, I have to be able to defend each decision in it.</p>
+      </div>
+      <div class="caveat">
+        <h4>The strategic "why"</h4>
+        <p>Choosing which problem is worth a quarter of the team's time depends on context that mostly isn't written down — politics, history, what we tried in 2023. That's the part of the work I'd least want automated.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="foot-row">
+      <div class="name">Mahendra Mili<span>Product Designer — your-email@example.com</span></div>
+      <div class="foot-links">
+        <a href="#" title="Add your LinkedIn URL">LinkedIn ↗</a>
+        <a href="#" title="Add your X / Twitter URL">Twitter / X ↗</a>
+        <a href="#" title="Add your Dribbble URL">Dribbble ↗</a>
+        <a href="#" title="Add resume.pdf to the repo and link it here">Resume ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="toolbar">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 2 L4 21 L9 17 L12.5 24 L15.5 22.5 L12 15.5 L18 15.5 Z" fill="currentColor"/></svg>
+      Home
+    </a>
+    <div class="sep"></div>
+    <a href="work.html">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/></svg>
+      Work
+    </a>
+    <a href="ai.html" class="active">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      How I use AI
+    </a>
+    <div class="sep"></div>
+    <a href="#" title="Add resume.pdf to the repo and link it here" onclick="return false;">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v13M6 11l6 6 6-6M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Resume
+    </a>
+  </nav>
+
+</body>
+</html>
