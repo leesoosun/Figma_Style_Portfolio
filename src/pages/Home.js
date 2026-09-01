@@ -16,7 +16,7 @@ export default function Home() {
         <Eyebrow>// Product Designer</Eyebrow>
         <Frame tag="Hero / Headline" live>
           <h1>
-            I design products people <span>actually enjoy</span> using.
+            I turn <span>complex problems</span> into <span>simple product experiences</span>.
           </h1>
         </Frame>
         <p className="sub">
