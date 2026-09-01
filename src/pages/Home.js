@@ -31,22 +31,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------- Glimpse strip ---------------- */}
+      {/* ---------------- Glimpse reel ---------------- */}
       <section id="glimpse">
         <div className="wrap">
-          <SectionHead num="01" title="A glimpse of the work">
-            A running scroll of screens, explorations and shipped features. Scroll sideways.
+          <SectionHead num="01" title="A glimpse of my work">
+            A slow reel of screens, explorations and shipped features. Hover to pause.
           </SectionHead>
         </div>
-        <div className="glimpse-scroll">
-          {glimpse.map((g, i) => (
-            <Reveal className="gcard" key={g.title} delay={i * 70}>
-              <Thumb className="thumb" />
-              <div className="label">{g.title}</div>
-              <div className="tag">{g.tag}</div>
-            </Reveal>
-          ))}
-        </div>
+        {/* The track holds two identical groups so the marquee can loop seamlessly:
+            when the first group has scrolled fully out of frame, the second sits
+            exactly where it started. The clone is aria-hidden so screen readers
+            and the accessibility tree only ever see one copy. */}
+        <Reveal className="glimpse-viewport">
+          <div className="glimpse-track">
+            {[0, 1].map((copy) => (
+              <div
+                className="glimpse-group"
+                key={copy}
+                aria-hidden={copy === 1 ? 'true' : undefined}
+              >
+                {glimpse.map((g) => (
+                  <div className="gcard" key={g.title}>
+                    <Thumb className="thumb" />
+                    <div className="label">{g.title}</div>
+                    <div className="tag">{g.tag}</div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* ---------------- Selected work ---------------- */}

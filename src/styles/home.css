@@ -12,26 +12,42 @@
 }
 .hero h1 span{ color:var(--blue); }
 .hero .sub{
-  max-width:520px; margin:30px auto 0; font-size:17px; line-height:1.6;
+  max-width:980px; margin:30px auto 0; font-size:17px; line-height:1.6;
   color:var(--muted); font-weight:400;
 }
 .hero .actions{ margin-top:38px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-/* ---------- Glimpse strip ---------- */
-.glimpse-scroll{
-  display:flex; gap:20px; overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  /* Full-bleed strip, but the first/last card lines up with the centred
-     1080px content column instead of the raw viewport edge. */
-  --gutter: max(32px, calc((100% - 1080px) / 2 + 32px));
-  padding:8px var(--gutter) 22px;
-  scroll-padding-left: var(--gutter);
+/* ---------- Glimpse reel (auto-scrolling marquee) ---------- */
+.glimpse-viewport{
+  overflow:hidden;
+  padding:8px 0 22px;
+  /* Full-bleed, but cards dissolve at both edges instead of being hard-clipped.
+     A static strip needed a gutter to line up with the heading; a continuously
+     moving one reads better running edge to edge. */
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
 }
-.glimpse-scroll::-webkit-scrollbar{ height:6px; }
-.glimpse-scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
-.gcard{
-  flex:0 0 clamp(272px, 76vw, 400px); scroll-snap-align:start; position:relative;
+
+.glimpse-track{
+  display:flex; gap:20px; width:max-content;
+  animation:glimpse-marquee 55s linear infinite;
 }
+.glimpse-group{ display:flex; gap:20px; flex:0 0 auto; }
+
+/* Two groups sit side by side with a single gap between them, so one full group
+   is (50% of the track) + (half a gap). Translating by exactly that lands group
+   two where group one began — no visible seam. Hard-coded 10px = half of the
+   20px gap above; keep the two in step if you change the gap. */
+@keyframes glimpse-marquee{
+  from{ transform:translateX(0); }
+  to  { transform:translateX(calc(-50% - 10px)); }
+}
+
+/* Let people stop the reel to actually look at something. */
+.glimpse-viewport:hover .glimpse-track,
+.glimpse-viewport:focus-within .glimpse-track{ animation-play-state:paused; }
+
+.gcard{ flex:0 0 clamp(300px, 82vw, 470px); position:relative; }
 .gcard .thumb{
   aspect-ratio:16 / 10; border-radius:12px; border:1px solid var(--line);
   background:
@@ -104,7 +120,6 @@
 .conclude .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 @media (max-width:760px){
-  .glimpse-scroll{ --gutter:20px; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
   .work-row .info, .work-row:nth-child(even) .info{ order:2 !important; }

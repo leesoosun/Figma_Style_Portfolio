@@ -102,6 +102,11 @@
     scroll-behavior:auto !important;
   }
   .reveal{ opacity:1 !important; transform:none !important; }
+  /* Stop the reel dead and give the cards back as a normal scroller, with the
+     duplicate group hidden so the list is not silently doubled. */
+  .glimpse-track{ animation:none !important; transform:none !important; }
+  .glimpse-viewport{ overflow-x:auto !important; }
+  .glimpse-group[aria-hidden="true"]{ display:none !important; }
   .frame.show .box, .frame.show .box i,
   .frame.show .tag, .frame.show .dim{ opacity:1 !important; transform:none !important; }
   .toolbar{ opacity:1 !important; transform:translateX(-50%) !important; }
