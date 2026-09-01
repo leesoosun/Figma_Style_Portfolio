@@ -12,8 +12,9 @@
 }
 .hero h1 span{ color:var(--blue); }
 .hero .sub{
-  max-width:980px; margin:30px auto 0; font-size:17px; line-height:1.6;
+  max-width:680px; margin:30px auto 0; font-size:17px; line-height:1.6;
   color:var(--muted); font-weight:400;
+  text-wrap:balance;
 }
 .hero .actions{ margin-top:38px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
