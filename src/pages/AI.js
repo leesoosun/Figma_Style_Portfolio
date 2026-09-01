@@ -8,7 +8,7 @@ export default function AI() {
 
   return (
     <Page file="mahendra-mili.fig — how-i-use-ai" note="100%">
-      <section className="wrap page-head">
+      <section className="wrap ai-head">
         <Eyebrow>// A note on process</Eyebrow>
         <Reveal as="h1">How I actually use AI in my design work</Reveal>
         <Reveal as="p" delay={80}>

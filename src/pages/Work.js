@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Page, Frame, Eyebrow, Reveal } from '../components.js'
+import { Page, Frame, Reveal } from '../components.js'
 import { caseStudies, archivedProjects, workFilters } from '../data.js'
 import '../styles/work.css'
 
@@ -22,8 +22,7 @@ export default function Work() {
 
   return (
     <Page file="mahendra-mili.fig — work" note={`${visible.length} frame${visible.length === 1 ? '' : 's'}`}>
-      <section className="wrap page-head">
-        <Eyebrow>// Selected + archived</Eyebrow>
+      <section className="wrap work-head">
         <Frame tag="Work / All projects">
           <h1>Everything I've shipped, prototyped, or broken along the way.</h1>
         </Frame>
