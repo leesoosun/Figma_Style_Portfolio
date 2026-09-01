@@ -5,7 +5,9 @@ The visual language borrows from the Figma canvas: a dot-grid background, select
 boxes with corner handles and a live dimension readout, a floating toolbar for
 navigation, and a cursor drawn from the Figma pointer glyph.
 
-**Live:** https://leesoosun.github.io/Figma_Style_Portfolio/
+**Live:**
+- Vercel (primary) — https://figma-style-portfolio-sung12.vercel.app
+- GitHub Pages (mirror) — https://leesoosun.github.io/Figma_Style_Portfolio/
 
 > [!IMPORTANT]
 > **All project content is sample content.** The case studies, metrics, and personal
@@ -30,7 +32,8 @@ Requires Node 20 or newer.
 
 ```
 index.html               Vite entry — <head> metadata and the SPA path-restore script
-vite.config.js           base path, JSX-in-.js loader, build options
+vite.config.js           per-host base path, JSX-in-.js loader, build options
+vercel.json              Vercel SPA rewrite + asset caching
 public/
   404.html               GitHub Pages SPA fallback (see Routing below)
   favicon.svg
@@ -104,9 +107,54 @@ React Router mounts. That pair is what makes deep links work — if you change
 
 ## Deployment
 
-`.github/workflows/pages.yml` runs `npm ci && npm run build` and publishes `dist/` to
-GitHub Pages on every push to `main`. **Settings → Pages → Source** must be set to
-**GitHub Actions** (already done).
+The site deploys to **two hosts**, which serve it from different paths:
+
+| Host | URL | Base path |
+| --- | --- | --- |
+| Vercel | `*.vercel.app` | `/` |
+| GitHub Pages | `leesoosun.github.io/Figma_Style_Portfolio/` | `/Figma_Style_Portfolio/` |
+
+A hardcoded `base` breaks one of them — the built HTML would request
+`/Figma_Style_Portfolio/assets/…`, which does not exist at a domain root. So
+`vite.config.js` resolves it per environment:
+
+```js
+const base = process.env.VITE_BASE ?? (process.env.VERCEL ? '/' : '/Figma_Style_Portfolio/')
+```
+
+Vercel sets `VERCEL=1` in its build container, so it self-detects. `src/main.js` reads
+`import.meta.env.BASE_URL` for the router `basename`, so the router follows
+automatically. Set `VITE_BASE` to override for any other target.
+
+> [!WARNING]
+> Vercel reports a deploy **green** even when the base path is wrong, because the
+> *build* succeeded — it cannot know the runtime asset URLs are broken. If you see a
+> blank page on Vercel, check the base path first.
+
+### Vercel
+
+`vercel.json` rewrites everything except real files to `/index.html`. Because Vercel
+does true server-side rewrites, deep links return a real **200** — so
+`public/404.html` is never used there, and shared links preview correctly in Slack,
+LinkedIn and X.
+
+If deployments show a Vercel login screen instead of the site, that is **Deployment
+Protection**: Project → Settings → Deployment Protection → Vercel Authentication →
+Disabled. It looks fine while you are logged in, which makes it easy to miss.
+
+Share the **production alias** (`figma-style-portfolio-sung12.vercel.app`) or a custom
+domain — not a per-deployment URL like `figma-style-portfolio-1cj1a99ox-sung12.vercel.app`,
+which is pinned to one immutable build and will not update.
+
+### GitHub Pages
+
+`.github/workflows/pages.yml` runs `npm ci && npm run build` and publishes `dist/` on
+every push to `main`. **Settings → Pages → Source** is set to **GitHub Actions**.
+
+Pages has no server-side rewrites, so deep links go through the `public/404.html`
+query-string bounce described under [Routing](#routing). They render correctly but
+return a 404 *status* first, which some crawlers and link-preview bots will not follow.
+That is the main reason to treat Vercel as the primary URL.
 
 ---
 

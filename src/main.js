@@ -5,11 +5,12 @@ import App from './App.js'
 import './styles/global.css'
 import './styles/animation.css'
 
-// `basename` must match `base` in vite.config.js — this is a GitHub Pages
-// project site, so every route is nested under the repo name.
+// Vite sets BASE_URL from `base` in vite.config.js, which differs per host
+// (/Figma_Style_Portfolio/ on GitHub Pages, / on Vercel). Reading it here keeps
+// the router in step automatically instead of hardcoding one host's path.
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Figma_Style_Portfolio">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
