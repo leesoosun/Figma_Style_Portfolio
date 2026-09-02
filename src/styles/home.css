@@ -58,8 +58,6 @@
   transition:border-color .2s;
 }
 .gcard:hover .thumb{ border-color:var(--blue); }
-.gcard .label{ margin-top:13px; font-size:14.5px; font-weight:600; }
-.gcard .tag{ font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-top:4px; }
 
 /* ---------- Selected work ---------- */
 .work-list{ display:flex; flex-direction:column; }

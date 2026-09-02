@@ -58,8 +58,6 @@
 /* ---------- Cards ---------- */
 .gcard .thumb{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,.61,.36,1); }
 .gcard:hover .thumb{ transform:translateY(-4px); }
-.gcard .label{ transition:color .2s ease; }
-.gcard:hover .label{ color:var(--blue); }
 
 .pcard .thumb{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,.61,.36,1); }
 .pcard h3{ transition:color .2s ease; }

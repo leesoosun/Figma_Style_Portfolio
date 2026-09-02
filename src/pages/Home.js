@@ -53,8 +53,6 @@ export default function Home() {
                 {glimpse.map((g) => (
                   <div className="gcard" key={g.title}>
                     <Thumb className="thumb" />
-                    <div className="label">{g.title}</div>
-                    <div className="tag">{g.tag}</div>
                   </div>
                 ))}
               </div>

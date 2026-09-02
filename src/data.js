@@ -28,6 +28,11 @@ export const owner = {
 
 /* ---------------- Landing page ---------------- */
 
+/**
+ * The auto-scrolling reel on the landing page. Captions are no longer rendered
+ * under the cards, so `title` now serves as the React key and as the natural
+ * alt text once real screenshots replace the placeholders.
+ */
 export const glimpse = [
   { title: 'Splitting the bill', tag: 'Mobile · 2026' },
   { title: 'Reporting rebuild', tag: 'Web app · 2025' },
