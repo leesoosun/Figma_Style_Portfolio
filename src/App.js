@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="/work.html" element={<Navigate to="/work" replace />} />
         <Route path="/ai.html" element={<Navigate to="/ai" replace />} />
-        <Route path="/case-study-1.html" element={<Navigate to="/work/splitting-the-bill" replace />} />
+        <Route path="/case-study-1.html" element={<Navigate to="/work/kryptos-portfolio-management" replace />} />
         <Route path="/case-study-2.html" element={<Navigate to="/work/one-system-four-surfaces" replace />} />
         <Route path="/case-study-3.html" element={<Navigate to="/work/what-the-churn-data-hid" replace />} />
 

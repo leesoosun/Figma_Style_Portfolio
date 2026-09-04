@@ -84,12 +84,14 @@ export const aboutParagraphs = [
 
 export const caseStudies = [
   {
-    slug: 'splitting-the-bill',
-    title: 'Splitting the bill without leaving the chat',
-    shortTitle: 'Splitting the bill',
-    dek: 'A payments app built for solo transfers was being used for group expenses anyway — badly. We designed the flow people were already faking.',
-    cardDesc: 'A payments app built for solo transfers was being used for group expenses anyway — badly. We designed the flow people were already faking.',
-    fileLabel: 'splitting-the-bill.fig — featured',
+    slug: 'kryptos-portfolio-management',
+    title: 'Kryptos — Crypto Portfolio Management',
+    shortTitle: 'Kryptos — Crypto Portfolio Management',
+    dek:
+      "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
+    cardDesc:
+      "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
+    fileLabel: 'kryptos-portfolio.fig — featured',
     topNote: 'Featured case study',
     year: '2026',
     category: 'product',
