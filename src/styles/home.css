@@ -60,6 +60,7 @@
   transition:border-color .2s;
 }
 .gcard:hover .thumb{ border-color:var(--blue); }
+.gcard .thumb-img{ width:100%; height:100%; object-fit:cover; object-position:top; }
 
 /* ---------- Selected work ---------- */
 .work-list{ display:flex; flex-direction:column; }

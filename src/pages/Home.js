@@ -52,7 +52,9 @@ export default function Home() {
               >
                 {glimpse.map((g) => (
                   <div className="gcard" key={g.title}>
-                    <Thumb className="thumb" />
+                    {g.image
+                      ? <img className="thumb thumb-img" src={g.image} alt={g.title} loading="lazy" />
+                      : <Thumb className="thumb" />}
                   </div>
                 ))}
               </div>
