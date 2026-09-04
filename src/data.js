@@ -18,13 +18,9 @@ export const SAMPLE_CONTENT = true
 export const owner = {
   name: 'Mahendra Mili',
   role: 'Product Designer',
-  // Placeholders on purpose — a public repo shouldn't leak a real address until
-  // you decide to. Swap these two and the socials below when you're ready.
-  email: 'your-email@example.com',
+  email: 'mili.mahendra97@gmail.com',
   socials: [
-    { label: 'LinkedIn', href: '#', hint: 'Add your LinkedIn URL' },
-    { label: 'Twitter / X', href: '#', hint: 'Add your X / Twitter URL' },
-    { label: 'Dribbble', href: '#', hint: 'Add your Dribbble URL' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mahendra-mili/' },
     { label: 'Resume', href: '#', hint: 'Add resume.pdf to /public and link it here' },
   ],
 }

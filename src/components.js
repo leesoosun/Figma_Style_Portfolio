@@ -208,7 +208,12 @@ export function Footer() {
         </div>
         <div className="foot-links">
           {owner.socials.map((s) => (
-            <a key={s.label} href={s.href} title={s.hint}>
+            <a
+              key={s.label}
+              href={s.href}
+              title={s.hint}
+              {...(s.href !== '#' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               {s.label} ↗
             </a>
           ))}

@@ -164,11 +164,11 @@ Almost everything is in `src/data.js`.
 
 ### 1. Contact details
 
-`owner` at the top of `data.js` holds the name, role, email, and social links. The
-email is `your-email@example.com` and the socials point at `#` with a `hint` naming
-what belongs there. For the resume, drop `resume.pdf` into `public/` and point the
-`Resume` social — and the two `Download resume` buttons in `pages/Home.js` — at
-`/Figma_Style_Portfolio/resume.pdf`.
+`owner` at the top of `data.js` holds the name, role, email, and social links.
+LinkedIn is a real link; the `Resume` social still points at `#` with a `hint`
+naming what belongs there. To wire it up, drop `resume.pdf` into `public/` and
+point the `Resume` social — and the two `Download resume` buttons in
+`pages/Home.js` — at `/Figma_Style_Portfolio/resume.pdf`.
 
 ### 2. Case studies
 
