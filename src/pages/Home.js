@@ -35,7 +35,7 @@ export default function Home() {
       <section id="glimpse">
         <div className="wrap">
           <SectionHead num="01" title="A glimpse of my work">
-            A slow reel of screens, explorations and shipped features. Hover to pause.
+            From early explorations to shipped experiences — here’s a look around.
           </SectionHead>
         </div>
         {/* The track holds two identical groups so the marquee can loop seamlessly:
