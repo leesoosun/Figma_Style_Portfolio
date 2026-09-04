@@ -11,6 +11,7 @@
  */
 
 import kryptosDashboard from './assets/glimpse/kryptos-dashboard.png'
+import fyniStaking from './assets/glimpse/fyni-staking.png'
 
 export const SAMPLE_CONTENT = true
 
@@ -37,7 +38,7 @@ export const owner = {
  */
 export const glimpse = [
   { title: 'Kryptos dashboard', tag: 'Web app · 2026', image: kryptosDashboard },
-  { title: 'Splitting the bill', tag: 'Mobile · 2026' },
+  { title: 'Fyni staking', tag: 'Web app · 2025', image: fyniStaking },
   { title: 'Reporting rebuild', tag: 'Web app · 2025' },
   { title: 'One system, four surfaces', tag: 'Design system · 2025' },
   { title: 'Ops console v2', tag: 'Dashboard · 2024' },
