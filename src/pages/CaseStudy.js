@@ -49,7 +49,6 @@ export default function CaseStudy() {
       <section className="wrap" style={{ paddingTop: 0 }}>
         {cs.overview && (
           <CaseBlock label={`${num()} — Overview`}>
-            <h4>{cs.overviewTitle}</h4>
             <Paras items={cs.overview} />
           </CaseBlock>
         )}

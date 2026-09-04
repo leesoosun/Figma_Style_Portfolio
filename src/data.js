@@ -104,7 +104,6 @@ export const caseStudies = [
       ['Team', '1 designer (me), 2 engineers, and stakeholders'],
       ['Impact', 'Active 40+ users · Funded by Binance'],
     ],
-    overviewTitle: 'About Kryptos',
     overview: [
       'Kryptos is a crypto intelligence and financial management platform that consolidates data from exchanges, wallets, and other sources into a single place. Portfolio management sits at the core of the product: users connect their accounts and wallets, consolidate them into one unified portfolio, and monitor performance and holdings from there. Additional layers — tax reporting, AI-driven insights, and enterprise workflows — are all built on top of this same portfolio data.',
     ],
