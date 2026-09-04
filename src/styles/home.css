@@ -19,6 +19,8 @@
 .hero .actions{ margin-top:38px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 /* ---------- Glimpse reel (auto-scrolling marquee) ---------- */
+#glimpse .section-head p{ max-width:640px; }
+
 .glimpse-viewport{
   overflow:hidden;
   padding:8px 0 22px;
