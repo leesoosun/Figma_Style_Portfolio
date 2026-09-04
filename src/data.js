@@ -100,14 +100,29 @@ export const caseStudies = [
     tags: ['Product design', 'Mobile', '0→1'],
     pills: ['Product design', '0→1', '2026'],
     meta: [
-      ['Role', 'Lead product designer'],
-      ['Timeline', '9 weeks'],
-      ['Team', '2 designers, 4 engineers'],
-      ['Tools', 'Figma, Maze, Amplitude'],
+      ['Role', 'Product Designer'],
+      ['Team', '1 designer (me), 2 engineers, and stakeholders'],
+      ['Impact', 'Active 40+ users · Funded by Binance'],
     ],
-    problem: [
-      'Support tickets kept describing the same workaround. People were sending a series of one-to-one transfers to settle a dinner or a shared trip, then keeping score in a notes app or a group chat. The product had no concept of a group, so every one of those transfers looked like an unrelated payment.',
-      'That mattered commercially, not just cosmetically. Group settle-ups were roughly a fifth of transfer volume but generated a disproportionate share of “where did my money go” contacts, because a user could not see the six payments that belonged to one dinner as one thing.',
+    overviewTitle: 'About Kryptos',
+    overview: [
+      'Kryptos is a crypto intelligence and financial management platform that consolidates data from exchanges, wallets, and other sources into a single place. Portfolio management sits at the core of the product: users connect their accounts and wallets, consolidate them into one unified portfolio, and monitor performance and holdings from there. Additional layers — tax reporting, AI-driven insights, and enterprise workflows — are all built on top of this same portfolio data.',
+    ],
+    ownership: [
+      'Research — user interviews, stakeholder discussions, and analysis of support tickets/user feedback',
+      'UI design',
+      'Prototyping',
+      'Usability testing',
+      'End-to-end ownership of the design process, from problem discovery to shipped solution',
+    ],
+    trigger: [
+      "Unlike a lot of feature work, this project didn't start as a top-down stakeholder request or a predefined roadmap item. It emerged from joint research — myself and stakeholders looking together at user feedback, support conversations, and direct research into how crypto users actually manage their assets day to day.",
+    ],
+    hypothesisLabel: 'Working hypothesis',
+    hypothesis:
+      "If users can see all their crypto data in one place — instead of manually checking multiple exchanges and wallets and cross-referencing between them — they'll trust the product more and use it as their primary source of truth for their portfolio.",
+    triggerFollowup: [
+      "This wasn't a rigorously tested hypothesis with a control group; it was the directional bet that shaped where I focused research first.",
     ],
     process: [
       'We started by reading tickets rather than guessing. Eleven interviews with people who had done a manual split in the previous month, plus a read of the transfer graph looking for the signature of a faked group: several transfers between the same cluster of people within a short window.',
