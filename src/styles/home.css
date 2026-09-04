@@ -50,7 +50,7 @@
 .glimpse-viewport:hover .glimpse-track,
 .glimpse-viewport:focus-within .glimpse-track{ animation-play-state:paused; }
 
-.gcard{ flex:0 0 clamp(300px, 82vw, 470px); position:relative; }
+.gcard{ flex:0 0 clamp(300px, 82vw, 580px); position:relative; }
 .gcard .thumb{
   aspect-ratio:16 / 10; border-radius:12px; border:1px solid var(--line);
   background:
