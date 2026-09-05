@@ -155,8 +155,9 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 @media (max-width:760px){
   .wrap{ padding-left:20px; padding-right:20px; }
   .toolbar{ bottom:16px; }
-  .topbar{ padding:16px 20px; }
+  .topbar{ padding:16px 20px; transition:transform .25s ease, opacity .25s ease; }
   .topbar .placeholder-note{ display:none; }
+  body.chrome-hidden .topbar{ transform:translateY(-130%); opacity:0; }
   footer{ padding:36px 0 150px; }
   .foot-row{ flex-direction:column; align-items:flex-start; gap:20px; }
 }
@@ -268,7 +269,8 @@ body{ padding-top:34px; }
 
 @media (max-width:760px){
   /* Mobile topbar padding drops to 16px, so it ends at 34+16+16+16 = 82px. */
-  .back-link{ top:90px; left:20px; }
+  .back-link{ top:90px; left:20px; transition:transform .25s ease, opacity .25s ease; }
+  body.chrome-hidden .back-link{ transform:translateY(-140%); opacity:0; pointer-events:none; }
   .meta-row{ grid-template-columns:repeat(2, 1fr); }
   .cs-block{ grid-template-columns:1fr; }
   .cs-block .b-label{ position:static; }

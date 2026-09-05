@@ -88,6 +88,48 @@ export function Reveal({ children, as: Tag = 'div', delay = 0, className = '', .
   )
 }
 
+/**
+ * Hides the fixed topbar/back-link on scroll down and brings them back on
+ * scroll up (small screens only — see the `chrome-hidden` rules in
+ * global.css, scoped to the same 760px breakpoint where they'd otherwise
+ * crowd the content). Toggles one class on <body> so both elements move
+ * together without each needing their own scroll listener.
+ */
+export function useHideChromeOnScroll() {
+  const reduced = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (reduced) return
+
+    let lastY = window.scrollY
+    let ticking = false
+
+    const update = () => {
+      const y = window.scrollY
+      if (y > lastY && y > 80) {
+        document.body.classList.add('chrome-hidden')
+      } else {
+        document.body.classList.remove('chrome-hidden')
+      }
+      lastY = y
+      ticking = false
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(update)
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.body.classList.remove('chrome-hidden')
+    }
+  }, [reduced])
+}
+
 /** Scrolls to top on route change, and respects reduced motion. */
 export function ScrollToTop() {
   const { pathname } = useLocation()
@@ -382,6 +424,7 @@ export const glyphs = {
 
 /** Shared page shell: banner + topbar + content + footer + toolbar. */
 export function Page({ file, note, back = false, children, footer = true }) {
+  useHideChromeOnScroll()
   return (
     <>
       <SampleBanner />
