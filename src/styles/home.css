@@ -46,8 +46,13 @@
   to  { transform:translateX(calc(-50% - 10px)); }
 }
 
-/* Let people stop the reel to actually look at something. */
-.glimpse-viewport:hover .glimpse-track,
+/* Let people stop the reel to actually look at something. Hover-to-pause is
+   scoped to devices that actually have hover (mouse/trackpad) — on touch
+   devices a tap fires a synthetic, permanently-stuck :hover with no pointer
+   to ever leave, which froze the reel dead after the first touch. */
+@media (hover:hover) and (pointer:fine){
+  .glimpse-viewport:hover .glimpse-track{ animation-play-state:paused; }
+}
 .glimpse-viewport:focus-within .glimpse-track{ animation-play-state:paused; }
 
 .gcard{ flex:0 0 clamp(300px, 82vw, 580px); position:relative; }
