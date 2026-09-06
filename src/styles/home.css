@@ -129,6 +129,11 @@
 .conclude .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 @media (max-width:760px){
+  /* Cards are relatively wider vs. the viewport on phones, so the same 55s
+     lap covers a bigger fraction of the screen per second and reads as
+     much faster than on desktop even though it's moving the same 55s lap.
+     Slow the lap down so the felt pace roughly matches desktop's. */
+  .glimpse-track{ animation-duration:100s; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
   .work-row .info, .work-row:nth-child(even) .info{ order:2 !important; }
