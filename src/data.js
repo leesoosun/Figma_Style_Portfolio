@@ -14,6 +14,7 @@ import kryptosDashboard from './assets/glimpse/kryptos-dashboard.png'
 import fyniStaking from './assets/glimpse/fyni-staking.png'
 import web3FinanceMobile from './assets/glimpse/web3-finance-mobile.png'
 import unbiasedAnnotation from './assets/glimpse/unbiased-annotation.png'
+import ralloApp from './assets/glimpse/rallo-app.png'
 
 export const SAMPLE_CONTENT = true
 
@@ -39,7 +40,7 @@ export const glimpse = [
   { title: 'Fyni staking', tag: 'Web app · 2025', image: fyniStaking },
   { title: 'Web3 finance mobile', tag: 'Mobile · 2025', image: web3FinanceMobile },
   { title: 'Unbiased data annotation', tag: 'Web app · 2025', image: unbiasedAnnotation },
-  { title: 'Ops console v2', tag: 'Dashboard · 2024' },
+  { title: 'Rallo — Play, compete, track', tag: 'Mobile · 2026', image: ralloApp },
   { title: 'Fieldnote identity', tag: 'Branding · 2024' },
 ]
 
