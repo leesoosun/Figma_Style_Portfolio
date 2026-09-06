@@ -13,7 +13,6 @@
 import kryptosDashboard from './assets/glimpse/kryptos-dashboard.png'
 import fyniStaking from './assets/glimpse/fyni-staking.png'
 import web3FinanceMobile from './assets/glimpse/web3-finance-mobile.png'
-import unbiasedMarketplace from './assets/glimpse/unbiased-marketplace.png'
 
 export const SAMPLE_CONTENT = true
 
@@ -38,7 +37,7 @@ export const glimpse = [
   { title: 'Kryptos dashboard', tag: 'Web app · 2026', image: kryptosDashboard },
   { title: 'Fyni staking', tag: 'Web app · 2025', image: fyniStaking },
   { title: 'Web3 finance mobile', tag: 'Mobile · 2025', image: web3FinanceMobile },
-  { title: 'Unbiased data marketplace', tag: 'Web app · 2025', image: unbiasedMarketplace },
+  { title: 'One system, four surfaces', tag: 'Design system · 2025' },
   { title: 'Ops console v2', tag: 'Dashboard · 2024' },
   { title: 'Fieldnote identity', tag: 'Branding · 2024' },
 ]
