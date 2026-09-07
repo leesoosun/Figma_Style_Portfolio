@@ -7,6 +7,11 @@ import {
 import { caseStudies, glimpse, brands, capabilities, aboutParagraphs, owner } from '../data.js'
 import '../styles/home.css'
 
+// How many times the 5-logo set repeats inside one reel group. Needs to be
+// wide enough that a group's rendered width beats the widest realistic
+// browser window — see the comment at its usage below for why that matters.
+const BRAND_REPEAT = 4
+
 export default function Home() {
   useEffect(() => { document.title = `${owner.name} — ${owner.role}` }, [])
   const revealRef = useReveal()
@@ -107,9 +112,13 @@ export default function Home() {
         <div className="wrap">
           <SectionHead num="03" title="Brands I've worked with" />
         </div>
-        {/* Same two-group loop as the glimpse reel above (see its comment) —
-            just a smaller, calmer strip, so it gets its own reel instance
-            and a slower speed rather than sharing state with it. */}
+        {/* Same two-group loop as the glimpse reel above (see its comment),
+            just a smaller, calmer strip with its own reel instance and speed.
+            Five logos are far narrower than a wide desktop viewport, so one
+            group repeats the set BRAND_REPEAT times — otherwise a group is
+            narrower than the browser's own scrollable width can shrink to,
+            and native scrollLeft silently clamps well short of the wrap
+            point, making the reel visibly stall for most of each cycle. */}
         <div
           className="brands-viewport reveal"
           ref={(el) => { brandsRevealRef.current = el; brandsReel.viewportRef.current = el }}
@@ -122,10 +131,16 @@ export default function Home() {
                 ref={copy === 0 ? brandsReel.groupRef : undefined}
                 aria-hidden={copy === 1 ? 'true' : undefined}
               >
-                {brands.map((b) => (
-                  <div className="brand-chip" key={b.name}>
-                    <img src={b.logo} alt={b.name} draggable="false" loading="lazy" />
-                  </div>
+                {Array.from({ length: BRAND_REPEAT }).map((_, rep) => (
+                  brands.map((b) => (
+                    <div
+                      className="brand-chip"
+                      key={`${b.name}-${rep}`}
+                      aria-hidden={rep > 0 || copy === 1 ? 'true' : undefined}
+                    >
+                      <img src={b.logo} alt={b.name} draggable="false" loading="lazy" />
+                    </div>
+                  ))
                 ))}
               </div>
             ))}
@@ -166,7 +181,7 @@ export default function Home() {
       <section className="wrap conclude">
         <Eyebrow>06 · Let's talk</Eyebrow>
         <Reveal as="h2">Got a project in mind? I'd love to hear about it.</Reveal>
-        <p className="sub">Open to full-time roles and select freelance work.</p>
+        <p className="sub">Open to full-time roles</p>
         <div className="actions">
           <Btn href={`mailto:${owner.email}`}>{owner.email}</Btn>
           <Btn variant="ghost" title="Add resume.pdf to /public and link it here">

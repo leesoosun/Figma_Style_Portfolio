@@ -4,7 +4,7 @@
 .hero{ padding-top:190px; padding-bottom:130px; text-align:center; }
 .hero .eyebrow{
   font-family:var(--mono); font-size:12.5px; color:var(--blue);
-  margin-bottom:22px; display:block;
+  margin-top:-16px; margin-bottom:60px; display:block;
 }
 .hero h1{
   font-size:clamp(38px, 6vw, 74px); line-height:1.06; font-weight:800;
@@ -64,7 +64,7 @@
 .brands-viewport{
   overflow-x:auto;
   overflow-y:hidden;
-  padding:28px 0 8px;
+  padding:36px 0 16px;
   -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   scrollbar-width:none;
@@ -82,7 +82,7 @@
 
 .brand-chip{ flex:0 0 auto; display:flex; align-items:center; }
 .brand-chip img{
-  height:28px; width:auto; display:block;
+  height:64px; width:auto; display:block;
   opacity:.8; transition:opacity .2s ease;
 }
 .brand-chip:hover img{ opacity:1; }

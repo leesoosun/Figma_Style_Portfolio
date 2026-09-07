@@ -39,9 +39,9 @@ a, button, .clickable{
 .wrap{ max-width:1080px; margin:0 auto; padding-left:32px; padding-right:32px; }
 
 /* Applies to every <section>, including `section.wrap` — see the note on .wrap
-   above. Consecutive sections stack bottom+top, so this yields a uniform 160px
+   above. Consecutive sections stack bottom+top, so this yields a uniform 140px
    of breathing room between content blocks. */
-section{ position:relative; padding:90px 0 70px; }
+section{ position:relative; padding:70px 0 70px; }
 
 /* ---------- Frame label / selection-box motif ---------- */
 .frame{ position:relative; display:inline-block; }
