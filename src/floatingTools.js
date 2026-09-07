@@ -1,15 +1,14 @@
 /**
- * A handful of tool marks that float loosely around the hero — a texture
- * detail, not a software showcase. Everything here is scoped to the hero's
- * existing top/bottom padding (see home.css), so it adds no new layout
- * height and can't collide with the headline, sub-line, or CTAs at any
- * viewport width.
+ * A small cluster of tool marks floating just below the hero — a texture
+ * detail, not a "tools I use" showcase. Confined to the hero's own bottom
+ * padding (see home.css), so it adds no new layout height and can't collide
+ * with the headline, sub-line, or CTAs at any viewport width.
  *
  * The marks below are simplified, single-file redraws in each brand's real
- * colors — close enough to read instantly at the small, semi-transparent
- * size they're shown at, but not traced from official brand assets. Swap
- * in the real SVGs from each company's brand kit if pixel-perfect logos
- * ever matter more than they do at this scale.
+ * colors — close enough to read instantly at this small scale, but not
+ * traced from official brand assets. Swap in the real SVGs from each
+ * company's brand kit if pixel-perfect logos ever matter more than they do
+ * here.
  */
 
 import { useEffect, useRef } from 'react'
@@ -29,11 +28,16 @@ function FigmaMark() {
 function AdobeMark() {
   return (
     <svg viewBox="0 0 24 24" fill="none">
-      <rect width="24" height="24" rx="6" fill="#DA1F26" />
-      <path
-        d="M12 6.2c-3.2 0-5.8 2.6-5.8 5.8 0 1.15.33 2.22.9 3.13a.85.85 0 0 0 1.44-.9A4.13 4.13 0 0 1 7.7 12c0-2.37 1.93-4.3 4.3-4.3s4.3 1.93 4.3 4.3c0 .84-.24 1.63-.66 2.3a.85.85 0 0 0 1.44.9c.57-.9.9-1.98.9-3.13 0-3.2-2.6-5.8-5.8-5.8Z"
-        fill="#fff"
-      />
+      <defs>
+        <linearGradient id="adobeGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FF5B4A" />
+          <stop offset=".55" stopColor="#B24BFF" />
+          <stop offset="1" stopColor="#4B7BFF" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="11" fill="url(#adobeGrad)" />
+      <path d="M5.5 15.5c2-6 4.2-9 6.5-9s4.5 3 6.5 9" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" opacity=".9" />
+      <path d="M8 16.8c1.7-4 3-6 4-6s2.3 2 4 6" stroke="#fff" strokeWidth="1.3" strokeLinecap="round" opacity=".6" />
     </svg>
   )
 }
@@ -41,19 +45,19 @@ function AdobeMark() {
 function ProcreateMark() {
   return (
     <svg viewBox="0 0 24 24" fill="none">
-      <rect width="24" height="24" rx="7" fill="#12100E" />
       <g transform="translate(12 12)">
         {[0, 72, 144, 216, 288].map((deg, i) => (
           <ellipse
             key={deg}
             cx="0"
-            cy="-4.6"
-            rx="2.3"
-            ry="4.2"
+            cy="-5"
+            rx="3"
+            ry="5.4"
             fill={['#FF6A3D', '#FF3D77', '#B23DFF', '#4D7CFF', '#FF9A3D'][i]}
             transform={`rotate(${deg})`}
           />
         ))}
+        <circle r="2.4" fill="#1A1A1A" />
       </g>
     </svg>
   )
@@ -64,41 +68,24 @@ function ClaudeMark() {
     <svg viewBox="0 0 24 24" fill="none">
       <g fill="#CC785C">
         {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-          <polygon key={deg} points="12,3.2 13.1,10.2 12,12 10.9,10.2" transform={`rotate(${deg} 12 12)`} />
+          <rect key={deg} x="11.1" y="2.6" width="1.8" height="7.6" rx="0.9" transform={`rotate(${deg} 12 12)`} />
         ))}
       </g>
-      <circle cx="12" cy="12" r="2.1" fill="#CC785C" />
     </svg>
   )
 }
 
 /**
- * Each entry's position is expressed against the hero's own top/bottom
- * padding bands, never the middle where the title, sub-line, and CTAs
- * live — see the file comment. `depth` scales how far the cursor-parallax
- * effect nudges that icon, so they don't all move in lockstep.
+ * `depth` scales how far the cursor-parallax effect nudges that icon, so
+ * the cluster doesn't move in lockstep. `yOffset`/`dur`/`delay` give each
+ * badge its own float phase so the row feels organic rather than a single
+ * rigid block bobbing up and down together.
  */
 const TOOLS = [
-  {
-    name: 'Figma', Icon: FigmaMark,
-    pos: { top: 46, left: '9%' }, size: 30, rot: -9, scale: 0.95,
-    dur: 7.4, delay: 0, depth: 1,
-  },
-  {
-    name: 'Adobe Creative Cloud', Icon: AdobeMark,
-    pos: { top: 88, right: '11%' }, size: 34, rot: 7, scale: 1.05,
-    dur: 8.6, delay: 1.1, depth: 0.7,
-  },
-  {
-    name: 'Procreate', Icon: ProcreateMark,
-    pos: { bottom: 34, left: '15%' }, size: 30, rot: 11, scale: 0.92,
-    dur: 6.9, delay: 0.5, depth: 1.2,
-  },
-  {
-    name: 'Claude', Icon: ClaudeMark,
-    pos: { bottom: 62, right: '8%' }, size: 32, rot: -6, scale: 1.08,
-    dur: 7.8, delay: 1.7, depth: 0.85,
-  },
+  { name: 'Figma', Icon: FigmaMark, size: 48, yOffset: -2, dur: 7.2, delay: 0, depth: 1 },
+  { name: 'Adobe Creative Cloud', Icon: AdobeMark, size: 52, yOffset: 3, dur: 8.4, delay: 0.6, depth: 0.7 },
+  { name: 'Procreate', Icon: ProcreateMark, size: 48, yOffset: -3, dur: 6.8, delay: 1.3, depth: 1.15 },
+  { name: 'Claude', Icon: ClaudeMark, size: 50, yOffset: 2, dur: 7.8, delay: 0.4, depth: 0.85 },
 ]
 
 /**
@@ -107,13 +94,19 @@ const TOOLS = [
  * only (matches the rest of the site's hover-only-on-fine-pointer
  * convention), and skipped entirely under prefers-reduced-motion.
  */
-function useCursorParallax(containerRef, strength = 12) {
+function useCursorParallax(containerRef, strength = 10) {
   const reduced = usePrefersReducedMotion()
 
   useEffect(() => {
     const container = containerRef.current
     if (!container || reduced) return
     if (typeof window === 'undefined' || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return
+
+    // Track against the whole hero, not this row's own small bounding box —
+    // the icons should drift with the cursor across the full hero area,
+    // not snap to huge offsets the moment the mouse nears the short strip
+    // they actually sit in.
+    const bounds = container.closest('.hero') || container
 
     let raf = null
     let x = 0
@@ -127,7 +120,7 @@ function useCursorParallax(containerRef, strength = 12) {
       })
     }
     const onMove = (e) => {
-      const rect = container.getBoundingClientRect()
+      const rect = bounds.getBoundingClientRect()
       x = ((e.clientX - rect.left) / rect.width - 0.5) * 2 * strength
       y = ((e.clientY - rect.top) / rect.height - 0.5) * 2 * strength
       if (!raf) raf = requestAnimationFrame(apply)
@@ -139,10 +132,10 @@ function useCursorParallax(containerRef, strength = 12) {
     }
 
     window.addEventListener('mousemove', onMove, { passive: true })
-    container.addEventListener('mouseleave', onLeave)
+    bounds.addEventListener('mouseleave', onLeave)
     return () => {
       window.removeEventListener('mousemove', onMove)
-      container.removeEventListener('mouseleave', onLeave)
+      bounds.removeEventListener('mouseleave', onLeave)
       if (raf) cancelAnimationFrame(raf)
     }
   }, [containerRef, reduced, strength])
@@ -154,18 +147,20 @@ export function FloatingTools() {
 
   return (
     <div className="floating-tools" ref={containerRef} aria-hidden="true">
-      {TOOLS.map((t) => (
-        <div key={t.name} className="tool-parallax" style={t.pos} data-parallax-depth={t.depth}>
-          <div className="tool-float" style={{ '--dur': `${t.dur}s`, '--delay': `${t.delay}s` }}>
+      <div className="tool-row">
+        {TOOLS.map((t) => (
+          <div key={t.name} className="tool-parallax" data-parallax-depth={t.depth}>
             <div
-              className="tool-icon"
-              style={{ width: t.size, height: t.size, '--rot': `${t.rot}deg`, '--scale': t.scale }}
+              className="tool-float"
+              style={{ '--dur': `${t.dur}s`, '--delay': `${t.delay}s`, '--y0': `${t.yOffset}px` }}
             >
-              <t.Icon />
+              <div className="tool-badge" style={{ width: t.size, height: t.size }}>
+                <t.Icon />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
