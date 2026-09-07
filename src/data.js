@@ -24,11 +24,14 @@ import unbiasedLogo from './assets/brands/unbiased.png'
 
 export const SAMPLE_CONTENT = false
 
+const ownerEmail = 'mili.mahendra97@gmail.com'
+
 export const owner = {
   name: 'Mahendra Mili',
   role: 'Product Designer',
-  email: 'mili.mahendra97@gmail.com',
+  email: ownerEmail,
   socials: [
+    { label: 'Email', href: `mailto:${ownerEmail}` },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mahendra-mili/' },
     { label: 'Resume', href: '#', hint: 'Add resume.pdf to /public and link it here' },
   ],

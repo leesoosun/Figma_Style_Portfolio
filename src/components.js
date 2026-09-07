@@ -378,9 +378,7 @@ export function Footer() {
       <div className="foot-row">
         <div className="name">
           {owner.name}
-          <span>
-            {owner.role} — {owner.email}
-          </span>
+          <span>{owner.role}</span>
         </div>
         <div className="foot-links">
           {owner.socials.map((s) => (
