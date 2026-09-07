@@ -46,6 +46,25 @@
 }
 .tool-badge img{ display:block; object-fit:contain; }
 
+.tool-item{ position:relative; display:inline-block; }
+.tool-tip{
+  position:absolute; bottom:calc(100% + 12px); left:50%;
+  transform:translateX(-50%) translateY(4px);
+  background:var(--ink); color:#fff;
+  font-family:var(--sans); font-size:12px; font-weight:600;
+  padding:5px 11px; border-radius:6px; white-space:nowrap;
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.tool-tip::after{
+  content:''; position:absolute; top:100%; left:50%;
+  transform:translateX(-50%);
+  border:5px solid transparent; border-top-color:var(--ink);
+}
+.tool-item:hover .tool-tip{
+  opacity:1; transform:translateX(-50%) translateY(0);
+}
+
 @keyframes tool-bob{
   0%, 100%{ transform:translateY(var(--y0, 0)); }
   50%{ transform:translateY(calc(var(--y0, 0) - 8px)); }

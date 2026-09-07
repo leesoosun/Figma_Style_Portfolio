@@ -93,8 +93,11 @@ export function FloatingTools() {
               className="tool-float"
               style={{ '--dur': `${t.dur}s`, '--delay': `${t.delay}s`, '--y0': `${t.yOffset}px` }}
             >
-              <div className="tool-badge" style={{ width: t.size, height: t.size }}>
-                <img src={t.logo} alt={t.name} draggable="false" style={{ width: t.fit, height: t.fit }} />
+              <div className="tool-item">
+                <div className="tool-badge" style={{ width: t.size, height: t.size }}>
+                  <img src={t.logo} alt={t.name} draggable="false" style={{ width: t.fit, height: t.fit }} />
+                </div>
+                <span className="tool-tip">{t.name}</span>
               </div>
             </div>
           </div>
