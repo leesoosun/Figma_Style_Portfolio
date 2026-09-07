@@ -24,7 +24,7 @@ import unbiasedLogo from './assets/brands/unbiased.png'
 
 export const SAMPLE_CONTENT = false
 
-const ownerEmail = 'mili.mahendra97@gmail.com'
+const ownerEmail = 'mahendramili.work@gmail.com'
 
 export const owner = {
   name: 'Mahendra Mili',
