@@ -44,7 +44,7 @@
   transform:scale(1.12) rotate(6deg);
   box-shadow:0 14px 30px rgba(20,20,30,.14), 0 3px 8px rgba(20,20,30,.08);
 }
-.tool-badge svg{ width:56%; height:56%; }
+.tool-badge img{ display:block; object-fit:contain; }
 
 @keyframes tool-bob{
   0%, 100%{ transform:translateY(var(--y0, 0)); }
