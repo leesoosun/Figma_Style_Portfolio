@@ -28,7 +28,7 @@ const ownerEmail = 'mili.mahendra97@gmail.com'
 
 export const owner = {
   name: 'Mahendra Mili',
-  role: 'Product Designer',
+  role: 'Senior Product Designer',
   email: ownerEmail,
   socials: [
     { label: 'Email', href: `mailto:${ownerEmail}` },
