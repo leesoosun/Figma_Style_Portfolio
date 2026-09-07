@@ -186,6 +186,7 @@
 .conclude .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 @media (max-width:760px){
+  .hero{ padding-top:150px; }
   .brands-track, .brands-group{ gap:40px; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
