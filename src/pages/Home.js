@@ -17,7 +17,7 @@ export default function Home() {
   const revealRef = useReveal()
   const { viewportRef, trackRef, groupRef } = useAutoScrollReel()
   const brandsRevealRef = useReveal()
-  const brandsReel = useAutoScrollReel({ speedScreensPerSec: 0.035 })
+  const brandsReel = useAutoScrollReel({ speedScreensPerSec: 0.05 })
 
   return (
     <Page file="mahendra-mili.fig — landing" note="100%">
