@@ -22,7 +22,7 @@ import kryptosLogo from './assets/brands/kryptos.png'
 import ralloLogo from './assets/brands/rallo.png'
 import unbiasedLogo from './assets/brands/unbiased.png'
 
-export const SAMPLE_CONTENT = true
+export const SAMPLE_CONTENT = false
 
 export const owner = {
   name: 'Mahendra Mili',

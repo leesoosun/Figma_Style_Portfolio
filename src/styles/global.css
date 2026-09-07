@@ -163,11 +163,8 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 }
 
 /* ---------- Sample-content banner ----------
-   Remove this block, the .sample-banner markup in each page, and the
-   body/topbar offsets below once you've swapped in your real content. */
-body{ padding-top:34px; }
-.topbar{ top:34px; }
-
+   Hidden via SAMPLE_CONTENT in data.js — this styling stays in case it needs
+   to come back (some case studies still have placeholder body content). */
 .sample-banner{
   position:fixed; top:0; left:0; right:0; z-index:120;
   height:34px; display:flex; align-items:center; justify-content:center;
