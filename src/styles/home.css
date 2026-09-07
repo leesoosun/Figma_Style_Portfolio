@@ -23,7 +23,7 @@
    — pure empty space at every viewport width, so this can never collide
    with the title, sub-line, or CTAs and needs no layout changes of its own. */
 .floating-tools{
-  position:absolute; left:0; right:0; bottom:16px;
+  position:absolute; left:0; right:0; bottom:64px;
   display:flex; justify-content:center;
   pointer-events:none; z-index:0;
 }
@@ -187,6 +187,7 @@
 
 @media (max-width:760px){
   .hero{ padding-top:70px; padding-bottom:100px; }
+  .floating-tools{ bottom:16px; }
   .brands-track, .brands-group{ gap:40px; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
