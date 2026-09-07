@@ -1,7 +1,7 @@
 /* Page-specific styles for index.html — shared tokens/components live in styles.css */
 
 /* ---------- Hero ---------- */
-.hero{ position:relative; padding-top:190px; padding-bottom:100px; text-align:center; }
+.hero{ position:relative; padding-top:190px; padding-bottom:160px; text-align:center; }
 .hero .eyebrow{
   font-family:var(--mono); font-size:12.5px; color:var(--blue);
   margin-top:-16px; margin-bottom:60px; display:block;
@@ -186,7 +186,7 @@
 .conclude .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 @media (max-width:760px){
-  .hero{ padding-top:70px; }
+  .hero{ padding-top:70px; padding-bottom:100px; }
   .brands-track, .brands-group{ gap:40px; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
