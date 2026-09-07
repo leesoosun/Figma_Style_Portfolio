@@ -93,9 +93,9 @@ export const capabilities = [
 ]
 
 export const aboutParagraphs = [
-  'I came to design sideways, through front-end work, and I think it shows in how I work: I would rather build a rough thing on Monday and be wrong about it by Friday than defend a beautiful static mock for three weeks. Most of my strongest opinions started as something I was sure about and then watched a real person struggle with.',
-  'The principle I keep coming back to is that the interesting problem is almost never the one on the ticket. A pricing complaint is usually a value problem; a “we need a dashboard” request is usually one unanswered question. Finding the real problem is most of the job.',
-  'Outside of Figma I cook badly and read about infrastructure — bridges, water systems, power grids. Both are useful for the same reason: they are systems where the failure modes are visible and the constraints are honest.',
+  "I like complicated problems. Not because they're easy, but because there's usually a simpler answer hiding somewhere inside them. That's what I enjoy most about product design — figuring out what matters and making it easier for people to use.",
+  "When I'm not designing, you'll probably find me on a badminton court, playing a few chords on my guitar, or watching anime. I also like sketching anime characters — a nice excuse to step away from screens and just draw for the fun of it. And after a good badminton session, a cold beer usually feels well deserved. 🍺",
+  'Design is a big part of what I do, but these little things keep me curious, creative, and occasionally competitive.',
 ]
 
 /* ---------------- Case studies ---------------- */
