@@ -140,6 +140,140 @@ export function ScrollToTop() {
   return null
 }
 
+/**
+ * Drives a horizontally-doubled reel (see the glimpse reel on Home): auto-
+ * advances `scrollLeft` on a rAF loop, wraps seamlessly once the first of the
+ * two duplicate groups has scrolled past, and lets people drag it themselves
+ * — mouse-drag on desktop, native touch/trackpad scroll everywhere else —
+ * pausing the auto-advance while they're doing so.
+ *
+ * A CSS `animation` did this before, but on real phones long-duration CSS
+ * animations are prone to getting silently paused by the browser (memory
+ * pressure, backgrounding, a stuck synthetic `:hover` from a tap) with no
+ * reliable way to detect or recover from it. Driving the position ourselves
+ * avoids that whole class of failure, and gets manual drag for free since
+ * we already own `scrollLeft`.
+ *
+ * Returns three refs to attach: `viewportRef` on the scrollable element,
+ * `trackRef` on its flex track, and `groupRef` on the first `.glimpse-group`
+ * (used to measure the wrap distance).
+ */
+export function useAutoScrollReel({ speedScreensPerSec = 0.052, resumeDelayMs = 1400 } = {}) {
+  const viewportRef = useRef(null)
+  const trackRef = useRef(null)
+  const groupRef = useRef(null)
+  const reduced = usePrefersReducedMotion()
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    const track = trackRef.current
+    const group = groupRef.current
+    if (!viewport || !track || !group || reduced) return
+
+    let raf = null
+    let last = null
+    let dragging = false
+    let dragPointerId = null
+    let dragStartX = 0
+    let dragStartScroll = 0
+    let mouseOver = false
+    let lastInteraction = 0
+
+    const wrapUnit = () => {
+      const gap = parseFloat(getComputedStyle(track).columnGap || '0') || 0
+      return group.getBoundingClientRect().width + gap
+    }
+
+    const onPointerDown = (e) => {
+      dragging = true
+      lastInteraction = performance.now()
+      // Touch/pen already scroll natively (overflow-x:auto) — only mouse
+      // needs us to drive scrollLeft by hand.
+      if (e.pointerType === 'mouse') {
+        dragPointerId = e.pointerId
+        dragStartX = e.clientX
+        dragStartScroll = viewport.scrollLeft
+        viewport.setPointerCapture(e.pointerId)
+        viewport.classList.add('dragging')
+        e.preventDefault()
+      }
+    }
+    const onPointerMove = (e) => {
+      if (!dragging || e.pointerId !== dragPointerId) return
+      viewport.scrollLeft = dragStartScroll - (e.clientX - dragStartX)
+    }
+    const endDrag = (e) => {
+      if (dragPointerId !== null && e && e.pointerId !== dragPointerId) return
+      if (dragging) lastInteraction = performance.now()
+      dragging = false
+      dragPointerId = null
+      viewport.classList.remove('dragging')
+    }
+    const onWheel = () => { lastInteraction = performance.now() }
+    const onPointerEnter = (e) => { if (e.pointerType === 'mouse') mouseOver = true }
+    const onPointerLeave = (e) => {
+      if (e.pointerType === 'mouse') mouseOver = false
+      endDrag(e)
+    }
+
+    viewport.addEventListener('pointerdown', onPointerDown)
+    viewport.addEventListener('pointermove', onPointerMove)
+    viewport.addEventListener('pointerup', endDrag)
+    viewport.addEventListener('pointercancel', endDrag)
+    viewport.addEventListener('pointerenter', onPointerEnter)
+    viewport.addEventListener('pointerleave', onPointerLeave)
+    viewport.addEventListener('wheel', onWheel, { passive: true })
+
+    // `scrollLeft` itself rounds to whole pixels, so at ~20px/s (well under
+    // 1px/frame at 60fps) reading it back as the running total loses every
+    // sub-pixel step and the reel never visibly moves. `pos` is our own
+    // float accumulator; `scrollLeft` is written from it, never read back
+    // as the source of truth except to notice the user (or native touch
+    // scroll) moved it themselves, in which case we resync to match.
+    let pos = viewport.scrollLeft
+
+    const tick = (t) => {
+      if (last == null) last = t
+      const dt = Math.min(t - last, 50)
+      last = t
+
+      const unit = wrapUnit()
+      if (unit > 0) {
+        const canAdvance = !dragging && !mouseOver && (t - lastInteraction > resumeDelayMs)
+        // Anything moving scrollLeft outside our own writes below — a
+        // manual mouse-drag, native touch/trackpad scroll, or a leftover
+        // momentum-scroll settling after the finger lifts — resync `pos`
+        // to it instead of fighting it or snapping back.
+        if (dragging || Math.abs(viewport.scrollLeft - pos) > 1) {
+          pos = viewport.scrollLeft
+        }
+        if (canAdvance) {
+          const pxPerMs = (speedScreensPerSec * viewport.clientWidth) / 1000
+          pos += pxPerMs * dt
+        }
+        pos = ((pos % unit) + unit) % unit
+        viewport.scrollLeft = pos
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      viewport.removeEventListener('pointerdown', onPointerDown)
+      viewport.removeEventListener('pointermove', onPointerMove)
+      viewport.removeEventListener('pointerup', endDrag)
+      viewport.removeEventListener('pointercancel', endDrag)
+      viewport.removeEventListener('pointerenter', onPointerEnter)
+      viewport.removeEventListener('pointerleave', onPointerLeave)
+      viewport.removeEventListener('wheel', onWheel)
+      viewport.classList.remove('dragging')
+    }
+  }, [reduced, speedScreensPerSec, resumeDelayMs])
+
+  return { viewportRef, trackRef, groupRef }
+}
+
 /* ============================================================
    Chrome — banner, topbar, toolbar, footer
    ============================================================ */

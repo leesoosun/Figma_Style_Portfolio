@@ -2,12 +2,15 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Page, Frame, Thumb, SectionHead, Eyebrow, Btn, Reveal, glyphs,
+  useReveal, useAutoScrollReel,
 } from '../components.js'
 import { caseStudies, glimpse, capabilities, aboutParagraphs, owner } from '../data.js'
 import '../styles/home.css'
 
 export default function Home() {
   useEffect(() => { document.title = `${owner.name} — ${owner.role}` }, [])
+  const revealRef = useReveal()
+  const { viewportRef, trackRef, groupRef } = useAutoScrollReel()
 
   return (
     <Page file="mahendra-mili.fig — landing" note="100%">
@@ -38,29 +41,35 @@ export default function Home() {
             From early explorations to shipped experiences — here’s a look around.
           </SectionHead>
         </div>
-        {/* The track holds two identical groups so the marquee can loop seamlessly:
-            when the first group has scrolled fully out of frame, the second sits
-            exactly where it started. The clone is aria-hidden so screen readers
-            and the accessibility tree only ever see one copy. */}
-        <Reveal className="glimpse-viewport">
-          <div className="glimpse-track">
+        {/* The track holds two identical groups so the reel can loop seamlessly:
+            once the first group has scrolled fully past, useAutoScrollReel
+            rebases scrollLeft back by exactly one group's width. The clone is
+            aria-hidden so screen readers and the accessibility tree only ever
+            see one copy. Auto-advances via rAF, and can be dragged by hand —
+            mouse-drag on desktop, native touch/trackpad scroll elsewhere. */}
+        <div
+          className="glimpse-viewport reveal"
+          ref={(el) => { revealRef.current = el; viewportRef.current = el }}
+        >
+          <div className="glimpse-track" ref={trackRef}>
             {[0, 1].map((copy) => (
               <div
                 className="glimpse-group"
                 key={copy}
+                ref={copy === 0 ? groupRef : undefined}
                 aria-hidden={copy === 1 ? 'true' : undefined}
               >
                 {glimpse.map((g) => (
                   <div className="gcard" key={g.title}>
                     {g.image
-                      ? <img className="thumb thumb-img" src={g.image} alt={g.title} loading="lazy" />
+                      ? <img className="thumb thumb-img" src={g.image} alt={g.title} draggable="false" loading="lazy" />
                       : <Thumb className="thumb" />}
                   </div>
                 ))}
               </div>
             ))}
           </div>
-        </Reveal>
+        </div>
       </section>
 
       {/* ---------------- Selected work ---------------- */}
