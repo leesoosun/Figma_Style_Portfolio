@@ -114,7 +114,7 @@ section{ position:relative; padding:70px 0 70px; }
 }
 .btn.primary{ background:var(--blue); color:white; }
 .btn.primary:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(13,153,255,.35); }
-.btn.ghost{ background:transparent; color:var(--ink); border:1.4px solid var(--line); }
+.btn.ghost{ background:var(--panel); color:var(--ink); border:1.4px solid var(--line); }
 .btn.ghost:hover{ border-color:var(--blue); color:var(--blue); }
 
 /* ---------- Section headers ---------- */
