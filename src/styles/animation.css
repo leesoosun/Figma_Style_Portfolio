@@ -109,4 +109,6 @@
   .frame.show .tag, .frame.show .dim{ opacity:1 !important; transform:none !important; }
   .toolbar{ opacity:1 !important; transform:none !important; }
   .sample-banner{ transform:none !important; }
+  .tool-float{ animation:none !important; }
+  .tool-parallax{ transform:none !important; }
 }

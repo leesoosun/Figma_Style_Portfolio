@@ -1,7 +1,7 @@
 /* Page-specific styles for index.html — shared tokens/components live in styles.css */
 
 /* ---------- Hero ---------- */
-.hero{ padding-top:190px; padding-bottom:130px; text-align:center; }
+.hero{ position:relative; padding-top:190px; padding-bottom:130px; text-align:center; }
 .hero .eyebrow{
   font-family:var(--mono); font-size:12.5px; color:var(--blue);
   margin-top:-16px; margin-bottom:60px; display:block;
@@ -17,6 +17,38 @@
   text-wrap:balance;
 }
 .hero .actions{ margin-top:38px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- Floating tool icons ----------
+   Confined to the hero's own top/bottom padding bands (see the positions in
+   floatingTools.js) — pure empty space at every viewport width, so this
+   can never collide with the title, sub-line, or CTAs and needs no layout
+   changes of its own. */
+.floating-tools{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+.tool-parallax{ position:absolute; will-change:transform; }
+.tool-float{
+  animation:tool-bob var(--dur, 7s) ease-in-out infinite;
+  animation-delay:var(--delay, 0s);
+}
+.tool-icon{
+  display:block; pointer-events:auto;
+  opacity:.5;
+  transform:rotate(var(--rot, 0deg)) scale(var(--scale, 1));
+  transition:transform .35s cubic-bezier(.22,.61,.36,1), opacity .3s ease;
+}
+.tool-icon:hover{
+  opacity:.9;
+  transform:rotate(calc(var(--rot, 0deg) + 8deg)) scale(calc(var(--scale, 1) * 1.15));
+}
+.tool-icon svg{ display:block; width:100%; height:100%; }
+
+@keyframes tool-bob{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-9px); }
+}
+
+@media (max-width:760px){
+  .tool-icon{ opacity:.4; }
+}
 
 /* ---------- Glimpse reel (auto-scrolling marquee) ---------- */
 #glimpse .section-head p{ max-width:640px; }

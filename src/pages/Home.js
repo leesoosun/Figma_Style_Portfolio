@@ -5,6 +5,7 @@ import {
   useReveal, useAutoScrollReel,
 } from '../components.js'
 import { caseStudies, glimpse, brands, capabilities, aboutParagraphs, owner } from '../data.js'
+import { FloatingTools } from '../floatingTools.js'
 import '../styles/home.css'
 
 // How many times the 5-logo set repeats inside one reel group. Needs to be
@@ -23,6 +24,7 @@ export default function Home() {
     <Page file="mahendra-mili.fig — landing" note="100%">
       {/* ---------------- Hero ---------------- */}
       <section className="hero wrap">
+        <FloatingTools />
         <Eyebrow>// {owner.name} - {owner.role}</Eyebrow>
         <Frame tag="Hero / Headline" live>
           <h1>
