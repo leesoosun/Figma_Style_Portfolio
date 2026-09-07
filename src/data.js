@@ -16,6 +16,11 @@ import web3FinanceMobile from './assets/glimpse/web3-finance-mobile.png'
 import unbiasedAnnotation from './assets/glimpse/unbiased-annotation.png'
 import ralloApp from './assets/glimpse/rallo-app.png'
 import fyniAiAgent from './assets/glimpse/fyni-ai-agent.png'
+import accessLogo from './assets/brands/access.png'
+import fyniLogo from './assets/brands/fyni.png'
+import kryptosLogo from './assets/brands/kryptos.png'
+import ralloLogo from './assets/brands/rallo.png'
+import unbiasedLogo from './assets/brands/unbiased.png'
 
 export const SAMPLE_CONTENT = true
 
@@ -43,6 +48,15 @@ export const glimpse = [
   { title: 'Unbiased data annotation', tag: 'Web app · 2025', image: unbiasedAnnotation },
   { title: 'Rallo — Play, compete, track', tag: 'Mobile · 2026', image: ralloApp },
   { title: 'Fyni — AI financial agent', tag: 'Web app · 2025', image: fyniAiAgent },
+]
+
+/** Logo strip on the landing page, between Selected work and What I bring. */
+export const brands = [
+  { name: 'Access', logo: accessLogo },
+  { name: 'Fyni', logo: fyniLogo },
+  { name: 'Kryptos', logo: kryptosLogo },
+  { name: 'Rallo', logo: ralloLogo },
+  { name: 'Unbiased', logo: unbiasedLogo },
 ]
 
 export const capabilities = [

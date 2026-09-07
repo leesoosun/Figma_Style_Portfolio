@@ -59,6 +59,34 @@
 .gcard:hover .thumb{ border-color:var(--blue); }
 .gcard .thumb-img{ width:100%; height:100%; object-fit:cover; object-position:top; }
 
+/* ---------- Brands (auto-scrolling logo strip — same pattern as the
+   glimpse reel above, its own reel instance and a calmer speed) ---------- */
+.brands-viewport{
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:28px 0 8px;
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  scrollbar-width:none;
+}
+.brands-viewport::-webkit-scrollbar{ display:none; }
+
+@media (hover:hover) and (pointer:fine){
+  .brands-viewport{ cursor:grab; }
+  .brands-viewport.dragging{ cursor:grabbing; }
+}
+.brands-viewport.dragging{ user-select:none; }
+
+.brands-track{ display:flex; gap:64px; align-items:center; width:max-content; }
+.brands-group{ display:flex; gap:64px; align-items:center; flex:0 0 auto; }
+
+.brand-chip{ flex:0 0 auto; display:flex; align-items:center; }
+.brand-chip img{
+  height:28px; width:auto; display:block;
+  opacity:.8; transition:opacity .2s ease;
+}
+.brand-chip:hover img{ opacity:1; }
+
 /* ---------- Selected work ---------- */
 .work-list{ display:flex; flex-direction:column; }
 .work-row{
@@ -121,6 +149,7 @@
 .conclude .actions{ margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
 @media (max-width:760px){
+  .brands-track, .brands-group{ gap:40px; }
   .work-row{ grid-template-columns:1fr; }
   .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
   .work-row .info, .work-row:nth-child(even) .info{ order:2 !important; }

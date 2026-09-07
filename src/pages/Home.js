@@ -4,13 +4,15 @@ import {
   Page, Frame, Thumb, SectionHead, Eyebrow, Btn, Reveal, glyphs,
   useReveal, useAutoScrollReel,
 } from '../components.js'
-import { caseStudies, glimpse, capabilities, aboutParagraphs, owner } from '../data.js'
+import { caseStudies, glimpse, brands, capabilities, aboutParagraphs, owner } from '../data.js'
 import '../styles/home.css'
 
 export default function Home() {
   useEffect(() => { document.title = `${owner.name} — ${owner.role}` }, [])
   const revealRef = useReveal()
   const { viewportRef, trackRef, groupRef } = useAutoScrollReel()
+  const brandsRevealRef = useReveal()
+  const brandsReel = useAutoScrollReel({ speedScreensPerSec: 0.035 })
 
   return (
     <Page file="mahendra-mili.fig — landing" note="100%">
@@ -100,9 +102,40 @@ export default function Home() {
         </Reveal>
       </section>
 
+      {/* ---------------- Brands ---------------- */}
+      <section id="brands">
+        <div className="wrap">
+          <SectionHead num="03" title="Brands I've worked with" />
+        </div>
+        {/* Same two-group loop as the glimpse reel above (see its comment) —
+            just a smaller, calmer strip, so it gets its own reel instance
+            and a slower speed rather than sharing state with it. */}
+        <div
+          className="brands-viewport reveal"
+          ref={(el) => { brandsRevealRef.current = el; brandsReel.viewportRef.current = el }}
+        >
+          <div className="brands-track" ref={brandsReel.trackRef}>
+            {[0, 1].map((copy) => (
+              <div
+                className="brands-group"
+                key={copy}
+                ref={copy === 0 ? brandsReel.groupRef : undefined}
+                aria-hidden={copy === 1 ? 'true' : undefined}
+              >
+                {brands.map((b) => (
+                  <div className="brand-chip" key={b.name}>
+                    <img src={b.logo} alt={b.name} draggable="false" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ---------------- What I bring ---------------- */}
       <section id="bring" className="wrap">
-        <SectionHead num="03" title="What I bring to the table">
+        <SectionHead num="04" title="What I bring to the table">
           The parts of the process I care about most.
         </SectionHead>
         <div className="bring-grid">
@@ -118,7 +151,7 @@ export default function Home() {
 
       {/* ---------------- Behind the canvas ---------------- */}
       <section id="behind" className="wrap">
-        <SectionHead num="04" title="Behind the canvas">
+        <SectionHead num="05" title="Behind the canvas">
           A bit about how I work, and what I'm like outside of Figma.
         </SectionHead>
         <div className="canvas-section">
@@ -131,7 +164,7 @@ export default function Home() {
 
       {/* ---------------- Contact ---------------- */}
       <section className="wrap conclude">
-        <Eyebrow>05 · Let's talk</Eyebrow>
+        <Eyebrow>06 · Let's talk</Eyebrow>
         <Reveal as="h2">Got a project in mind? I'd love to hear about it.</Reveal>
         <p className="sub">Open to full-time roles and select freelance work.</p>
         <div className="actions">

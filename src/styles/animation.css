@@ -103,7 +103,8 @@
   /* useAutoScrollReel already skips the auto-advance for reduced motion,
      leaving a plain manually-scrollable strip — just hide the duplicate
      group so the list isn't silently doubled. */
-  .glimpse-group[aria-hidden="true"]{ display:none !important; }
+  .glimpse-group[aria-hidden="true"],
+  .brands-group[aria-hidden="true"]{ display:none !important; }
   .frame.show .box, .frame.show .box i,
   .frame.show .tag, .frame.show .dim{ opacity:1 !important; transform:none !important; }
   .toolbar{ opacity:1 !important; transform:none !important; }
