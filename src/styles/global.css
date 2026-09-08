@@ -230,7 +230,7 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .cs-hero-img{ height:460px; margin-bottom:100px; }
 .cs-hero-img.cs-hero-photo{
   height:auto; width:100%; display:block;
-  border-radius:10px; border:1px solid var(--line);
+  border-radius:20px;
   object-fit:contain;
 }
 
