@@ -25,6 +25,11 @@ import kryptosPreview from './assets/work/kryptos-preview.png'
 
 export const SAMPLE_CONTENT = false
 
+// The "mahendra-mili.fig — <page>" file badge at the top of every page,
+// part of the Figma-canvas visual conceit. Off for now — flip back to
+// true to bring it back everywhere at once.
+export const SHOW_TOPBAR = false
+
 const ownerEmail = 'mahendramili.work@gmail.com'
 // BASE_URL differs per host (see vite.config.js) and already ends in a
 // trailing slash, so this concatenates cleanly for both.

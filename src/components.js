@@ -9,7 +9,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { owner, SAMPLE_CONTENT } from './data.js'
+import { owner, SAMPLE_CONTENT, SHOW_TOPBAR } from './data.js'
 
 /* ============================================================
    Animation primitives
@@ -560,7 +560,7 @@ export function Page({ file, note, back = false, children, footer = true }) {
     <>
       <SampleBanner />
       {back ? <BackLink /> : null}
-      <TopBar file={file} note={note} />
+      {SHOW_TOPBAR ? <TopBar file={file} note={note} /> : null}
       <main className="page-fade">{children}</main>
       {footer ? <Footer /> : null}
       <Toolbar />
