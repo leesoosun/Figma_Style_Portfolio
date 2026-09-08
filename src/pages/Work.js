@@ -49,8 +49,13 @@ export default function Work() {
           {visible.map((p, i) => {
             const inner = (
               <>
-                <div className="thumb thumb-placeholder">
-                  {p.featured ? 'IMAGE PLACEHOLDER — featured project' : 'IMAGE PLACEHOLDER'}
+                <div
+                  className="thumb thumb-placeholder"
+                  style={p.previewImage ? { height: 'auto', aspectRatio: p.previewRatio } : undefined}
+                >
+                  {p.previewImage
+                    ? <img className="thumb-img" src={p.previewImage} alt={p.shortTitle} draggable="false" loading="lazy" />
+                    : (p.featured ? 'IMAGE PLACEHOLDER — featured project' : 'IMAGE PLACEHOLDER')}
                 </div>
                 <div className="row">
                   <div>
@@ -67,7 +72,7 @@ export default function Work() {
             )
             const cls = `pcard${p.featured ? ' featured' : ''}${p.href ? '' : ' pending'}`
             return (
-              <Reveal key={p.shortTitle} delay={i * 70}>
+              <Reveal key={p.shortTitle} delay={i * 70} className={p.featured ? 'featured' : ''}>
                 {p.href
                   ? <Link to={p.href} className={cls}>{inner}</Link>
                   : <div className={cls}>{inner}</div>}
