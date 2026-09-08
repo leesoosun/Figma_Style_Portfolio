@@ -194,9 +194,9 @@
    Four rotated-square photos at the compass points of a square region,
    each flipping to a second photo. See photoDiamonds.js for why the
    flip trigger differs between mouse and touch. */
-.diamonds{ position:relative; width:100%; max-width:460px; aspect-ratio:1; margin:0 auto; }
+.diamonds{ position:relative; width:100%; max-width:500px; aspect-ratio:1; margin:0 auto; }
 .diamond{
-  position:absolute; width:30%; aspect-ratio:1;
+  position:absolute; width:34%; aspect-ratio:1;
   transform:translate(-50%, -50%) rotate(45deg);
   border-radius:20px; overflow:hidden;
   box-shadow:0 16px 34px rgba(20,20,30,.12), 0 4px 10px rgba(20,20,30,.06);
@@ -204,15 +204,14 @@
 /* Center offsets must clear the rotated square's own half-diagonal
    (width * ~0.707) or its outer corner pokes past the container edge —
    invisible on a wide desktop column with margin to spare, but clipped
-   on a narrow mobile one with none. 22% comfortably clears 30%'s 21.2%. */
-.diamond-top{ top:22%; left:50%; }
-.diamond-left{ top:50%; left:22%; }
-.diamond-right{ top:50%; left:78%; }
-.diamond-bottom{ top:78%; left:50%; }
-/* Sits in the gap the four satellites leave open at the center — sized
-   smaller (26% vs 30%) so it doesn't crowd its neighbours. No flip, so
-   it skips .diamond-flip entirely (see PhotoDiamonds). */
-.diamond-center{ top:50%; left:50%; width:30%; z-index:1; }
+   on a narrow mobile one with none. 26% comfortably clears 34%'s 24%. */
+.diamond-top{ top:26%; left:50%; }
+.diamond-left{ top:50%; left:26%; }
+.diamond-right{ top:50%; left:74%; }
+.diamond-bottom{ top:74%; left:50%; }
+/* Sits in the gap the four satellites leave open at the center. No flip,
+   so it skips .diamond-flip entirely (see PhotoDiamonds). */
+.diamond-center{ top:50%; left:50%; width:34%; z-index:1; }
 
 .diamond-inner{
   position:absolute; inset:0;
