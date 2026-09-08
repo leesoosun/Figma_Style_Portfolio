@@ -1,15 +1,15 @@
 /**
  * The "Behind the canvas" photo composition — four rotated-square photos
- * arranged in a diamond, each flipping to a second photo.
- *
- * Flip trigger: real hover (mouse/trackpad) flips on :hover via CSS, gated
- * to (hover:hover) and (pointer:fine) — touch devices instead get a tap-to-
- * toggle via React state, so a phone tap can never leave a card stuck
- * flipped the way a synthetic CSS :hover would (see the glimpse-reel
- * pause bug earlier in this project for exactly that failure mode).
+ * arranged in a diamond, each auto-flipping to a second photo on its own
+ * timer so the wall feels alive without anyone touching it. The four run
+ * on staggered phases so they never all flip at once. Hovering a diamond
+ * (or, on touch, pressing down on one) pauses just that one so a visitor
+ * can actually look at whichever face is showing instead of it flipping
+ * away mid-look — release and it picks the cycle back up.
  */
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { usePrefersReducedMotion } from './components.js'
 import badminton from './assets/canvas/badminton.png'
 import beer from './assets/canvas/beer.png'
 import guitar from './assets/canvas/guitar.png'
@@ -26,8 +26,14 @@ const FACES = [
   { key: 'anime', pos: 'bottom', front: sungJinWoo, frontAlt: 'Sung Jin-Woo fan art', back: boruto, backAlt: 'Boruto fan art' },
 ]
 
+const FLIP_INTERVAL_MS = 4000
+
 export function PhotoDiamonds() {
+  const reduced = usePrefersReducedMotion()
   const [flipped, setFlipped] = useState(() => new Set())
+  // A ref, not state — pausing shouldn't trigger a re-render, it just
+  // tells the next tick of that diamond's timer to skip itself.
+  const pausedRef = useRef(new Set())
 
   const toggle = (key) => {
     setFlipped((prev) => {
@@ -37,17 +43,28 @@ export function PhotoDiamonds() {
     })
   }
 
-  // On a mouse/trackpad, CSS :hover already flips the card — a click there
-  // would toggle the React `flipped` state on top of it, and once the mouse
-  // moves away the hover style clears but the toggled class doesn't, so the
-  // card was getting stuck flipped after any click. Clicking is only meant
-  // to be the touch substitute for hover, so skip it entirely on devices
-  // that already have real hover. Enter/Space (keyboard) always toggles —
-  // a keyboard user can't hover regardless of what the device supports.
-  const handleClick = (key) => {
-    if (typeof window !== 'undefined' && window.matchMedia('(hover:hover) and (pointer:fine)').matches) return
-    toggle(key)
-  }
+  useEffect(() => {
+    if (reduced) return
+    const timeoutIds = []
+    const intervalIds = []
+    FACES.forEach((f, i) => {
+      const phaseOffset = (i * FLIP_INTERVAL_MS) / FACES.length
+      const timeoutId = window.setTimeout(() => {
+        if (!pausedRef.current.has(f.key)) toggle(f.key)
+        intervalIds.push(window.setInterval(() => {
+          if (!pausedRef.current.has(f.key)) toggle(f.key)
+        }, FLIP_INTERVAL_MS))
+      }, phaseOffset)
+      timeoutIds.push(timeoutId)
+    })
+    return () => {
+      timeoutIds.forEach((id) => window.clearTimeout(id))
+      intervalIds.forEach((id) => window.clearInterval(id))
+    }
+  }, [reduced])
+
+  const pause = (key) => pausedRef.current.add(key)
+  const resume = (key) => pausedRef.current.delete(key)
 
   return (
     <div className="diamonds">
@@ -56,10 +73,15 @@ export function PhotoDiamonds() {
           <div className="diamond-inner">
             <div
               className={`diamond-flip${flipped.has(f.key) ? ' is-flipped' : ''}`}
-              onClick={() => handleClick(f.key)}
+              onMouseEnter={() => pause(f.key)}
+              onMouseLeave={() => resume(f.key)}
+              onTouchStart={() => pause(f.key)}
+              onTouchEnd={() => resume(f.key)}
+              onFocus={() => pause(f.key)}
+              onBlur={() => resume(f.key)}
               role="button"
               tabIndex={0}
-              aria-label={`${f.frontAlt} — tap to flip`}
+              aria-label={flipped.has(f.key) ? f.backAlt : f.frontAlt}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(f.key) } }}
             >
               <img className="diamond-face diamond-front" src={f.front} alt={f.frontAlt} draggable="false" />
