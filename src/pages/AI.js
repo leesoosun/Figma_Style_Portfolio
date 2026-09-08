@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Page, SectionHead, Eyebrow, Reveal } from '../components.js'
+import { Page, SectionHead, Reveal } from '../components.js'
 import { aiStack, aiFlow, aiCaveats, aiQuote, owner } from '../data.js'
 import '../styles/ai.css'
 
@@ -9,7 +9,6 @@ export default function AI() {
   return (
     <Page file="mahendra-mili.fig — how-i-use-ai" note="100%">
       <section className="wrap ai-head">
-        <Eyebrow>// A note on process</Eyebrow>
         <Reveal as="h1">How I actually use AI in my design work</Reveal>
         <Reveal as="p" delay={80}>
           Not a hype page. A real, specific breakdown of where AI tools sit in my
