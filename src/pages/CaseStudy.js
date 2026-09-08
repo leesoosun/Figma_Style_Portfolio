@@ -42,7 +42,17 @@ export default function CaseStudy() {
 
       <div className="wrap">
         <Reveal>
-          <Thumb className="cs-hero-img" label="IMAGE PLACEHOLDER — hero shot" />
+          {cs.previewImage ? (
+            <img
+              className="cs-hero-img cs-hero-photo"
+              src={cs.previewImage}
+              alt={`${cs.shortTitle} — hero shot`}
+              draggable="false"
+              style={{ aspectRatio: cs.previewRatio }}
+            />
+          ) : (
+            <Thumb className="cs-hero-img" label="IMAGE PLACEHOLDER — hero shot" />
+          )}
         </Reveal>
       </div>
 
