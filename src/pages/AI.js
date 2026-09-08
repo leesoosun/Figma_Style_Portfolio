@@ -19,7 +19,7 @@ export default function AI() {
 
       <section className="wrap" style={{ paddingTop: 60 }}>
         <SectionHead num="01" title="The stack">
-          The tools I reach for most, and what each one is actually for.
+          The tools I reach for most — and what I actually use them for.
         </SectionHead>
         <div className="stack-grid">
           {aiStack.map((s, i) => (
