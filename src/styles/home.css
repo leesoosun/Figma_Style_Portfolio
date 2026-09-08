@@ -146,12 +146,12 @@
 /* ---------- Selected work ---------- */
 .work-list{ display:flex; flex-direction:column; }
 .work-row{
-  display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:center;
+  display:grid; grid-template-columns:1fr 1.3fr; gap:48px; align-items:center;
   padding:44px 0; border-top:1px solid var(--line);
 }
 .work-row:last-child{ border-bottom:1px solid var(--line); }
 .work-row .thumb{
-  height:230px; border-radius:12px; border:1px solid var(--line);
+  height:280px; border-radius:12px; border:1px solid var(--line);
   background:repeating-linear-gradient(135deg, #F1F1F1 0 10px, #EAEAEA 10px 20px);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--mono); font-size:11px; color:#B4B4B4;
