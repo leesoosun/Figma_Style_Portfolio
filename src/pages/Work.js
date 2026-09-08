@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Page, Frame, Reveal } from '../components.js'
-import { caseStudies, archivedProjects, workFilters } from '../data.js'
+import { caseStudies, archivedProjects, workFilters, SHOW_WORK_FILTERS } from '../data.js'
 import '../styles/work.css'
 
 export default function Work() {
@@ -30,18 +30,20 @@ export default function Work() {
           A collection of product work, experiments, personal explorations, and case
           studies. Browse by type or wander through — every project has a story behind it.
         </p>
-        <div className="filters">
-          {workFilters.map((f) => (
-            <button
-              key={f.key}
-              className={`filter-pill${filter === f.key ? ' active' : ''}`}
-              onClick={() => setFilter(f.key)}
-              aria-pressed={filter === f.key}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
+        {SHOW_WORK_FILTERS ? (
+          <div className="filters">
+            {workFilters.map((f) => (
+              <button
+                key={f.key}
+                className={`filter-pill${filter === f.key ? ' active' : ''}`}
+                onClick={() => setFilter(f.key)}
+                aria-pressed={filter === f.key}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <section className="wrap" style={{ paddingTop: 0 }}>
@@ -62,7 +64,6 @@ export default function Work() {
                     <h3>{p.shortTitle}</h3>
                     <div className="role">{p.roleLine}</div>
                   </div>
-                  <div className="year">{p.year}</div>
                 </div>
                 <div className="tags">
                   {p.tags.map((t) => <span className="pill" key={t}>{t}</span>)}

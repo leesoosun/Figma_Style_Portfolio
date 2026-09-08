@@ -30,6 +30,11 @@ export const SAMPLE_CONTENT = false
 // true to bring it back everywhere at once.
 export const SHOW_TOPBAR = false
 
+// The category filter row on /work — off for now since there aren't
+// enough case studies yet for filtering to be useful. Flip back to
+// true once the archive has grown.
+export const SHOW_WORK_FILTERS = false
+
 const ownerEmail = 'mahendramili.work@gmail.com'
 // BASE_URL differs per host (see vite.config.js) and already ends in a
 // trailing slash, so this concatenates cleanly for both.
@@ -130,12 +135,11 @@ const allCaseStudies = [
     previewRatio: '2293 / 1134',
     fileLabel: 'kryptos-portfolio.fig — featured',
     topNote: 'Featured case study',
-    year: '2026',
     category: 'product',
     roleLine: 'Lead product designer · 0→1',
     featured: true,
-    tags: ['Product design', 'Mobile', '0→1'],
-    pills: ['Product design', '0→1', '2026'],
+    tags: ['Product Design', 'Web & Mobile', '0 to 1'],
+    pills: ['Product Design', 'Web & Mobile', '0 to 1'],
     meta: [
       ['Role', 'Product Designer'],
       ['Team', '1 designer (me), 2 engineers, and stakeholders'],
@@ -194,7 +198,6 @@ const allCaseStudies = [
     cardDesc: 'Four teams had quietly built four button components. Consolidating them was less a design problem than a migration problem.',
     fileLabel: 'design-system.fig — library',
     topNote: 'Design systems case study',
-    year: '2025',
     category: 'system',
     roleLine: 'Design systems lead',
     tags: ['Design system', 'Scale'],
@@ -243,7 +246,6 @@ const allCaseStudies = [
     cardDesc: 'The dashboard said accounts churned because of price. Eight interviews said something the dashboard could not see.',
     fileLabel: 'churn-research.fig — research',
     topNote: 'Research-led case study',
-    year: '2025',
     category: 'research',
     roleLine: 'UX researcher + designer',
     tags: ['Research', 'B2B'],
@@ -292,23 +294,20 @@ export const archivedProjects = [
   {
     shortTitle: 'Ops console v2',
     roleLine: 'Product designer',
-    year: '2024',
     category: 'product',
-    tags: ['Web app', 'Dashboard'],
+    tags: [],
   },
   {
     shortTitle: 'Fieldnote identity',
     roleLine: 'Personal project',
-    year: '2024',
     category: 'personal',
-    tags: ['Branding', 'Side project'],
+    tags: [],
   },
   {
     shortTitle: 'Referral loop teardown',
     roleLine: 'Product designer',
-    year: '2023',
     category: 'product',
-    tags: ['Product design', 'Growth'],
+    tags: [],
   },
 ]
 
