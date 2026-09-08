@@ -232,6 +232,7 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   height:auto; width:100%; display:block;
   border-radius:20px;
   object-fit:contain;
+  box-shadow:0 20px 45px rgba(20,20,30,.12), 0 4px 12px rgba(20,20,30,.06);
 }
 
 .cs-block{ display:grid; grid-template-columns:200px 1fr; gap:48px; padding-bottom:80px; }
