@@ -209,14 +209,14 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
    Shared by case-study.html (template) and case-study-1..3.html
    ============================================================ */
 .back-link{
-  position:fixed; top:102px; left:32px; z-index:90;
+  position:fixed; top:32px; left:32px; z-index:90;
   display:flex; align-items:center; gap:6px;
   font-family:var(--mono); font-size:12.5px; color:var(--muted);
   text-decoration:none;
 }
 .back-link:hover{ color:var(--blue); }
 
-.cs-head{ padding-top:190px; padding-bottom:50px; text-align:center; }
+.cs-head{ padding-top:120px; padding-bottom:50px; text-align:center; }
 .cs-head h1{ font-size:clamp(32px, 5vw, 54px); font-weight:800; letter-spacing:-.02em; max-width:760px; margin:0 auto; }
 .cs-head .dek{ color:var(--muted); font-size:16.5px; max-width:560px; margin:18px auto 0; line-height:1.65; }
 
@@ -236,7 +236,7 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 }
 
 .cs-block{ display:grid; grid-template-columns:200px 1fr; gap:48px; padding-bottom:80px; }
-.cs-block .b-label{ font-family:var(--mono); font-size:12px; color:var(--blue); position:sticky; top:110px; align-self:start; }
+.cs-block .b-label{ font-family:var(--mono); font-size:12px; color:var(--blue); position:sticky; top:32px; align-self:start; }
 .cs-block .b-body p{ font-size:16px; line-height:1.75; color:#3C3C3C; margin-bottom:20px; max-width:600px; }
 .cs-block .b-body p:last-child{ margin-bottom:0; }
 .cs-block .b-body h4{ font-size:18px; font-weight:700; margin:26px 0 10px; }
@@ -271,13 +271,12 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .next-project .n-arrow{ font-size:28px; color:var(--blue); }
 
 @media (max-width:760px){
-  /* Mobile topbar padding drops to 16px, so it ends at 34+16+16+16 = 82px. */
-  .back-link{ top:90px; left:20px; transition:transform .25s ease, opacity .25s ease; }
+  .back-link{ top:24px; left:20px; transition:transform .25s ease, opacity .25s ease; }
   body.chrome-hidden .back-link{ transform:translateY(-140%); opacity:0; pointer-events:none; }
   .meta-row{ grid-template-columns:repeat(2, 1fr); }
   .cs-block{ grid-template-columns:1fr; }
   .cs-block .b-label{ position:static; }
   .cs-img-row{ grid-template-columns:1fr; }
   .stat-row{ grid-template-columns:1fr; }
-  .cs-head{ padding-top:150px; }
+  .cs-head{ padding-top:90px; }
 }
