@@ -21,6 +21,10 @@ const FACES = [
   { key: 'anime', pos: 'bottom', front: 'Anime night', back: 'Currently watching' },
 ]
 
+// The center tile is a plain, single-face photo — no flip, just an anchor
+// portrait sitting in the gap the four surrounding diamonds leave open.
+const CENTER = { key: 'center', label: 'Mahendra' }
+
 export function PhotoDiamonds() {
   const [flipped, setFlipped] = useState(() => new Set())
 
@@ -34,6 +38,11 @@ export function PhotoDiamonds() {
 
   return (
     <div className="diamonds">
+      <div className="diamond diamond-center">
+        <div className="diamond-inner">
+          <div className="diamond-face thumb-placeholder">{CENTER.label}</div>
+        </div>
+      </div>
       {FACES.map((f) => (
         <div key={f.key} className={`diamond diamond-${f.pos}`}>
           <div className="diamond-inner">

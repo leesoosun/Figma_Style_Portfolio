@@ -209,6 +209,10 @@
 .diamond-left{ top:50%; left:22%; }
 .diamond-right{ top:50%; left:78%; }
 .diamond-bottom{ top:78%; left:50%; }
+/* Sits in the gap the four satellites leave open at the center — sized
+   smaller (26% vs 30%) so it doesn't crowd its neighbours. No flip, so
+   it skips .diamond-flip entirely (see PhotoDiamonds). */
+.diamond-center{ top:50%; left:50%; width:26%; z-index:1; }
 
 .diamond-inner{
   position:absolute; inset:0;
