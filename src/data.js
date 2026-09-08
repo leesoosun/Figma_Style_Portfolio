@@ -114,6 +114,7 @@ export const caseStudies = [
     cardDesc:
       "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
     previewImage: kryptosPreview,
+    previewRatio: '2293 / 1134',
     fileLabel: 'kryptos-portfolio.fig — featured',
     topNote: 'Featured case study',
     year: '2026',

@@ -89,7 +89,11 @@ export default function Home() {
         <div className="work-list">
           {caseStudies.map((cs, i) => (
             <Reveal className="work-row" key={cs.slug}>
-              <Link to={`/work/${cs.slug}`} className="thumb thumb-placeholder">
+              <Link
+                to={`/work/${cs.slug}`}
+                className="thumb thumb-placeholder"
+                style={cs.previewImage ? { height: 'auto', aspectRatio: cs.previewRatio } : undefined}
+              >
                 {cs.previewImage
                   ? <img className="thumb-img" src={cs.previewImage} alt={cs.shortTitle} draggable="false" loading="lazy" />
                   : 'IMAGE PLACEHOLDER'}
