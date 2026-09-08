@@ -41,6 +41,18 @@ export function PhotoDiamonds() {
     })
   }
 
+  // On a mouse/trackpad, CSS :hover already flips the card — a click there
+  // would toggle the React `flipped` state on top of it, and once the mouse
+  // moves away the hover style clears but the toggled class doesn't, so the
+  // card was getting stuck flipped after any click. Clicking is only meant
+  // to be the touch substitute for hover, so skip it entirely on devices
+  // that already have real hover. Enter/Space (keyboard) always toggles —
+  // a keyboard user can't hover regardless of what the device supports.
+  const handleClick = (key) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover:hover) and (pointer:fine)').matches) return
+    toggle(key)
+  }
+
   return (
     <div className="diamonds">
       <div className="diamond diamond-center">
@@ -53,7 +65,7 @@ export function PhotoDiamonds() {
           <div className="diamond-inner">
             <div
               className={`diamond-flip${flipped.has(f.key) ? ' is-flipped' : ''}`}
-              onClick={() => toggle(f.key)}
+              onClick={() => handleClick(f.key)}
               role="button"
               tabIndex={0}
               aria-label={`${f.frontAlt} — tap to flip`}
