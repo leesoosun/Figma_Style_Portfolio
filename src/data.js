@@ -318,10 +318,10 @@ export const workFilters = [
 /* ---------------- How I use AI ---------------- */
 
 export const aiStack = [
-  { role: 'Research', name: 'Claude', body: 'Turning messy research into themes, patterns, and questions worth digging into.' },
-  { role: 'Design exploration', name: 'Figma AI', body: 'Exploring more directions, faster — from rough ideas to visual possibilities without skipping the thinking.' },
-  { role: 'Critique', name: 'Claude / ChatGPT', body: 'A second opinion when I want to poke holes in a flow, challenge an assumption, or spot what I might have missed.' },
-  { role: 'Prototyping', name: 'Claude Code', body: 'Turning interaction ideas into working prototypes that engineers can click, test, and break — instead of another static spec.' },
+  { role: 'Research & critique', name: 'Claude / ChatGPT', body: 'Making sense of messy research, challenging assumptions, and finding the gaps I might have missed.' },
+  { role: 'Design exploration', name: 'Figma AI / Stitch', body: 'Exploring more visual directions quickly — without getting too attached to the first idea.' },
+  { role: 'Rapid prototyping', name: 'Lovable', body: 'Turning rough ideas into something clickable and testable before investing heavily in the build.' },
+  { role: 'Functional prototypes', name: 'Claude Code', body: 'Taking interactions beyond static screens and building prototypes engineers can actually click, test, and break.' },
 ]
 
 export const aiFlow = [
