@@ -1,7 +1,6 @@
 /**
  * The "Behind the canvas" photo composition — four rotated-square photos
- * arranged in a diamond, each flipping to a second photo, plus a fifth,
- * non-flipping photo anchoring the center.
+ * arranged in a diamond, each flipping to a second photo.
  *
  * Flip trigger: real hover (mouse/trackpad) flips on :hover via CSS, gated
  * to (hover:hover) and (pointer:fine) — touch devices instead get a tap-to-
@@ -14,7 +13,6 @@ import { useState } from 'react'
 import badminton from './assets/canvas/badminton.png'
 import beer from './assets/canvas/beer.png'
 import guitar from './assets/canvas/guitar.png'
-import myself from './assets/canvas/myself.jpg'
 import tanjiroKamado from './assets/canvas/tanjiro-kamado.png'
 import nezuko from './assets/canvas/nezuko.png'
 import tanjiroFire from './assets/canvas/tanjiro-fire.png'
@@ -27,8 +25,6 @@ const FACES = [
   { key: 'sketch', pos: 'right', front: nezuko, frontAlt: 'Nezuko fan art', back: tanjiroFire, backAlt: 'Tanjiro fan art' },
   { key: 'anime', pos: 'bottom', front: sungJinWoo, frontAlt: 'Sung Jin-Woo fan art', back: boruto, backAlt: 'Boruto fan art' },
 ]
-
-const CENTER = { key: 'center', img: myself, alt: 'Mahendra Mili' }
 
 export function PhotoDiamonds() {
   const [flipped, setFlipped] = useState(() => new Set())
@@ -55,11 +51,6 @@ export function PhotoDiamonds() {
 
   return (
     <div className="diamonds">
-      <div className="diamond diamond-center">
-        <div className="diamond-inner">
-          <img className="diamond-face" src={CENTER.img} alt={CENTER.alt} draggable="false" />
-        </div>
-      </div>
       {FACES.map((f) => (
         <div key={f.key} className={`diamond diamond-${f.pos}`}>
           <div className="diamond-inner">
