@@ -49,37 +49,13 @@ export default function AI() {
         </div>
       </section>
 
-      <section className="wrap">
-        <SectionHead num="03" title="A real prompt I use">
-          One example, so this page isn't just abstract claims.
-        </SectionHead>
-        <Reveal className="prompt-panel">
-          <div className="prompt-head">
-            <div className="dot" /><div className="dot" /><div className="dot" />
-            <span>prompt.txt</span>
-          </div>
-          <div className="prompt-body">
-            <span className="blue">You:</span> Here are 12 interview quotes about our
-            onboarding flow. Group them into themes, attach the supporting quote to each,
-            and flag anything that <i>contradicts</i> our assumption that users want fewer
-            steps rather than more guidance. If a theme rests on only one quote, say so.
-            <br /><br />
-            <span className="blue">Why this works:</span> the default output of a
-            summarisation prompt is a tidy narrative, which is exactly the thing that makes
-            bad research feel finished. Asking for disconfirming evidence and for
-            weakly-supported themes to be labelled turns it from a summary into something I
-            can actually argue with.
-          </div>
-        </Reveal>
-      </section>
-
       <section className="wrap philosophy">
         <Reveal as="blockquote">“{aiQuote}”</Reveal>
         <cite>— {owner.name}</cite>
       </section>
 
       <section className="wrap">
-        <SectionHead num="04" title="What I don't hand off">
+        <SectionHead num="03" title="What I don't hand off">
           Being specific about limits is more credible than pretending there aren't any.
         </SectionHead>
         <div className="caveat-list">
