@@ -22,6 +22,11 @@ import kryptosLogo from './assets/brands/kryptos.png'
 import ralloLogo from './assets/brands/rallo.png'
 import unbiasedLogo from './assets/brands/unbiased.png'
 import kryptosPreview from './assets/work/kryptos-preview.png'
+import claudeLogo from './assets/tools/claude.png'
+import chatgptLogo from './assets/tools/chatgpt.png'
+import figmaLogo from './assets/tools/figma.png'
+import stitchLogo from './assets/tools/stitch.png'
+import lovableLogo from './assets/tools/lovable.png'
 
 export const SAMPLE_CONTENT = false
 
@@ -322,10 +327,10 @@ export const workFilters = [
 /* ---------------- How I use AI ---------------- */
 
 export const aiStack = [
-  { role: 'Research & critique', name: 'Claude / ChatGPT', body: 'Making sense of messy research, challenging assumptions, and finding the gaps I might have missed.' },
-  { role: 'Design exploration', name: 'Figma AI / Stitch', body: 'Exploring more visual directions quickly — without getting too attached to the first idea.' },
-  { role: 'Rapid prototyping', name: 'Lovable', body: 'Turning rough ideas into something clickable and testable before investing heavily in the build.' },
-  { role: 'Functional prototypes', name: 'Claude Code', body: 'Taking interactions beyond static screens and building prototypes engineers can actually click, test, and break.' },
+  { role: 'Research & critique', name: 'Claude / ChatGPT', body: 'Making sense of messy research, challenging assumptions, and finding the gaps I might have missed.', logos: [{ src: claudeLogo, alt: 'Claude' }, { src: chatgptLogo, alt: 'ChatGPT' }] },
+  { role: 'Design exploration', name: 'Figma AI / Stitch', body: 'Exploring more visual directions quickly — without getting too attached to the first idea.', logos: [{ src: figmaLogo, alt: 'Figma' }, { src: stitchLogo, alt: 'Stitch' }] },
+  { role: 'Rapid prototyping', name: 'Lovable', body: 'Turning rough ideas into something clickable and testable before investing heavily in the build.', logos: [{ src: lovableLogo, alt: 'Lovable' }] },
+  { role: 'Functional prototypes', name: 'Claude Code', body: 'Taking interactions beyond static screens and building prototypes engineers can actually click, test, and break.', logos: [{ src: claudeLogo, alt: 'Claude Code' }] },
 ]
 
 export const aiFlow = [

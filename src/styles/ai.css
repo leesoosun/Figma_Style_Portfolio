@@ -7,11 +7,14 @@
 .stack-cell{
   border:1px solid var(--line); border-radius:12px; padding:22px 18px;
   background:var(--panel); transition:border-color .2s, transform .2s;
+  display:flex; flex-direction:column;
 }
 .stack-cell:hover{ border-color:var(--blue); transform:translateY(-3px); }
 .stack-cell .role{ font-family:var(--mono); font-size:10.5px; color:var(--blue); margin-bottom:10px; }
 .stack-cell h4{ font-size:15px; font-weight:700; }
 .stack-cell p{ font-size:12.5px; color:var(--muted); margin-top:7px; line-height:1.55; }
+.stack-logos{ display:flex; gap:10px; margin-top:auto; padding-top:18px; }
+.stack-logos img{ width:22px; height:22px; border-radius:6px; object-fit:contain; }
 
 /* ---------- Workflow timeline ---------- */
 .flow{ display:flex; flex-direction:column; }

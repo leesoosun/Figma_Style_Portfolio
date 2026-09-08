@@ -28,6 +28,11 @@ export default function AI() {
               <div className="role">{s.role}</div>
               <h4>{s.name}</h4>
               <p>{s.body}</p>
+              <div className="stack-logos">
+                {s.logos.map((l) => (
+                  <img key={l.alt} src={l.src} alt={l.alt} title={l.alt} draggable="false" />
+                ))}
+              </div>
             </Reveal>
           ))}
         </div>
