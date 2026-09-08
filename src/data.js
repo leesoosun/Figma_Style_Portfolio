@@ -351,4 +351,4 @@ export const aiCaveats = [
 ]
 
 export const aiQuote =
-  'AI has made it much cheaper to produce work, and no cheaper at all to know whether the work is right. The second part is still the job.'
+  'AI makes it easier to make more things. It doesn’t make it easier to decide which things are worth making.'
