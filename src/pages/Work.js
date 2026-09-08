@@ -72,7 +72,7 @@ export default function Work() {
             )
             const cls = `pcard${p.featured ? ' featured' : ''}${p.href ? '' : ' pending'}`
             return (
-              <Reveal key={p.shortTitle} delay={i * 70} className={p.featured ? 'featured' : ''}>
+              <Reveal key={p.shortTitle} delay={i * 70}>
                 {p.href
                   ? <Link to={p.href} className={cls}>{inner}</Link>
                   : <div className={cls}>{inner}</div>}
