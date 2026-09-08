@@ -6,6 +6,7 @@ import {
 } from '../components.js'
 import { caseStudies, glimpse, brands, capabilities, aboutParagraphs, owner } from '../data.js'
 import { FloatingTools } from '../floatingTools.js'
+import { PhotoDiamonds } from '../photoDiamonds.js'
 import '../styles/home.css'
 
 // How many times the 5-logo set repeats inside one reel group. Needs to be
@@ -178,7 +179,9 @@ export default function Home() {
           A bit about how I work, and what I'm like outside of Figma.
         </SectionHead>
         <div className="canvas-section">
-          <Reveal className="canvas-photo">IMAGE PLACEHOLDER</Reveal>
+          <Reveal className="canvas-photo">
+            <PhotoDiamonds />
+          </Reveal>
           <Reveal className="canvas-text" delay={90}>
             {aboutParagraphs.map((p, i) => <p key={i}>{p}</p>)}
           </Reveal>
