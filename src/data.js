@@ -104,7 +104,11 @@ export const aboutParagraphs = [
 
 /* ---------------- Case studies ---------------- */
 
-export const caseStudies = [
+// Draft case studies (still fabricated content, pending real write-ups)
+// are excluded from `caseStudies` below via the `draft` flag rather than
+// deleted — flip it off once real content lands and everything using
+// `caseStudies` picks it up automatically.
+const allCaseStudies = [
   {
     slug: 'kryptos-portfolio-management',
     title: 'Kryptos — Crypto Portfolio Management',
@@ -174,6 +178,7 @@ export const caseStudies = [
   },
   {
     slug: 'one-system-four-surfaces',
+    draft: true,
     title: 'One system, four surfaces',
     shortTitle: 'One system, four surfaces',
     dek: 'Four teams had quietly built four button components. Consolidating them was less a design problem than a migration problem.',
@@ -222,6 +227,7 @@ export const caseStudies = [
   },
   {
     slug: 'what-the-churn-data-hid',
+    draft: true,
     title: 'What the churn data hid',
     shortTitle: 'What the churn data hid',
     dek: 'The dashboard said users churned because of price. Eight interviews said something the dashboard could not see.',
@@ -269,6 +275,8 @@ export const caseStudies = [
     ],
   },
 ]
+
+export const caseStudies = allCaseStudies.filter((cs) => !cs.draft)
 
 /** Projects with no write-up yet — rendered as non-clickable cards on /work. */
 export const archivedProjects = [
