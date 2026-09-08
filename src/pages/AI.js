@@ -34,7 +34,7 @@ export default function AI() {
 
       <section className="wrap">
         <SectionHead num="02" title="Where it fits in my process">
-          AI shows up at specific points — not as a layer over the whole workflow.
+          AI shows up at specific points in my workflow — to accelerate thinking, not replace it.
         </SectionHead>
         <div className="flow">
           {aiFlow.map((f, i) => (

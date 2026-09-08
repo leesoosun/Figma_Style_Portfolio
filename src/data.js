@@ -327,19 +327,19 @@ export const aiStack = [
 export const aiFlow = [
   {
     title: 'Synthesizing research',
-    body: 'After a round of interviews I paste anonymised transcripts in and ask for candidate themes with the supporting quotes attached. The quotes are the point: a theme I can’t trace back to something someone actually said gets dropped. I still do my own pass first, then compare — where the model and I disagree is usually where the interesting ambiguity is.',
+    body: 'I use AI to surface themes and patterns from anonymised research, always tied back to real user quotes. I do my own analysis first, then use AI to challenge and compare my thinking.',
   },
   {
-    title: 'Exploring more directions, faster',
-    body: 'Early on, the constraint is rarely quality — it’s how many genuinely different directions I can afford to sketch before I commit. I’ll ask for eight approaches to a flow, throw out six immediately, and usually find that one of the remaining two is something I wouldn’t have reached on my own. The bad options are cheap and they still narrow the space.',
+    title: 'Exploring directions',
+    body: 'I use AI to quickly generate different approaches early in the process. Most get discarded, but the unexpected ones often help me find a direction I wouldn’t have explored otherwise.',
   },
   {
-    title: 'Stress-testing a decision',
-    body: 'Before a design review I ask for the strongest argument against the thing I’m about to present, and for the edge cases I’ve probably skipped — empty states, slow networks, the user who has 400 of something. It’s much less painful to hear a weak spot from a model on Tuesday than from a staff engineer on Wednesday.',
+    title: 'Stress-testing decisions',
+    body: 'Before a review, I use AI to challenge my thinking, surface edge cases, and find gaps I may have missed — from empty states to unusual user scenarios.',
   },
   {
     title: 'Closing the gap to engineering',
-    body: 'For anything with real interaction behaviour — drag ordering, optimistic updates, a multi-step form that can fail halfway — I build a working prototype instead of annotating a static frame. Engineers can open it, break it, and tell me what I got wrong about the states, which is a much faster conversation than a spec document.',
+    body: 'For complex interactions, I build working prototypes instead of relying on static specs. Engineers can test, break, and respond to something tangible — making collaboration faster and clearer.',
   },
 ]
 
