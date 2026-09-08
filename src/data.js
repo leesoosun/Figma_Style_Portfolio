@@ -21,6 +21,7 @@ import fyniLogo from './assets/brands/fyni.png'
 import kryptosLogo from './assets/brands/kryptos.png'
 import ralloLogo from './assets/brands/rallo.png'
 import unbiasedLogo from './assets/brands/unbiased.png'
+import kryptosPreview from './assets/work/kryptos-preview.png'
 
 export const SAMPLE_CONTENT = false
 
@@ -112,6 +113,7 @@ export const caseStudies = [
       "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
     cardDesc:
       "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
+    previewImage: kryptosPreview,
     fileLabel: 'kryptos-portfolio.fig — featured',
     topNote: 'Featured case study',
     year: '2026',

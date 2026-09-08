@@ -155,10 +155,11 @@
   background:repeating-linear-gradient(135deg, #F1F1F1 0 10px, #EAEAEA 10px 20px);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--mono); font-size:11px; color:#B4B4B4;
-  order:2; transition:transform .25s ease, border-color .25s ease;
+  order:2; overflow:hidden; transition:transform .25s ease, border-color .25s ease;
 }
 .work-row:hover .thumb{ transform:translateY(-4px); border-color:var(--blue); }
 .work-row a.thumb{ text-decoration:none; }
+.work-row .thumb-img{ width:100%; height:100%; object-fit:cover; object-position:top; }
 .work-row .info{ order:1; }
 .work-row .index{ font-family:var(--mono); font-size:12.5px; color:var(--blue); }
 .work-row h3{ font-size:24px; font-weight:700; margin-top:10px; letter-spacing:-.01em; }

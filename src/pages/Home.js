@@ -90,7 +90,9 @@ export default function Home() {
           {caseStudies.map((cs, i) => (
             <Reveal className="work-row" key={cs.slug}>
               <Link to={`/work/${cs.slug}`} className="thumb thumb-placeholder">
-                IMAGE PLACEHOLDER
+                {cs.previewImage
+                  ? <img className="thumb-img" src={cs.previewImage} alt={cs.shortTitle} draggable="false" loading="lazy" />
+                  : 'IMAGE PLACEHOLDER'}
               </Link>
               <div className="info">
                 <span className="index">Case study {String(i + 1).padStart(2, '0')}</span>
