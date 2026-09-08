@@ -38,7 +38,7 @@ export default function Home() {
         </p>
         <div className="actions">
           <Btn href="#work">View selected work</Btn>
-          <Btn variant="ghost" title="Add resume.pdf to /public and link it here">
+          <Btn href={owner.resumeUrl} variant="ghost" target="_blank" rel="noopener noreferrer">
             Download resume
           </Btn>
         </div>
@@ -195,7 +195,7 @@ export default function Home() {
         <p className="sub">Open to full-time roles</p>
         <div className="actions">
           <Btn href={`mailto:${owner.email}`}>{owner.email}</Btn>
-          <Btn variant="ghost" title="Add resume.pdf to /public and link it here">
+          <Btn href={owner.resumeUrl} variant="ghost" target="_blank" rel="noopener noreferrer">
             Download resume
           </Btn>
         </div>

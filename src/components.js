@@ -348,7 +348,6 @@ const DownloadIcon = () => (
 export function Toolbar() {
   const { pathname } = useLocation()
   const isWork = pathname === '/work' || pathname.startsWith('/work/')
-  const resumeHint = 'Add resume.pdf to /public and link it here'
 
   return (
     <nav className="toolbar">
@@ -365,7 +364,7 @@ export function Toolbar() {
         <span className="lbl-short">AI</span>
       </Link>
       <div className="sep" />
-      <a href="#" title={resumeHint} onClick={(e) => e.preventDefault()}>
+      <a href={owner.resumeUrl} target="_blank" rel="noopener noreferrer">
         <DownloadIcon /> Resume
       </a>
     </nav>
@@ -465,10 +464,10 @@ export function Eyebrow({ children }) {
 }
 
 /** Button that renders as a router Link, a mailto/external anchor, or a stub. */
-export function Btn({ to, href, variant = 'primary', title, children }) {
+export function Btn({ to, href, variant = 'primary', title, target, rel, children }) {
   const cls = `btn ${variant}`
   if (to) return <Link to={to} className={cls}>{children}</Link>
-  if (href) return <a href={href} className={cls} title={title}>{children}</a>
+  if (href) return <a href={href} className={cls} title={title} target={target} rel={rel}>{children}</a>
   return (
     <a href="#" className={cls} title={title} onClick={(e) => e.preventDefault()}>
       {children}

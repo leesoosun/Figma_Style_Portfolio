@@ -26,15 +26,19 @@ import kryptosPreview from './assets/work/kryptos-preview.png'
 export const SAMPLE_CONTENT = false
 
 const ownerEmail = 'mahendramili.work@gmail.com'
+// BASE_URL differs per host (see vite.config.js) and already ends in a
+// trailing slash, so this concatenates cleanly for both.
+const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`
 
 export const owner = {
   name: 'Mahendra Mili',
   role: 'Senior Product Designer',
   email: ownerEmail,
+  resumeUrl,
   socials: [
     { label: 'Email', href: `mailto:${ownerEmail}` },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mahendra-mili/' },
-    { label: 'Resume', href: '#', hint: 'Add resume.pdf to /public and link it here' },
+    { label: 'Resume', href: resumeUrl },
   ],
 }
 
