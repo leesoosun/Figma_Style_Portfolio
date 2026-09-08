@@ -56,7 +56,7 @@ export default function AI() {
 
       <section className="wrap">
         <SectionHead num="03" title="What I don't hand off">
-          Being specific about limits is more credible than pretending there aren't any.
+          AI can do a lot. Being the designer is still my job.
         </SectionHead>
         <div className="caveat-list">
           {aiCaveats.map((c, i) => (

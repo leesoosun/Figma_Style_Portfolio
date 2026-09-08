@@ -344,10 +344,10 @@ export const aiFlow = [
 ]
 
 export const aiCaveats = [
-  { title: 'Taste and final calls', body: 'AI widens the option set; it has no stake in the outcome. Deciding which of eight directions is actually right for this product and these users is a judgement call, and I’d rather own a wrong one than inherit an unowned one.' },
-  { title: 'Talking to real users', body: 'Synthesis can be assisted. The interview itself can’t. Most of what I learn in a session is in the hesitation before the answer, and none of that survives into a transcript.' },
-  { title: 'Anything shipped without review', body: 'Nothing generated reaches a user without me reading every word of it. This is less about quality than accountability: if it ships under my name, I have to be able to defend each decision in it.' },
-  { title: 'The strategic “why”', body: 'Choosing which problem is worth a quarter of the team’s time depends on context that mostly isn’t written down — politics, history, what we tried in 2023. That’s the part of the work I’d least want automated.' },
+  { title: 'Taste & final calls', body: 'AI can give me 10 directions. I still have to know which one is actually worth shipping.' },
+  { title: 'Talking to real users', body: 'AI can summarize a conversation. It can’t notice the hesitation, the awkward pause, or the “yeah… I guess” that says a lot more.' },
+  { title: 'Anything that ships', body: 'No copy-paste-and-pray. If it reaches a user, I’ve reviewed it — and I own it.' },
+  { title: 'The strategic “why”', body: 'AI can help explore the what. Deciding what’s worth solving in the first place still needs context, experience, and a little human judgment.' },
 ]
 
 export const aiQuote =
