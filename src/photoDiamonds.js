@@ -5,7 +5,8 @@
  * on staggered phases so they never all flip at once. Hovering a diamond
  * (or, on touch, pressing down on one) pauses just that one so a visitor
  * can actually look at whichever face is showing instead of it flipping
- * away mid-look — release and it picks the cycle back up.
+ * away mid-look — release and it picks the cycle back up. Clicking (or
+ * tapping) a diamond flips it immediately, on top of all that.
  */
 
 import { useEffect, useRef, useState } from 'react'
@@ -79,6 +80,7 @@ export function PhotoDiamonds() {
               onTouchEnd={() => resume(f.key)}
               onFocus={() => pause(f.key)}
               onBlur={() => resume(f.key)}
+              onClick={() => toggle(f.key)}
               role="button"
               tabIndex={0}
               aria-label={flipped.has(f.key) ? f.backAlt : f.frontAlt}
