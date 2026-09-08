@@ -66,32 +66,32 @@ export const brands = [
 export const capabilities = [
   {
     title: 'Systems thinking',
-    body: 'I design components, not just screens — so the product stays consistent as it grows.',
+    body: 'I design systems, not just screens — building patterns that keep products consistent as they scale.',
     icon: 'grid',
   },
   {
-    title: 'Fast, honest iteration',
-    body: 'Rough prototypes early, real user feedback often, polish last — not first.',
+    title: 'Prototype early',
+    body: 'I get rough ideas into prototypes quickly, test them early, and use what I learn to shape the next iteration.',
     icon: 'clock',
   },
   {
-    title: 'Data-informed calls',
-    body: 'Opinions are a starting point. I like closing the loop with usage data and metrics.',
+    title: 'Evidence over opinion',
+    body: 'Opinions are a starting point. I use user feedback, product data, and metrics to make better decisions.',
     icon: 'bars',
   },
   {
     title: 'AI-native workflows',
-    body: 'I use AI tools daily to move faster from idea to tested prototype — more on that below.',
+    body: 'I use AI throughout my process — from exploring ideas to prototyping, testing, and refining — to move from thinking to making faster.',
     icon: 'spark',
   },
   {
     title: 'Cross-functional fluency',
-    body: "Comfortable in the room with engineers and PMs — I speak enough of both languages.",
+    body: 'I work closely with PMs and engineers, balancing user needs, product goals, and technical realities.',
     icon: 'panels',
   },
   {
     title: 'Craft with empathy',
-    body: "The details matter, but only in service of someone else's actual day.",
+    body: 'I care about the details, but never at the expense of the person using the product.',
     icon: 'heart',
   },
 ]
