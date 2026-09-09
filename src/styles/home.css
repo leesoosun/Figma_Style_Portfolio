@@ -157,7 +157,7 @@
 }
 .work-row:last-child{ border-bottom:1px solid var(--line); }
 .work-row .thumb{
-  height:360px; border-radius:20px;
+  height:360px; border-radius:20px; border:none;
   background:repeating-linear-gradient(135deg, #F1F1F1 0 10px, #EAEAEA 10px 20px);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--mono); font-size:11px; color:#B4B4B4;
