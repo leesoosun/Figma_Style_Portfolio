@@ -23,6 +23,7 @@ import ralloLogo from './assets/brands/rallo.png'
 import unbiasedLogo from './assets/brands/unbiased.png'
 import kryptosPreview from './assets/work/kryptos-preview.png'
 import ralloPreview from './assets/work/rallo-preview.png'
+import kryptosEnterprisePreview from './assets/work/kryptos-enterprise-preview.png'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -323,6 +324,8 @@ const allCaseStudies = [
     shortTitle: 'Turning complex crypto transactions into a powerful accounting workflow',
     dek: 'Designing an advanced transaction workspace for Kryptos Enterprise, giving accountants and clients the flexibility to customize transaction data, surface the information they need, and export it for reporting and reconciliation.',
     cardDesc: 'Designing an advanced transaction workspace for Kryptos Enterprise, giving accountants and clients the flexibility to customize transaction data, surface the information they need, and export it for reporting and reconciliation.',
+    previewImage: kryptosEnterprisePreview,
+    previewRatio: '2293 / 1134',
     fileLabel: 'kryptos-enterprise.fig — case study',
     topNote: 'Product case study',
     category: 'product',
