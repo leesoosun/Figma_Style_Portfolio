@@ -260,6 +260,11 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .stat-cell{ background:var(--panel); padding:28px; }
 .stat-cell .num{ font-size:32px; font-weight:800; color:var(--blue); }
 .stat-cell .label{ font-size:13px; color:var(--muted); margin-top:6px; }
+/* Richer impact stats (headline phrase + explanatory sentence) used by
+   the freeform `sections` renderer, alongside the terser num/label
+   pairs above used by the fixed Outcome block. */
+.stat-cell .headline{ font-size:15px; font-weight:700; margin-top:8px; }
+.stat-cell .desc{ font-size:13px; color:var(--muted); margin-top:6px; line-height:1.55; }
 
 .next-project{
   display:flex; justify-content:space-between; align-items:center;

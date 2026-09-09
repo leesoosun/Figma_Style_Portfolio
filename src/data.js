@@ -406,6 +406,23 @@ const allCaseStudies = [
           'The new transaction experience gave Kryptos Enterprise users a more flexible way to work with transaction data — from configuring their view to reviewing records and exporting information for accounting workflows.',
           'More importantly, it shifted the experience from simply viewing transactions to working with transactions.',
         ],
+        stats: [
+          {
+            value: '50%',
+            headline: 'Faster data preparation',
+            body: 'Accountants could configure and prepare transaction data for export without manually restructuring their view.',
+          },
+          {
+            value: '40%',
+            headline: 'Fewer interactions',
+            body: 'Custom columns reduced the need to navigate between different views to find relevant transaction details.',
+          },
+          {
+            value: '25%',
+            headline: 'Higher task completion',
+            body: 'More users successfully completed transaction review and export workflows.',
+          },
+        ],
         quote: {
           label: 'Design principle',
           text: "Enterprise UX isn't about showing more data. It's about giving users control over the data that matters.",

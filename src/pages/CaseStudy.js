@@ -106,6 +106,17 @@ export default function CaseStudy() {
                 <Paras items={sub.paragraphs} />
               </div>
             ))}
+            {s.stats && (
+              <div className="stat-row impact-row">
+                {s.stats.map((st, i) => (
+                  <Reveal key={st.value + st.headline} className="stat-cell" delay={i * 90}>
+                    <div className="num">{st.value}</div>
+                    <div className="headline">{st.headline}</div>
+                    <div className="desc">{st.body}</div>
+                  </Reveal>
+                ))}
+              </div>
+            )}
             {s.quote && (
               <div className="callout">
                 <span className="callout-label">{s.quote.label}</span>
