@@ -247,6 +247,26 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .cs-block .b-body .callout-label{ display:block; font-family:var(--mono); font-size:11px; color:var(--blue); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; }
 .cs-block .b-body .callout p{ font-weight:600; color:#1A1A1A; margin-bottom:0; }
 
+/* ---------- Verbatim interview/requirement quotes ----------
+   Distinct from .callout (one bolded, distilled principle) — this is a
+   set of raw voice-of-customer lines, so each gets its own quote-marked
+   card rather than sharing a single highlighted statement. */
+.interview-quotes{ display:flex; flex-direction:column; gap:14px; margin:20px 0; max-width:600px; }
+.interview-quote{
+  position:relative; margin:0; background:var(--panel);
+  border:1px solid var(--line); border-radius:12px;
+  padding:18px 22px 18px 46px;
+}
+.interview-quote::before{
+  content:'“'; position:absolute; left:16px; top:10px;
+  font-family:Georgia, serif; font-size:30px; font-weight:700;
+  color:var(--blue); line-height:1;
+}
+.interview-quote p{
+  font-size:15px; font-style:italic; color:#3C3C3C;
+  line-height:1.6; margin:0; max-width:none;
+}
+
 .cs-img-row{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:26px; }
 .cs-img-row .thumb-placeholder{ height:280px; }
 .cs-img-single{ margin-top:26px; }

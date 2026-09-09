@@ -100,6 +100,15 @@ export default function CaseStudy() {
                 {s.bullets.map((b) => <li key={b}>{b}</li>)}
               </ul>
             )}
+            {s.quotes && (
+              <div className="interview-quotes">
+                {s.quotes.map((q) => (
+                  <blockquote className="interview-quote" key={q}>
+                    <p>{q}</p>
+                  </blockquote>
+                ))}
+              </div>
+            )}
             {s.subsections && s.subsections.map((sub) => (
               <div key={sub.title}>
                 <h4>{sub.title}</h4>

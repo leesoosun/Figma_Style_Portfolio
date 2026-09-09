@@ -350,6 +350,20 @@ const allCaseStudies = [
     triggerFollowup: [],
     sections: [
       {
+        label: 'What clients told us',
+        paragraphs: [
+          'Early conversations with accountants and clients surfaced the same three needs, independent of how each person actually worked:',
+        ],
+        quotes: [
+          "I need to see the exact transaction details relevant to my accounting workflow without scrolling through fields I don't use.",
+          'I need to prepare transaction data in the format I need and download it without manually cleaning up the data.',
+          "When working with thousands of transactions, I need to quickly isolate the records I'm looking for.",
+        ],
+        closing: [
+          'Three different phrasings of the same underlying request: less noise, and more control over the view.',
+        ],
+      },
+      {
         label: 'Understanding the workflow',
         paragraphs: [
           "The key wasn't simply adding more information to the table. Adding every possible field would make the experience overwhelming.",
