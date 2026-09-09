@@ -77,15 +77,19 @@
 /* ---------- Glimpse reel (auto-scrolling marquee) ---------- */
 #glimpse .section-head p{ max-width:640px; }
 
+/* The edge-fade mask lives on this non-scrolling wrapper, not on
+   .glimpse-viewport itself — Safari breaks/ignores JS-driven scrollLeft
+   writes on an element that also has mask-image applied directly to it.
+   A mask on the wrapper still fades the scrolled content underneath the
+   same way, since masking composites against the wrapper's own box. */
+.glimpse-mask{
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
 .glimpse-viewport{
   overflow-x:auto;
   overflow-y:hidden;
   padding:8px 0 22px;
-  /* Full-bleed, but cards dissolve at both edges instead of being hard-clipped.
-     A static strip needed a gutter to line up with the heading; a continuously
-     moving one reads better running edge to edge. */
-  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
-  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   /* Position is driven by useAutoScrollReel (rAF + scrollLeft), not a CSS
      animation — see its comment for why. The native scrollbar would still
      show through since this is a real scroll container; hide it, the mask
@@ -117,12 +121,14 @@
 
 /* ---------- Brands (auto-scrolling logo strip — same pattern as the
    glimpse reel above, its own reel instance and a calmer speed) ---------- */
+.brands-mask{
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
 .brands-viewport{
   overflow-x:auto;
   overflow-y:hidden;
   padding:36px 0 16px;
-  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
-  mask-image:linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
   scrollbar-width:none;
 }
 .brands-viewport::-webkit-scrollbar{ display:none; }

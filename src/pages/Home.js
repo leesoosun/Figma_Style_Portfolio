@@ -62,7 +62,7 @@ export default function Home() {
             scrollLeft writes made to an element that also carries a
             transform/will-change (which `.reveal` does), breaking the
             auto-scroll there entirely. */}
-        <div className="reveal" ref={revealRef}>
+        <div className="glimpse-mask reveal" ref={revealRef}>
           <div className="glimpse-viewport" ref={viewportRef}>
             <div className="glimpse-track" ref={trackRef}>
               {[0, 1].map((copy) => (
@@ -132,7 +132,7 @@ export default function Home() {
             narrower than the browser's own scrollable width can shrink to,
             and native scrollLeft silently clamps well short of the wrap
             point, making the reel visibly stall for most of each cycle. */}
-        <div className="reveal" ref={brandsRevealRef}>
+        <div className="brands-mask reveal" ref={brandsRevealRef}>
           <div className="brands-viewport" ref={brandsReel.viewportRef}>
             <div className="brands-track" ref={brandsReel.trackRef}>
               {[0, 1].map((copy) => (
