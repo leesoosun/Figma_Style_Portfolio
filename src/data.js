@@ -131,8 +131,8 @@ export const aboutParagraphs = [
 const allCaseStudies = [
   {
     slug: 'kryptos-portfolio-management',
-    title: 'Kryptos — Crypto Portfolio Management',
-    shortTitle: 'Kryptos — Crypto Portfolio Management',
+    title: 'Bringing fragmented crypto data into one place',
+    shortTitle: 'Bringing fragmented crypto data into one place',
     dek:
       "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
     cardDesc:
