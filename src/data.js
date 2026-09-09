@@ -195,6 +195,126 @@ const allCaseStudies = [
     ],
   },
   {
+    slug: 'rallo-racquet-sports',
+    title: 'Rallo — Racquet Sports Platform',
+    shortTitle: 'Rallo — Racquet Sports Platform',
+    dek: 'Making racquet sports easier to discover, play, and track.',
+    cardDesc: 'Making racquet sports easier to discover, play, and track.',
+    fileLabel: 'rallo-racquet-sports.fig — case study',
+    topNote: 'Product case study',
+    category: 'product',
+    roleLine: 'Product Designer',
+    tags: ['Product Strategy', 'UX/UI Design', 'Mobile + Web'],
+    pills: ['Product Strategy', 'UX/UI Design', 'Mobile + Web'],
+    meta: [
+      ['Role', 'Product Designer'],
+      ['Platform', 'Mobile + Web'],
+      ['Focus', 'Product Strategy, UX, UI, Prototyping'],
+    ],
+    overview: [
+      'Rallo is a racquet-sports platform that brings tournaments, matches, opponents, scoring, payments, player profiles, and performance insights into one connected experience.',
+    ],
+    trigger: [
+      'Playing a racquet sport sounds simple: find a game and play. But the actual experience is fragmented across tournament platforms, WhatsApp groups, payment apps, spreadsheets, and scoreboards.',
+      'The opportunity was to connect the entire journey: Find → Organize → Play → Pay → Track → Improve.',
+    ],
+    hypothesisLabel: 'Product goal',
+    hypothesis: 'Create one connected experience around the player — not just the game.',
+    triggerFollowup: [],
+    sections: [
+      {
+        label: 'Understanding the player journey',
+        paragraphs: [
+          'Before designing screens, I mapped what happens before, during, and after a match. This revealed four core product needs:',
+        ],
+        bullets: [
+          'Discover — Find relevant games, tournaments, and opponents.',
+          'Play — Join games, manage players, and keep score.',
+          'Track — Follow results, match history, and performance.',
+          'Improve — Turn match data into useful insights and a richer player profile.',
+        ],
+        closing: ['This became the foundation for the product architecture.'],
+      },
+      {
+        label: 'Designing the core experience',
+        subsections: [
+          {
+            title: '01 — Finding the right game',
+            paragraphs: [
+              'Discovery needed to answer one question quickly: “Is this a game I want to play?”',
+              'I prioritized sport, skill level, location, time, format, and availability so players could evaluate a game without digging through multiple screens.',
+              'Less searching. More playing.',
+            ],
+          },
+          {
+            title: '02 — Making match day simple',
+            paragraphs: [
+              'A match has a clear lifecycle: Upcoming → Live → Completed. I designed around these states so players always knew what was happening and what to do next.',
+              'For live matches, the focus was speed and clarity — keeping scoring and essential match information accessible with minimal interaction.',
+            ],
+          },
+          {
+            title: '03 — Bringing payments into the game flow',
+            paragraphs: [
+              'Splitting court fees is a small problem that can create unnecessary friction. Rallo simplified it into: Total cost → Individual share → Payment status.',
+              'Players could understand what they owed without leaving the experience or relying on another app.',
+            ],
+          },
+          {
+            title: '04 — Turning matches into player identity',
+            paragraphs: [
+              "A match shouldn't disappear once it's over. The player profile brings together matches, results, statistics, level, and activity, creating a longer-term picture of how someone plays.",
+              "It also supports discovery by helping players understand who they're playing with or against.",
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Building a scalable system',
+        paragraphs: [
+          'As the product expanded, I focused on reusable patterns rather than designing every screen independently. I established patterns for:',
+        ],
+        bullets: [
+          'Match states',
+          'Player information',
+          'Scores & statistics',
+          'Cards and lists',
+          'Filters and forms',
+          'Empty and edge states',
+        ],
+        closing: ['This created a consistent foundation that could scale across different sports and features.'],
+      },
+      {
+        label: 'Prototyping & validation',
+        paragraphs: [
+          'I used prototypes to validate the flows and decisions, not just individual screens. Key questions included:',
+        ],
+        bullets: [
+          'Can players find a relevant game quickly?',
+          "Do they understand what they're joining?",
+          'Is live scoring fast enough during play?',
+          'Can they easily understand their share of the cost?',
+          "Does the profile tell a useful story?",
+        ],
+        closing: ['Feedback helped simplify flows, improve hierarchy, and remove unnecessary steps.'],
+      },
+      {
+        label: 'The outcome',
+        paragraphs: [
+          'Rallo connected the fragmented parts of racquet sports into one player-centric experience: Discover → Play → Track → Improve → Play again.',
+          "A tournament creates a match. A match creates a result. A result becomes a statistic. A statistic strengthens a player's profile. And that profile helps shape the next game.",
+        ],
+        quote: {
+          label: 'Design principle',
+          text: "The goal wasn't to make every feature useful on its own — it was to make the entire journey feel effortless.",
+        },
+        closing: [
+          "What I learned: the biggest design challenge wasn't any individual feature. It was designing how everything connects into one continuous player journey.",
+        ],
+      },
+    ],
+  },
+  {
     slug: 'one-system-four-surfaces',
     draft: true,
     title: 'One system, four surfaces',

@@ -88,28 +88,62 @@ export default function CaseStudy() {
           </CaseBlock>
         )}
 
-        <CaseBlock label={`${num()} — Process`}>
-          <Paras items={cs.process} />
-          <div className="cs-img-row">
-            {cs.processImages.map((t) => (
-              <Thumb key={t} label={`IMAGE PLACEHOLDER — ${t}`} />
+        {/* Freeform blocks for case studies whose real content doesn't fit
+            the fixed problem/process/solution/outcome shape below — an
+            ordered list of paragraphs, a bullet list, titled subsections,
+            and a closing quote, in any combination. */}
+        {cs.sections && cs.sections.map((s) => (
+          <CaseBlock label={`${num()} — ${s.label}`} key={s.label}>
+            {s.paragraphs && <Paras items={s.paragraphs} />}
+            {s.bullets && (
+              <ul>
+                {s.bullets.map((b) => <li key={b}>{b}</li>)}
+              </ul>
+            )}
+            {s.subsections && s.subsections.map((sub) => (
+              <div key={sub.title}>
+                <h4>{sub.title}</h4>
+                <Paras items={sub.paragraphs} />
+              </div>
             ))}
-          </div>
-          <h4>{cs.decisionTitle}</h4>
-          <Paras items={cs.decision} />
-        </CaseBlock>
+            {s.quote && (
+              <div className="callout">
+                <span className="callout-label">{s.quote.label}</span>
+                <p>{s.quote.text}</p>
+              </div>
+            )}
+            {s.closing && <Paras items={s.closing} />}
+          </CaseBlock>
+        ))}
 
-        <CaseBlock label={`${num()} — Solution`}>
-          <Paras items={cs.solution} />
-          <div className="cs-img-single">
-            <Thumb label={`IMAGE PLACEHOLDER — ${cs.solutionImage}`} />
-          </div>
-        </CaseBlock>
+        {cs.process && (
+          <CaseBlock label={`${num()} — Process`}>
+            <Paras items={cs.process} />
+            <div className="cs-img-row">
+              {cs.processImages.map((t) => (
+                <Thumb key={t} label={`IMAGE PLACEHOLDER — ${t}`} />
+              ))}
+            </div>
+            <h4>{cs.decisionTitle}</h4>
+            <Paras items={cs.decision} />
+          </CaseBlock>
+        )}
 
-        <CaseBlock label={`${num()} — Outcome`}>
-          <Paras items={cs.outcome} />
-          <StatRow stats={cs.stats} />
-        </CaseBlock>
+        {cs.solution && (
+          <CaseBlock label={`${num()} — Solution`}>
+            <Paras items={cs.solution} />
+            <div className="cs-img-single">
+              <Thumb label={`IMAGE PLACEHOLDER — ${cs.solutionImage}`} />
+            </div>
+          </CaseBlock>
+        )}
+
+        {cs.outcome && (
+          <CaseBlock label={`${num()} — Outcome`}>
+            <Paras items={cs.outcome} />
+            <StatRow stats={cs.stats} />
+          </CaseBlock>
+        )}
 
         <div className="next-project">
           <Link to={isLast ? '/work' : `/work/${next.slug}`}>
