@@ -296,7 +296,7 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   line-height:1;
 }
 @media (max-width:760px){
-  .cs-image-strip-item img{ height:220px; }
+  .cs-image-strip-item img{ height:160px; }
   .cs-image-strip{ flex-direction:column; }
   .cs-image-arrow{ transform:rotate(90deg); }
 }
