@@ -318,6 +318,102 @@ const allCaseStudies = [
     ],
   },
   {
+    slug: 'kryptos-enterprise',
+    title: 'Kryptos Enterprise',
+    shortTitle: 'Kryptos Enterprise',
+    dek: 'Making complex crypto transaction data easier to manage.',
+    cardDesc: 'Making complex crypto transaction data easier to manage.',
+    fileLabel: 'kryptos-enterprise.fig — case study',
+    topNote: 'Product case study',
+    category: 'product',
+    roleLine: 'Product Designer',
+    tags: ['Enterprise UX', 'Data-heavy UX', 'Workflow Design'],
+    pills: ['Enterprise UX', 'Data-heavy UX', 'Workflow Design'],
+    meta: [
+      ['Role', 'Product Designer'],
+      ['Platform', 'Web'],
+      ['Focus', 'UX, Information Architecture, Workflow Design'],
+    ],
+    overview: [
+      'Kryptos Enterprise serves accountants and clients who need a deeper level of control over transaction data than the standard B2C experience provides.',
+    ],
+    trigger: [
+      'The B2C Kryptos experience was designed for individual users who primarily want to view and understand their portfolio.',
+      'Enterprise users had a different need. Accountants and clients work with large volumes of transactions and often need to inspect specific fields, compare data, reconcile records, and export information for their accounting workflows.',
+      "The existing transaction experience wasn't flexible enough for these use cases.",
+    ],
+    hypothesisLabel: 'The opportunity',
+    hypothesis: 'Give enterprise users control over how transaction data is viewed, managed, and exported.',
+    triggerFollowup: [],
+    sections: [
+      {
+        label: 'Understanding the workflow',
+        paragraphs: [
+          "The key wasn't simply adding more information to the table. Adding every possible field would make the experience overwhelming.",
+          'Instead, I focused on understanding what information users need at different stages of their workflow: Find → Customize → Review → Reconcile → Export.',
+        ],
+        closing: [
+          "This helped define the transaction workspace around the user's task rather than the underlying data structure.",
+        ],
+      },
+      {
+        label: 'Designing a flexible transaction workspace',
+        paragraphs: ['I designed the experience around three core capabilities:'],
+        subsections: [
+          {
+            title: 'Customize',
+            paragraphs: [
+              'Users can choose which transaction attributes they want to see and arrange the workspace around their workflow.',
+              'This allows different users — from accountants to clients — to work with the same underlying data in different ways.',
+            ],
+          },
+          {
+            title: 'Review',
+            paragraphs: [
+              'The transaction table provides a more detailed view of individual records, making it easier to inspect and compare transaction information without constantly navigating between screens.',
+            ],
+          },
+          {
+            title: 'Export',
+            paragraphs: [
+              'Once the data has been reviewed and configured, users can download the information they need for downstream accounting, reporting, and reconciliation workflows.',
+              'The goal was to make export feel like a natural continuation of the workflow rather than a separate utility.',
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Designing for data density',
+        paragraphs: [
+          'The biggest UX challenge was balancing information density with readability. Enterprise users need a lot of information, but showing everything at once creates noise.',
+          'I focused on:',
+        ],
+        bullets: [
+          'Clear column hierarchy',
+          'Customizable fields',
+          'Scannable transaction rows',
+          'Consistent data formatting',
+          'Efficient filtering and navigation',
+          'Clear export actions',
+        ],
+        closing: [
+          'The result was a workspace that could handle complex data without making the interface feel unnecessarily complex.',
+        ],
+      },
+      {
+        label: 'The outcome',
+        paragraphs: [
+          'The new transaction experience gave Kryptos Enterprise users a more flexible way to work with transaction data — from configuring their view to reviewing records and exporting information for accounting workflows.',
+          'More importantly, it shifted the experience from simply viewing transactions to working with transactions.',
+        ],
+        quote: {
+          label: 'Design principle',
+          text: "Enterprise UX isn't about showing more data. It's about giving users control over the data that matters.",
+        },
+      },
+    ],
+  },
+  {
     slug: 'one-system-four-surfaces',
     draft: true,
     title: 'One system, four surfaces',
@@ -418,14 +514,7 @@ const allCaseStudies = [
 export const caseStudies = allCaseStudies.filter((cs) => !cs.draft)
 
 /** Projects with no write-up yet — rendered as non-clickable cards on /work. */
-export const archivedProjects = [
-  {
-    shortTitle: 'Turning complex crypto transactions into a powerful accounting workflow',
-    roleLine: 'Product Designer',
-    category: 'product',
-    tags: ['Enterprise UX', 'Data-heavy UX', 'Workflow Design'],
-  },
-]
+export const archivedProjects = []
 
 export const workFilters = [
   { key: 'all', label: 'All' },
