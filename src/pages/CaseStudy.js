@@ -123,6 +123,19 @@ export default function CaseStudy() {
                     ))}
                   </div>
                 )}
+                {sub.video && (
+                  <figure className="cs-video">
+                    <video
+                      src={sub.video.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                    {sub.video.caption ? <figcaption>{sub.video.caption}</figcaption> : null}
+                  </figure>
+                )}
               </div>
             ))}
             {s.stats && (

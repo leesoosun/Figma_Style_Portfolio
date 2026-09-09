@@ -27,6 +27,7 @@ import kryptosEnterprisePreview from './assets/work/kryptos-enterprise-preview.p
 import kryptosEnterpriseTxnBefore from './assets/case-studies/kryptos-enterprise-txn-before.png'
 import kryptosEnterpriseColumnsPanel from './assets/case-studies/kryptos-enterprise-columns-panel.png'
 import kryptosEnterpriseTxnAfter from './assets/case-studies/kryptos-enterprise-txn-after.png'
+import kryptosEnterprisePrototypeVideo from './assets/case-studies/kryptos-enterprise-prototype.mp4'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -391,6 +392,7 @@ const allCaseStudies = [
               { src: kryptosEnterpriseColumnsPanel, alt: 'The columns panel used to choose visible fields', caption: 'Columns panel' },
               { src: kryptosEnterpriseTxnAfter, alt: 'Transaction view after configuring columns', caption: 'After' },
             ],
+            video: { src: kryptosEnterprisePrototypeVideo, caption: 'Prototype — switching into the advanced, customizable view' },
           },
           {
             title: 'Review',
