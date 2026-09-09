@@ -179,8 +179,6 @@
   margin-top:18px; display:inline-flex; align-items:center; gap:6px;
   font-size:13.5px; font-weight:600; color:var(--blue); text-decoration:none;
 }
-.work-row:nth-child(even) .thumb{ order:1; }
-.work-row:nth-child(even) .info{ order:2; }
 
 .work-cta{ margin-top:44px; display:flex; justify-content:center; }
 
@@ -255,8 +253,8 @@
   .floating-tools{ bottom:16px; }
   .brands-track, .brands-group{ gap:40px; }
   .work-row{ grid-template-columns:1fr; }
-  .work-row .thumb, .work-row:nth-child(even) .thumb{ order:1 !important; }
-  .work-row .info, .work-row:nth-child(even) .info{ order:2 !important; }
+  .work-row .thumb{ order:1 !important; }
+  .work-row .info{ order:2 !important; }
   .bring-grid{ grid-template-columns:1fr; }
   .canvas-section{ grid-template-columns:1fr; }
 }
