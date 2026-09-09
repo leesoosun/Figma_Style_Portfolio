@@ -56,28 +56,32 @@ export default function Home() {
             rebases scrollLeft back by exactly one group's width. The clone is
             aria-hidden so screen readers and the accessibility tree only ever
             see one copy. Auto-advances via rAF, and can be dragged by hand —
-            mouse-drag on desktop, native touch/trackpad scroll elsewhere. */}
-        <div
-          className="glimpse-viewport reveal"
-          ref={(el) => { revealRef.current = el; viewportRef.current = el }}
-        >
-          <div className="glimpse-track" ref={trackRef}>
-            {[0, 1].map((copy) => (
-              <div
-                className="glimpse-group"
-                key={copy}
-                ref={copy === 0 ? groupRef : undefined}
-                aria-hidden={copy === 1 ? 'true' : undefined}
-              >
-                {glimpse.map((g) => (
-                  <div className="gcard" key={g.title}>
-                    {g.image
-                      ? <img className="thumb thumb-img" src={g.image} alt={g.title} draggable="false" loading="lazy" />
-                      : <Thumb className="thumb" />}
-                  </div>
-                ))}
-              </div>
-            ))}
+            mouse-drag on desktop, native touch/trackpad scroll elsewhere.
+            The reveal fade-up lives on a separate wrapper rather than the
+            scrollable element itself — Safari's compositor loses track of
+            scrollLeft writes made to an element that also carries a
+            transform/will-change (which `.reveal` does), breaking the
+            auto-scroll there entirely. */}
+        <div className="reveal" ref={revealRef}>
+          <div className="glimpse-viewport" ref={viewportRef}>
+            <div className="glimpse-track" ref={trackRef}>
+              {[0, 1].map((copy) => (
+                <div
+                  className="glimpse-group"
+                  key={copy}
+                  ref={copy === 0 ? groupRef : undefined}
+                  aria-hidden={copy === 1 ? 'true' : undefined}
+                >
+                  {glimpse.map((g) => (
+                    <div className="gcard" key={g.title}>
+                      {g.image
+                        ? <img className="thumb thumb-img" src={g.image} alt={g.title} draggable="false" loading="lazy" />
+                        : <Thumb className="thumb" />}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -128,31 +132,30 @@ export default function Home() {
             narrower than the browser's own scrollable width can shrink to,
             and native scrollLeft silently clamps well short of the wrap
             point, making the reel visibly stall for most of each cycle. */}
-        <div
-          className="brands-viewport reveal"
-          ref={(el) => { brandsRevealRef.current = el; brandsReel.viewportRef.current = el }}
-        >
-          <div className="brands-track" ref={brandsReel.trackRef}>
-            {[0, 1].map((copy) => (
-              <div
-                className="brands-group"
-                key={copy}
-                ref={copy === 0 ? brandsReel.groupRef : undefined}
-                aria-hidden={copy === 1 ? 'true' : undefined}
-              >
-                {Array.from({ length: BRAND_REPEAT }).map((_, rep) => (
-                  brands.map((b) => (
-                    <div
-                      className="brand-chip"
-                      key={`${b.name}-${rep}`}
-                      aria-hidden={rep > 0 || copy === 1 ? 'true' : undefined}
-                    >
-                      <img src={b.logo} alt={b.name} draggable="false" loading="lazy" />
-                    </div>
-                  ))
-                ))}
-              </div>
-            ))}
+        <div className="reveal" ref={brandsRevealRef}>
+          <div className="brands-viewport" ref={brandsReel.viewportRef}>
+            <div className="brands-track" ref={brandsReel.trackRef}>
+              {[0, 1].map((copy) => (
+                <div
+                  className="brands-group"
+                  key={copy}
+                  ref={copy === 0 ? brandsReel.groupRef : undefined}
+                  aria-hidden={copy === 1 ? 'true' : undefined}
+                >
+                  {Array.from({ length: BRAND_REPEAT }).map((_, rep) => (
+                    brands.map((b) => (
+                      <div
+                        className="brand-chip"
+                        key={`${b.name}-${rep}`}
+                        aria-hidden={rep > 0 || copy === 1 ? 'true' : undefined}
+                      >
+                        <img src={b.logo} alt={b.name} draggable="false" loading="lazy" />
+                      </div>
+                    ))
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
