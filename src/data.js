@@ -420,22 +420,10 @@ export const caseStudies = allCaseStudies.filter((cs) => !cs.draft)
 /** Projects with no write-up yet — rendered as non-clickable cards on /work. */
 export const archivedProjects = [
   {
-    shortTitle: 'Ops console v2',
-    roleLine: 'Product designer',
+    shortTitle: 'Turning complex crypto transactions into a powerful accounting workflow',
+    roleLine: 'Product Designer',
     category: 'product',
-    tags: [],
-  },
-  {
-    shortTitle: 'Fieldnote identity',
-    roleLine: 'Personal project',
-    category: 'personal',
-    tags: [],
-  },
-  {
-    shortTitle: 'Referral loop teardown',
-    roleLine: 'Product designer',
-    category: 'product',
-    tags: [],
+    tags: ['Enterprise UX', 'Data-heavy UX', 'Workflow Design'],
   },
 ]
 
