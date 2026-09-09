@@ -175,30 +175,6 @@ const allCaseStudies = [
     triggerFollowup: [
       "This wasn't a rigorously tested hypothesis with a control group; it was the directional bet that shaped where I focused research first.",
     ],
-    process: [
-      'We started by reading tickets rather than guessing. Eleven interviews with people who had done a manual split in the previous month, plus a read of the transfer graph looking for the signature of a faked group: several transfers between the same cluster of people within a short window.',
-      'The interviews reframed the problem. Nobody asked for a splitting calculator. What they wanted was to stop being the person who chases friends for money — the social cost of following up was the real pain, and the arithmetic was incidental.',
-    ],
-    processImages: ['affinity map from 11 interviews', 'early flow sketches'],
-    decisionTitle: 'The decision: a shared ledger, not a payment request',
-    decision: [
-      'The obvious build was a bulk payment request — pick people, split an amount, send. We prototyped it and watched it fail in testing for a specific reason: it put the organiser in the position of invoicing their friends, which is exactly the social cost they wanted to avoid.',
-      'So we inverted it. A group is a running ledger that anyone can add an expense to, and it stays open until it nets to zero. The organiser stops being a debt collector and becomes just another participant. We rejected the request-based model even though it was about three weeks cheaper to ship.',
-    ],
-    solution: [
-      'The shipped flow has three moves: create a group from an existing chat thread, drop an expense into it with a photo of the receipt, and settle when someone chooses to. The split defaults to even and can be edited per person, but the default holds for the large majority of expenses, so most people never touch it.',
-      'The one screen we spent the most time on is the balance summary. It answers a single question — am I owed, or do I owe, and by how much — before it shows any itemised detail.',
-    ],
-    solutionImage: 'final group ledger and settle-up screens',
-    outcome: [
-      'Rolled out to 10% of users for three weeks, then to everyone. The numbers below are illustrative sample figures, not measured results.',
-      'The thing I would do differently: we shipped without a way to leave a group that still had an open balance, and it became the top request within days. An obvious gap in hindsight, and one a fourth round of testing would have caught.',
-    ],
-    stats: [
-      ['+34%', 'Group transfers per active user'],
-      ['−41%', '“Where did my money go” tickets'],
-      ['2.1×', 'Week-4 retention vs. solo-only cohort'],
-    ],
   },
   {
     slug: 'rallo-racquet-sports',
