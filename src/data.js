@@ -147,7 +147,7 @@ const allCaseStudies = [
     fileLabel: 'kryptos-portfolio.fig — featured',
     topNote: 'Featured case study',
     category: 'product',
-    roleLine: 'Lead product designer · 0→1',
+    roleLine: 'Product Designer',
     featured: true,
     tags: ['Product Design', 'Web & Mobile', '0 to 1'],
     pills: ['Product Design', 'Web & Mobile', '0 to 1'],
