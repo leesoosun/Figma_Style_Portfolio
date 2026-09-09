@@ -387,10 +387,14 @@ const allCaseStudies = [
               'Users can choose which transaction attributes they want to see and arrange the workspace around their workflow.',
               'This allows different users — from accountants to clients — to work with the same underlying data in different ways.',
             ],
-            images: [
-              { src: kryptosEnterpriseTxnBefore, alt: 'Default transaction view before customizing columns', caption: 'Before' },
-              { src: kryptosEnterpriseColumnsPanel, alt: 'The columns panel used to choose visible fields', caption: 'Columns panel' },
-              { src: kryptosEnterpriseTxnAfter, alt: 'Transaction view after configuring columns', caption: 'After' },
+            imageRows: [
+              [
+                { src: kryptosEnterpriseTxnBefore, alt: 'Default transaction view before customizing columns', caption: 'Before' },
+              ],
+              [
+                { src: kryptosEnterpriseColumnsPanel, alt: 'The columns panel used to choose visible fields', caption: 'Columns panel' },
+                { src: kryptosEnterpriseTxnAfter, alt: 'Transaction view after configuring columns', caption: 'After' },
+              ],
             ],
             video: { src: kryptosEnterprisePrototypeVideo, caption: 'Prototype — switching into the advanced, customizable view' },
           },

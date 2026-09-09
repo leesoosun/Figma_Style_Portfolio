@@ -290,8 +290,15 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   font-family:var(--mono); font-size:11.5px; color:var(--muted);
   margin-top:10px;
 }
+.cs-image-strip + .cs-image-strip{ margin-top:8px; }
+.cs-image-arrow{
+  align-self:center; color:var(--blue); font-size:22px; font-weight:700;
+  line-height:1;
+}
 @media (max-width:760px){
   .cs-image-strip-item img{ height:220px; }
+  .cs-image-strip{ flex-direction:column; }
+  .cs-image-arrow{ transform:rotate(90deg); }
 }
 
 .cs-video{ margin:20px 0 0; max-width:600px; }
@@ -318,10 +325,12 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .stat-cell .desc{ font-size:13px; color:var(--muted); margin-top:6px; line-height:1.55; }
 
 .next-project{
-  display:flex; justify-content:space-between; align-items:center;
   padding:60px 0; border-top:1px solid var(--line); margin-top:40px;
 }
-.next-project a{ text-decoration:none; color:var(--ink); }
+.next-project a{
+  display:flex; justify-content:space-between; align-items:center;
+  text-decoration:none; color:var(--ink);
+}
 .next-project .n-label{ font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-bottom:8px; display:block; }
 .next-project .n-title{ font-size:24px; font-weight:700; }
 .next-project .n-arrow{ font-size:28px; color:var(--blue); }

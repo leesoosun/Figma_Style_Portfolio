@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import {
   Page, Thumb, Eyebrow, Reveal, MetaRow, StatRow, CaseBlock, Paras,
@@ -113,16 +113,19 @@ export default function CaseStudy() {
               <div key={sub.title}>
                 <h4>{sub.title}</h4>
                 <Paras items={sub.paragraphs} />
-                {sub.images && (
-                  <div className="cs-image-strip">
-                    {sub.images.map((img) => (
-                      <figure key={img.src} className="cs-image-strip-item">
-                        <img src={img.src} alt={img.alt} draggable="false" loading="lazy" />
-                        {img.caption ? <figcaption>{img.caption}</figcaption> : null}
-                      </figure>
+                {sub.imageRows && sub.imageRows.map((row, i) => (
+                  <div className="cs-image-strip" key={i}>
+                    {row.map((img, j) => (
+                      <Fragment key={img.src}>
+                        {j > 0 ? <span className="cs-image-arrow" aria-hidden="true">→</span> : null}
+                        <figure className="cs-image-strip-item">
+                          <img src={img.src} alt={img.alt} draggable="false" loading="lazy" />
+                          {img.caption ? <figcaption>{img.caption}</figcaption> : null}
+                        </figure>
+                      </Fragment>
                     ))}
                   </div>
-                )}
+                ))}
                 {sub.video && (
                   <figure className="cs-video">
                     <video
@@ -190,10 +193,12 @@ export default function CaseStudy() {
 
         <div className="next-project">
           <Link to={isLast ? '/work' : `/work/${next.slug}`}>
-            <span className="n-label">{isLast ? 'Back to index' : 'Next project'}</span>
-            <span className="n-title">{isLast ? 'All work' : next.shortTitle}</span>
+            <span className="n-text">
+              <span className="n-label">{isLast ? 'Back to index' : 'Next project'}</span>
+              <span className="n-title">{isLast ? 'All work' : next.shortTitle}</span>
+            </span>
+            <span className="n-arrow">→</span>
           </Link>
-          <span className="n-arrow">→</span>
         </div>
       </section>
     </Page>
