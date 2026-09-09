@@ -175,6 +175,101 @@ const allCaseStudies = [
     triggerFollowup: [
       "This wasn't a rigorously tested hypothesis with a control group; it was the directional bet that shaped where I focused research first.",
     ],
+    sections: [
+      {
+        label: 'Research',
+        subsections: [
+          {
+            title: 'Primary research',
+            bullets: [
+              'Conducted interviews with crypto traders directly',
+              'Supplemented with informal discussions with stakeholders who had their own user contact',
+              'Reviewed existing support tickets and user feedback for recurring themes',
+            ],
+          },
+          {
+            title: 'Journey mapping',
+            paragraphs: [
+              'Mapped the end-to-end user journey across most key stages — from connecting a wallet/exchange, to checking portfolio value, to preparing for tax filing — to identify where friction and drop-off were highest.',
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Competitive Analysis',
+        paragraphs: [
+          'Direct competitors reviewed: CoinTracker, Koinly, CoinLedger, Summ.',
+          "Indirect inspiration: traditional finance and stock trading apps — useful for some visual and interaction patterns (e.g. simple gain/loss framing, card-based holdings), but only partially applicable, since crypto's core problem (fragmented data across many wallets/chains/exchanges) doesn't really exist in traditional brokerage products. This meant borrowing where it made sense and designing original solutions where it didn't.",
+          'Patterns worth calling out:',
+        ],
+        bullets: [
+          'Portfolio-first, tax-second structure — competitors consistently lead with a portfolio/holdings dashboard and treat tax reporting as a downstream feature built on the same data.',
+          'Integration breadth as a trust signal — the more exchanges/wallets a platform supports natively, the more users seem to trust it with their full picture.',
+          'Manual reconciliation is a universal weak point — even category leaders still push users into manual cleanup for complex transaction types (DeFi, margin, staking).',
+          'Feature-gating creates a “half-visible” portfolio — some competitors lock full portfolio views behind paywalls, leaving free users with an incomplete picture of their own assets.',
+          'Per-asset depth is baseline, not a differentiator — ROI per asset, real-time pricing, and unrealized gains/losses are expected table stakes across the category.',
+        ],
+      },
+      {
+        label: 'Research Output — Core Pain Points',
+        paragraphs: [
+          'From interviews, support ticket analysis, and journey mapping, four consistent pain points emerged:',
+        ],
+        bullets: [
+          '“How much do I have?” — No single, trustworthy view of total net worth across accounts.',
+          '“Where are my assets?” — Holdings scattered across multiple wallets and exchanges, requiring manual cross-checking.',
+          'Difficult to categorize transactions — users struggled to make sense of transaction types (swaps, transfers, staking rewards, etc.) without manual effort.',
+          "Inaccurate or hard-to-generate tax reports — a direct downstream consequence of the above; miscategorized transactions meant tax reports users couldn't fully trust.",
+        ],
+      },
+      {
+        label: 'Problem Statement',
+        paragraphs: [
+          'Crypto users managing assets across multiple wallets and exchanges lack a single, reliable view of their portfolio. They struggle to consolidate holdings, understand their true portfolio value, and accurately categorize transactions — leading to manual effort, errors, and uncertainty.',
+          "By creating a unified portfolio experience, users can automatically consolidate their assets, get accurate and real-time portfolio insights, and confidently understand what they own, where it is, and how much it's worth.",
+        ],
+      },
+      {
+        label: 'Solutions Mapped to Pain Points',
+        bullets: [
+          'How much do I have? → Unified, real-time portfolio dashboard aggregating net worth across all connected sources',
+          'Where are my assets? → Consolidated holdings view with source-tagging (which wallet/exchange each asset lives on)',
+          'Difficult to categorize transactions → Automated transaction categorization with a manual override/edit flow, surfaced early — not just at tax time',
+          'Inaccurate tax reports → A reconciliation layer that flags uncertain/unmatched transactions upfront, plus a confidence indicator on generated reports',
+        ],
+      },
+      {
+        label: 'Design Evolution — V1 → V3',
+        subsections: [
+          {
+            title: 'V1 — Foundation',
+            paragraphs: [
+              'Basic aggregation: connect wallets and exchanges, see a combined balance list. Transactions displayed largely as raw data, with no categorization intelligence yet. This validated the core hypothesis — that one consolidated view was more valuable than checking multiple platforms — but usability testing surfaced confusion around uncategorized and duplicate-looking transactions.',
+            ],
+          },
+          {
+            title: 'V2 — Structure & Trust',
+            paragraphs: [
+              'Introduced auto-categorization logic and a true portfolio dashboard: net worth summary, per-asset breakdown, gain/loss tracking. Added manual edit/override for miscategorized transactions based on V1 feedback. Reconciliation was still a soft spot — users weren’t fully confident which numbers were “tax-ready.”',
+            ],
+          },
+          {
+            title: 'V3 — Final',
+            paragraphs: [
+              'Refined dashboard with visible confidence indicators on data accuracy, smarter auto-categorization that reduced the need for manual edits, and a tighter connection between the portfolio view and the tax reporting flow. AI Insights was layered on top at this stage — once the core portfolio experience was accurate and trustworthy enough to build proactive intelligence on top of it.',
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Impact',
+        stats: [
+          { value: '35% faster', headline: 'Portfolio reconciliation and tax-report preparation' },
+          { value: '30% fewer', headline: 'Transactions requiring manual categorization' },
+          { value: '25% fewer', headline: 'Support requests related to missing or incorrect transaction data' },
+        ],
+      },
+    ],
   },
   {
     slug: 'rallo-racquet-sports',

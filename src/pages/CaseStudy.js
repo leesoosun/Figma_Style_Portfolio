@@ -112,7 +112,12 @@ export default function CaseStudy() {
             {s.subsections && s.subsections.map((sub) => (
               <div key={sub.title}>
                 <h4>{sub.title}</h4>
-                <Paras items={sub.paragraphs} />
+                {sub.paragraphs && <Paras items={sub.paragraphs} />}
+                {sub.bullets && (
+                  <ul>
+                    {sub.bullets.map((b) => <li key={b}>{b}</li>)}
+                  </ul>
+                )}
                 {sub.imageRows && sub.imageRows.map((row, i) => (
                   <div className="cs-image-strip" key={i}>
                     {row.map((img, j) => (
@@ -147,7 +152,7 @@ export default function CaseStudy() {
                   <Reveal key={st.value + st.headline} className="stat-cell" delay={i * 90}>
                     <div className="num">{st.value}</div>
                     <div className="headline">{st.headline}</div>
-                    <div className="desc">{st.body}</div>
+                    {st.body ? <div className="desc">{st.body}</div> : null}
                   </Reveal>
                 ))}
               </div>
