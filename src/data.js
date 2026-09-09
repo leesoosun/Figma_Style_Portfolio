@@ -24,6 +24,9 @@ import unbiasedLogo from './assets/brands/unbiased.png'
 import kryptosPreview from './assets/work/kryptos-preview.png'
 import ralloPreview from './assets/work/rallo-preview.png'
 import kryptosEnterprisePreview from './assets/work/kryptos-enterprise-preview.png'
+import kryptosEnterpriseTxnBefore from './assets/case-studies/kryptos-enterprise-txn-before.png'
+import kryptosEnterpriseColumnsPanel from './assets/case-studies/kryptos-enterprise-columns-panel.png'
+import kryptosEnterpriseTxnAfter from './assets/case-studies/kryptos-enterprise-txn-after.png'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -382,6 +385,11 @@ const allCaseStudies = [
             paragraphs: [
               'Users can choose which transaction attributes they want to see and arrange the workspace around their workflow.',
               'This allows different users — from accountants to clients — to work with the same underlying data in different ways.',
+            ],
+            images: [
+              { src: kryptosEnterpriseTxnBefore, alt: 'Default transaction view before customizing columns', caption: 'Before' },
+              { src: kryptosEnterpriseColumnsPanel, alt: 'The columns panel used to choose visible fields', caption: 'Columns panel' },
+              { src: kryptosEnterpriseTxnAfter, alt: 'Transaction view after configuring columns', caption: 'After' },
             ],
           },
           {

@@ -272,6 +272,28 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 .cs-img-single{ margin-top:26px; }
 .cs-img-single .thumb-placeholder{ height:400px; }
 
+/* A sequence of real screenshots with mixed aspect ratios (e.g. a wide
+   table next to a narrow side-panel crop) — each scaled to a shared
+   height rather than cropped or stretched into equal-width columns, so
+   every image keeps its real proportions. */
+.cs-image-strip{
+  display:flex; align-items:flex-start; justify-content:center;
+  flex-wrap:wrap; gap:20px; margin-top:20px;
+}
+.cs-image-strip-item{ margin:0; text-align:center; }
+.cs-image-strip-item img{
+  height:320px; width:auto; max-width:100%;
+  border-radius:12px; border:1px solid var(--line);
+  display:block;
+}
+.cs-image-strip-item figcaption{
+  font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  margin-top:10px;
+}
+@media (max-width:760px){
+  .cs-image-strip-item img{ height:220px; }
+}
+
 .stat-row{
   display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
   background:var(--line); border:1px solid var(--line);

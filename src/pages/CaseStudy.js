@@ -113,6 +113,16 @@ export default function CaseStudy() {
               <div key={sub.title}>
                 <h4>{sub.title}</h4>
                 <Paras items={sub.paragraphs} />
+                {sub.images && (
+                  <div className="cs-image-strip">
+                    {sub.images.map((img) => (
+                      <figure key={img.src} className="cs-image-strip-item">
+                        <img src={img.src} alt={img.alt} draggable="false" loading="lazy" />
+                        {img.caption ? <figcaption>{img.caption}</figcaption> : null}
+                      </figure>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
             {s.stats && (
