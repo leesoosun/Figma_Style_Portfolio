@@ -22,6 +22,7 @@ import kryptosLogo from './assets/brands/kryptos.png'
 import ralloLogo from './assets/brands/rallo.png'
 import unbiasedLogo from './assets/brands/unbiased.png'
 import kryptosPreview from './assets/work/kryptos-preview.png'
+import ralloPreview from './assets/work/rallo-preview.png'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -200,6 +201,8 @@ const allCaseStudies = [
     shortTitle: 'Rallo — Racquet Sports Platform',
     dek: 'Making racquet sports easier to discover, play, and track.',
     cardDesc: 'Making racquet sports easier to discover, play, and track.',
+    previewImage: ralloPreview,
+    previewRatio: '2293 / 1134',
     fileLabel: 'rallo-racquet-sports.fig — case study',
     topNote: 'Product case study',
     category: 'product',
