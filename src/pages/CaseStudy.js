@@ -64,7 +64,8 @@ export default function CaseStudy() {
         )}
 
         {cs.ownership && (
-          <CaseBlock label={`${num()} — What I owned`}>
+          <CaseBlock label={`${num()} — My role`}>
+            {cs.ownershipIntro && <Paras items={cs.ownershipIntro} />}
             <ul>
               {cs.ownership.map((item) => <li key={item}>{item}</li>)}
             </ul>
@@ -72,7 +73,7 @@ export default function CaseStudy() {
         )}
 
         {cs.trigger && (
-          <CaseBlock label={`${num()} — The Trigger`}>
+          <CaseBlock label={`${num()} — The trigger`}>
             <Paras items={cs.trigger} />
             <div className="callout">
               <span className="callout-label">{cs.hypothesisLabel}</span>

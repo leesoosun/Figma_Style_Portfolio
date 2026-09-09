@@ -138,10 +138,8 @@ const allCaseStudies = [
     slug: 'kryptos-portfolio-management',
     title: 'Bringing fragmented crypto data into one place',
     shortTitle: 'Bringing fragmented crypto data into one place',
-    dek:
-      "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
-    cardDesc:
-      "Kryptos's core portfolio management experience, built from the ground up and refined through multiple rounds of user research and iteration.",
+    dek: 'Turning fragmented crypto data into one trusted portfolio.',
+    cardDesc: 'Turning fragmented crypto data into one trusted portfolio.',
     previewImage: kryptosPreview,
     previewRatio: '2293 / 1134',
     fileLabel: 'kryptos-portfolio.fig — featured',
@@ -153,110 +151,130 @@ const allCaseStudies = [
     pills: ['Product Design', 'Web & Mobile', '0 to 1'],
     meta: [
       ['Role', 'Product Designer'],
-      ['Team', '1 designer (me), 2 engineers, and stakeholders'],
-      ['Impact', 'Active 40+ users · Funded by Binance'],
+      ['Platform', 'Web + Mobile'],
+      ['Focus', 'Product Strategy, UX, UI, Prototyping'],
     ],
     overview: [
-      'Kryptos is a crypto intelligence and financial management platform that consolidates data from exchanges, wallets, and other sources into a single place. Portfolio management sits at the core of the product: users connect their accounts and wallets, consolidate them into one unified portfolio, and monitor performance and holdings from there. Additional layers — tax reporting, AI-driven insights, and enterprise workflows — are all built on top of this same portfolio data.',
+      'Kryptos is a crypto intelligence and financial management platform that brings data from exchanges, wallets, and other sources into one place.',
+      'Portfolio management sits at the core of the experience. Users connect their accounts and wallets, get a unified view of their holdings, and use that data for tax reporting, AI insights, and other financial workflows.',
+    ],
+    ownershipIntro: [
+      'I owned the end-to-end design process, from identifying the problem to validating and shipping the solution.',
     ],
     ownership: [
-      'Research — user interviews, stakeholder discussions, and analysis of support tickets/user feedback',
-      'UI design',
-      'Prototyping',
+      'User interviews and stakeholder research',
+      'Support-ticket and feedback analysis',
+      'Product strategy and UX',
+      'UI design and prototyping',
       'Usability testing',
-      'End-to-end ownership of the design process, from problem discovery to shipped solution',
+      'Collaboration with product and engineering',
     ],
     trigger: [
-      "Unlike a lot of feature work, this project didn't start as a top-down stakeholder request or a predefined roadmap item. It emerged from joint research — myself and stakeholders looking together at user feedback, support conversations, and direct research into how crypto users actually manage their assets day to day.",
+      'Crypto users often manage assets across multiple wallets and exchanges.',
+      'The more accounts they connect, the harder it becomes to answer simple questions: what do I own? Where is it? And how much is it worth?',
     ],
-    hypothesisLabel: 'Working hypothesis',
-    hypothesis:
-      "If users can see all their crypto data in one place — instead of manually checking multiple exchanges and wallets and cross-referencing between them — they'll trust the product more and use it as their primary source of truth for their portfolio.",
-    triggerFollowup: [
-      "This wasn't a rigorously tested hypothesis with a control group; it was the directional bet that shaped where I focused research first.",
-    ],
+    hypothesisLabel: 'The opportunity',
+    hypothesis: "Create a single, trustworthy source of truth for a user's crypto portfolio.",
+    triggerFollowup: [],
     sections: [
       {
         label: 'Research',
+        paragraphs: [
+          'I combined user interviews, stakeholder conversations, support tickets, and journey mapping to understand where users struggled most.',
+          'I mapped the journey from connecting accounts → viewing holdings → managing transactions → preparing for tax reporting.',
+        ],
         subsections: [
           {
-            title: 'Primary research',
+            title: 'What we heard',
             bullets: [
-              'Conducted interviews with crypto traders directly',
-              'Supplemented with informal discussions with stakeholders who had their own user contact',
-              'Reviewed existing support tickets and user feedback for recurring themes',
-            ],
-          },
-          {
-            title: 'Journey mapping',
-            paragraphs: [
-              'Mapped the end-to-end user journey across most key stages — from connecting a wallet/exchange, to checking portfolio value, to preparing for tax filing — to identify where friction and drop-off were highest.',
+              '“How much do I actually have?” — Users lacked a reliable view of their total portfolio across accounts.',
+              '“Where are my assets?” — Holdings were scattered across wallets and exchanges, requiring manual cross-checking.',
+              '“What does this transaction mean?” — Swaps, transfers, staking rewards, and other transaction types were difficult to categorize.',
+              '“Can I trust my tax report?” — Incorrect or incomplete transaction data created uncertainty downstream.',
             ],
           },
         ],
       },
       {
-        label: 'Competitive Analysis',
+        label: 'From pain points to opportunities',
+        paragraphs: ['The research pointed to four core opportunities:'],
+        bullets: [
+          'Portfolio data is fragmented → Unify holdings across connected sources',
+          'Assets are difficult to locate → Show where each asset lives',
+          'Transactions require manual work → Automate categorization with user control',
+          "Tax data isn't always trustworthy → Surface issues before reporting",
+        ],
+        closing: [
+          'This shifted the product from simply tracking crypto to helping users understand and manage it.',
+        ],
+      },
+      {
+        label: 'Competitive landscape',
         paragraphs: [
-          'Direct competitors reviewed: CoinTracker, Koinly, CoinLedger, Summ.',
-          "Indirect inspiration: traditional finance and stock trading apps — useful for some visual and interaction patterns (e.g. simple gain/loss framing, card-based holdings), but only partially applicable, since crypto's core problem (fragmented data across many wallets/chains/exchanges) doesn't really exist in traditional brokerage products. This meant borrowing where it made sense and designing original solutions where it didn't.",
-          'Patterns worth calling out:',
+          'I reviewed direct competitors including CoinTracker, Koinly, CoinLedger, and Summ, alongside patterns from traditional finance products.',
+          'A few patterns stood out:',
         ],
         bullets: [
-          'Portfolio-first, tax-second structure — competitors consistently lead with a portfolio/holdings dashboard and treat tax reporting as a downstream feature built on the same data.',
-          'Integration breadth as a trust signal — the more exchanges/wallets a platform supports natively, the more users seem to trust it with their full picture.',
-          'Manual reconciliation is a universal weak point — even category leaders still push users into manual cleanup for complex transaction types (DeFi, margin, staking).',
-          'Feature-gating creates a “half-visible” portfolio — some competitors lock full portfolio views behind paywalls, leaving free users with an incomplete picture of their own assets.',
-          'Per-asset depth is baseline, not a differentiator — ROI per asset, real-time pricing, and unrealized gains/losses are expected table stakes across the category.',
+          'Portfolio-first experiences were the category standard.',
+          'Integration breadth was an important trust signal.',
+          'Manual transaction reconciliation remained a major pain point.',
+          'Per-asset performance and gain/loss were expected, not differentiating.',
+        ],
+        closing: [
+          "The key opportunity wasn't to add more features. It was to make the underlying portfolio data more complete, understandable, and trustworthy.",
         ],
       },
       {
-        label: 'Research Output — Core Pain Points',
-        paragraphs: [
-          'From interviews, support ticket analysis, and journey mapping, four consistent pain points emerged:',
-        ],
-        bullets: [
-          '“How much do I have?” — No single, trustworthy view of total net worth across accounts.',
-          '“Where are my assets?” — Holdings scattered across multiple wallets and exchanges, requiring manual cross-checking.',
-          'Difficult to categorize transactions — users struggled to make sense of transaction types (swaps, transfers, staking rewards, etc.) without manual effort.',
-          "Inaccurate or hard-to-generate tax reports — a direct downstream consequence of the above; miscategorized transactions meant tax reports users couldn't fully trust.",
-        ],
-      },
-      {
-        label: 'Problem Statement',
-        paragraphs: [
-          'Crypto users managing assets across multiple wallets and exchanges lack a single, reliable view of their portfolio. They struggle to consolidate holdings, understand their true portfolio value, and accurately categorize transactions — leading to manual effort, errors, and uncertainty.',
-          "By creating a unified portfolio experience, users can automatically consolidate their assets, get accurate and real-time portfolio insights, and confidently understand what they own, where it is, and how much it's worth.",
-        ],
-      },
-      {
-        label: 'Solutions Mapped to Pain Points',
-        bullets: [
-          'How much do I have? → Unified, real-time portfolio dashboard aggregating net worth across all connected sources',
-          'Where are my assets? → Consolidated holdings view with source-tagging (which wallet/exchange each asset lives on)',
-          'Difficult to categorize transactions → Automated transaction categorization with a manual override/edit flow, surfaced early — not just at tax time',
-          'Inaccurate tax reports → A reconciliation layer that flags uncertain/unmatched transactions upfront, plus a confidence indicator on generated reports',
-        ],
-      },
-      {
-        label: 'Design Evolution — V1 → V3',
+        label: 'Designing the experience',
         subsections: [
           {
-            title: 'V1 — Foundation',
+            title: 'A unified portfolio',
             paragraphs: [
-              'Basic aggregation: connect wallets and exchanges, see a combined balance list. Transactions displayed largely as raw data, with no categorization intelligence yet. This validated the core hypothesis — that one consolidated view was more valuable than checking multiple platforms — but usability testing surfaced confusion around uncategorized and duplicate-looking transactions.',
+              'The foundation was a single portfolio that automatically consolidated data from connected wallets and exchanges.',
+              'Users could quickly understand: total value → holdings → performance → where assets are held.',
+              'The experience progressively revealed detail instead of overwhelming users with everything at once.',
             ],
           },
           {
-            title: 'V2 — Structure & Trust',
+            title: 'Smarter transactions',
             paragraphs: [
-              'Introduced auto-categorization logic and a true portfolio dashboard: net worth summary, per-asset breakdown, gain/loss tracking. Added manual edit/override for miscategorized transactions based on V1 feedback. Reconciliation was still a soft spot — users weren’t fully confident which numbers were “tax-ready.”',
+              'Transactions became more than a raw activity log.',
+              'I introduced categorization to help users understand what happened, while keeping manual editing available when the system got something wrong.',
+              'This created a balance between automation and user control.',
             ],
           },
           {
-            title: 'V3 — Final',
+            title: 'Connecting portfolio and tax',
             paragraphs: [
-              'Refined dashboard with visible confidence indicators on data accuracy, smarter auto-categorization that reduced the need for manual edits, and a tighter connection between the portfolio view and the tax reporting flow. AI Insights was layered on top at this stage — once the core portfolio experience was accurate and trustworthy enough to build proactive intelligence on top of it.',
+              'Tax reporting was treated as an extension of the portfolio rather than a separate product.',
+              'Uncategorized or uncertain transactions could be addressed earlier, reducing the chance of discovering data issues only when generating a report.',
+            ],
+          },
+        ],
+      },
+      {
+        label: 'Design evolution',
+        subsections: [
+          {
+            title: 'V1 — Establish the foundation',
+            paragraphs: [
+              'The first version focused on connecting accounts and consolidating balances.',
+              "Testing revealed confusion around uncategorized and duplicate-looking transactions, showing that aggregation alone wasn't enough.",
+            ],
+          },
+          {
+            title: 'V2 — Add structure and control',
+            paragraphs: [
+              'I introduced a richer portfolio dashboard, automated transaction categorization, and manual correction flows.',
+              'This improved usability but exposed a bigger challenge: users still needed confidence in the accuracy of their data.',
+            ],
+          },
+          {
+            title: 'V3 — Build trust',
+            paragraphs: [
+              'The final direction connected portfolio data, transaction intelligence, and tax workflows more closely.',
+              'Confidence indicators, improved categorization, and clearer reconciliation helped users understand not only their numbers, but how reliable those numbers were.',
+              'AI Insights was then layered on top of this foundation, turning trusted portfolio data into proactive intelligence.',
             ],
           },
         ],
@@ -268,6 +286,10 @@ const allCaseStudies = [
           { value: '30% fewer', headline: 'Transactions requiring manual categorization' },
           { value: '25% fewer', headline: 'Support requests related to missing or incorrect transaction data' },
         ],
+        quote: {
+          label: 'Design principle',
+          text: 'The biggest shift was from helping users track crypto to helping them understand and manage their financial picture with confidence.',
+        },
       },
     ],
   },
