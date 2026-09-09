@@ -218,6 +218,10 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 .back-link:hover{ color:var(--blue); border-color:var(--blue); }
+.back-link-arrow{
+  display:inline-flex; align-items:center; justify-content:center;
+  line-height:1; transform:translateY(-1px);
+}
 
 .cs-head{ padding-top:120px; padding-bottom:50px; text-align:center; }
 .cs-head h1{ font-size:clamp(32px, 5vw, 54px); font-weight:800; letter-spacing:-.02em; max-width:760px; margin:0 auto; }

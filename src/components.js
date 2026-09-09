@@ -305,10 +305,11 @@ export function TopBar({ file, note }) {
   )
 }
 
-export function BackLink({ to = '/work', children = '← Back to work' }) {
+export function BackLink({ to = '/work', children = 'Back to work' }) {
   return (
     <Link to={to} className="back-link">
-      {children}
+      <span className="back-link-arrow" aria-hidden="true">←</span>
+      <span>{children}</span>
     </Link>
   )
 }
