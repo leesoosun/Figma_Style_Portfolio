@@ -439,7 +439,7 @@ const allCaseStudies = [
     meta: [
       ['Role', 'Product Designer'],
       ['Platform', 'Web'],
-      ['Focus', 'UX, Information Architecture, Workflow Design'],
+      ['Focus', 'UX, IA, Workflow Design'],
     ],
     overview: [
       'Kryptos Enterprise serves accountants and clients who need a deeper level of control over transaction data than the standard B2C experience provides.',
