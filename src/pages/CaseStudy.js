@@ -139,6 +139,17 @@ export default function CaseStudy() {
                 </div>
               </>
             )}
+            {s.oppCards && (
+              <div className="cs-opp-grid">
+                {s.oppCards.map((c) => (
+                  <div className="cs-opp-card" key={c.problem}>
+                    <p className="cs-opp-problem">{c.problem}</p>
+                    <span className="cs-opp-arrow" aria-hidden="true">↓</span>
+                    <p className="cs-opp-solution"><strong>{c.verb}</strong> {c.solution}</p>
+                  </div>
+                ))}
+              </div>
+            )}
             {s.subsections && s.subsections.map((sub) => (
               <div key={sub.title}>
                 <h4>{sub.title}</h4>
