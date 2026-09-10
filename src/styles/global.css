@@ -302,10 +302,10 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   background:#FDF3F2; border-radius:12px; padding:15px;
 }
 .cs-pain-icon{
-  width:26px; height:26px; margin-bottom:9px; color:#D8493F;
-  display:flex; align-items:center; justify-content:center;
+  width:20px; height:20px; margin-bottom:9px; color:#D8493F;
+  display:flex; align-items:center; justify-content:flex-start;
 }
-.cs-pain-icon svg{ width:16px; height:16px; }
+.cs-pain-icon svg{ width:20px; height:20px; }
 .cs-block .b-body .cs-pain-card h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
 .cs-block .b-body .cs-pain-card p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
 
