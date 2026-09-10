@@ -319,7 +319,8 @@ const allCaseStudies = [
     ],
     trigger: [
       'Playing a racquet sport sounds simple: find a game and play. But the actual experience is fragmented across tournament platforms, WhatsApp groups, payment apps, spreadsheets, and scoreboards.',
-      'The opportunity was to connect the entire journey: Find → Organize → Play → Pay → Track → Improve.',
+      'The opportunity was to connect the entire journey:',
+      'Find → Organize → Play → Pay → Track → Improve.',
     ],
     hypothesisLabel: 'Product goal',
     hypothesis: 'Create one connected experience around the player — not just the game.',
