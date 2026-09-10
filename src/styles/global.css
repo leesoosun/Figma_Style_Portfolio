@@ -269,7 +269,7 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   font-family:Georgia, serif; font-size:30px; font-weight:700;
   color:var(--blue); line-height:1;
 }
-.interview-quote p{
+.cs-block .b-body .interview-quote p{
   font-size:15px; font-style:italic; color:#3C3C3C;
   line-height:1.6; margin:0; max-width:none;
 }
@@ -286,8 +286,8 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   display:flex; align-items:center; justify-content:center;
 }
 .cs-journey-icon svg{ width:24px; height:24px; }
-.cs-journey-step h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
-.cs-journey-step p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
+.cs-block .b-body .cs-journey-step h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
+.cs-block .b-body .cs-journey-step p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
 .cs-journey-arrow{
   align-self:center; margin-top:28px; color:var(--blue); font-size:18px; font-weight:700;
 }
@@ -306,8 +306,8 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   display:flex; align-items:center; justify-content:center;
 }
 .cs-pain-icon svg{ width:16px; height:16px; }
-.cs-pain-card h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
-.cs-pain-card p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
+.cs-block .b-body .cs-pain-card h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
+.cs-block .b-body .cs-pain-card p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
 
 @media (max-width:760px){
   .cs-pain-grid{ grid-template-columns:1fr 1fr; }
