@@ -200,11 +200,11 @@ const allCaseStudies = [
       {
         label: 'From pain points to opportunities',
         paragraphs: ['The research pointed to four core opportunities:'],
-        oppCards: [
-          { problem: 'Portfolio data is fragmented', verb: 'Unify', solution: 'holdings across connected sources' },
-          { problem: 'Assets are difficult to locate', verb: 'Show', solution: 'where each asset lives' },
-          { problem: 'Transactions require manual work', verb: 'Automate', solution: 'categorization with user control' },
-          { problem: "Tax data isn't always trustworthy", verb: 'Surface', solution: 'issues before reporting' },
+        bullets: [
+          'Portfolio data is fragmented → Unify holdings across connected sources',
+          'Assets are difficult to locate → Show where each asset lives',
+          'Transactions require manual work → Automate categorization with user control',
+          "Tax data isn't always trustworthy → Surface issues before reporting",
         ],
         closing: [
           'This shifted the product from simply tracking crypto to helping users understand and manage it.',
