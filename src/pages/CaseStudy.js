@@ -174,6 +174,16 @@ export default function CaseStudy() {
                     {sub.video.caption ? <figcaption>{sub.video.caption}</figcaption> : null}
                   </figure>
                 )}
+                {sub.image && (
+                  <img
+                    className="cs-section-image"
+                    src={sub.image.src}
+                    alt={sub.image.alt}
+                    draggable="false"
+                    loading="lazy"
+                    style={sub.image.ratio ? { aspectRatio: sub.image.ratio } : undefined}
+                  />
+                )}
               </div>
             ))}
             {s.stats && (

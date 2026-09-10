@@ -28,6 +28,9 @@ import kryptosEnterpriseTxnBefore from './assets/case-studies/kryptos-enterprise
 import kryptosEnterpriseColumnsPanel from './assets/case-studies/kryptos-enterprise-columns-panel.png'
 import kryptosEnterpriseTxnAfter from './assets/case-studies/kryptos-enterprise-txn-after.png'
 import kryptosEnterprisePrototypeVideo from './assets/case-studies/kryptos-enterprise-prototype.mp4'
+import kryptosUnifiedPortfolio from './assets/case-studies/kryptos-unified-portfolio.png'
+import kryptosSmarterTransactions from './assets/case-studies/kryptos-smarter-transactions.png'
+import kryptosPortfolioTax from './assets/case-studies/kryptos-portfolio-tax.png'
 import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
 import ralloPrototypingValidation from './assets/case-studies/rallo-prototyping-validation.png'
 import claudeLogo from './assets/tools/claude.png'
@@ -238,6 +241,7 @@ const allCaseStudies = [
               'Users could quickly understand: total value → holdings → performance → where assets are held.',
               'The experience progressively revealed detail instead of overwhelming users with everything at once.',
             ],
+            image: { src: kryptosUnifiedPortfolio, alt: 'Kryptos unified portfolio view showing an account’s assets, quantities, prices, and value', ratio: '1160 / 341' },
           },
           {
             title: 'Smarter transactions',
@@ -246,6 +250,7 @@ const allCaseStudies = [
               'I introduced categorization to help users understand what happened, while keeping manual editing available when the system got something wrong.',
               'This created a balance between automation and user control.',
             ],
+            image: { src: kryptosSmarterTransactions, alt: 'Kryptos transaction row flagging a missing price with an inline "Add Price" action', ratio: '1160 / 178' },
           },
           {
             title: 'Connecting portfolio and tax',
@@ -253,6 +258,7 @@ const allCaseStudies = [
               'Tax reporting was treated as an extension of the portfolio rather than a separate product.',
               'Uncategorized or uncertain transactions could be addressed earlier, reducing the chance of discovering data issues only when generating a report.',
             ],
+            image: { src: kryptosPortfolioTax, alt: 'Kryptos transaction detail showing fees, value, and gains for a swap', ratio: '1005 / 322' },
           },
         ],
       },
