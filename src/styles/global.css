@@ -286,8 +286,8 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   display:flex; align-items:center; justify-content:center;
 }
 .cs-journey-icon svg{ width:24px; height:24px; }
-.cs-journey-step h5{ font-size:14.5px; font-weight:700; margin-bottom:6px; }
-.cs-journey-step p{ font-size:12.5px; color:var(--muted); line-height:1.5; max-width:none; }
+.cs-journey-step h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
+.cs-journey-step p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
 .cs-journey-arrow{
   align-self:center; margin-top:28px; color:var(--blue); font-size:18px; font-weight:700;
 }
@@ -299,15 +299,15 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
 }
 .cs-pain-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
 .cs-pain-card{
-  background:#FDF3F2; border-radius:12px; padding:18px;
+  background:#FDF3F2; border-radius:12px; padding:15px;
 }
 .cs-pain-icon{
-  width:32px; height:32px; margin-bottom:12px; color:#D8493F;
+  width:26px; height:26px; margin-bottom:9px; color:#D8493F;
   display:flex; align-items:center; justify-content:center;
 }
-.cs-pain-icon svg{ width:20px; height:20px; }
-.cs-pain-card h5{ font-size:14px; font-weight:700; margin-bottom:6px; }
-.cs-pain-card p{ font-size:12.5px; color:var(--muted); line-height:1.5; max-width:none; }
+.cs-pain-icon svg{ width:16px; height:16px; }
+.cs-pain-card h5{ font-size:13px; font-weight:700; margin-bottom:5px; }
+.cs-pain-card p{ font-size:11px; color:var(--muted); line-height:1.45; max-width:none; }
 
 @media (max-width:760px){
   .cs-pain-grid{ grid-template-columns:1fr 1fr; }
