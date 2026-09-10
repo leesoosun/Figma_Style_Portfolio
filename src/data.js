@@ -180,19 +180,21 @@ const allCaseStudies = [
       {
         label: 'Research',
         paragraphs: [
-          'I combined user interviews, stakeholder conversations, support tickets, and journey mapping to understand where users struggled most.',
-          'I mapped the journey from connecting accounts → viewing holdings → managing transactions → preparing for tax reporting.',
+          'I combined user interviews, stakeholder conversations, support tickets, and journey mapping to understand where users struggled most — mapping the full path from connecting an account to filing taxes.',
         ],
-        subsections: [
-          {
-            title: 'What we heard',
-            bullets: [
-              '“How much do I actually have?” — Users lacked a reliable view of their total portfolio across accounts.',
-              '“Where are my assets?” — Holdings were scattered across wallets and exchanges, requiring manual cross-checking.',
-              '“What does this transaction mean?” — Swaps, transfers, staking rewards, and other transaction types were difficult to categorize.',
-              '“Can I trust my tax report?” — Incorrect or incomplete transaction data created uncertainty downstream.',
-            ],
-          },
+        journey: [
+          { icon: 'connect', title: 'Connect', body: 'Link exchanges, wallets, and other sources.' },
+          { icon: 'consolidate', title: 'Consolidate', body: 'Bring all data together into one unified portfolio.' },
+          { icon: 'understand', title: 'Understand', body: 'See holdings, performance, and insights clearly.' },
+          { icon: 'manage', title: 'Manage', body: 'Categorize and adjust transactions as needed.' },
+          { icon: 'report', title: 'Report', body: 'Generate accurate, tax-ready reports.' },
+        ],
+        painCardsLabel: 'Where users struggled most',
+        painCards: [
+          { title: 'Portfolio visibility', body: 'No reliable view of total value across accounts.' },
+          { title: 'Scattered holdings', body: 'Assets spread across wallets and exchanges, requiring manual cross-checking.' },
+          { title: 'Transaction clarity', body: 'Swaps, transfers, and staking rewards were hard to categorize.' },
+          { title: 'Reporting confidence', body: 'Incorrect or incomplete data created uncertainty downstream.' },
         ],
       },
       {

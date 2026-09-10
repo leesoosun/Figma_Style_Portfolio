@@ -4,6 +4,7 @@ import {
   Page, Thumb, Eyebrow, Reveal, MetaRow, StatRow, CaseBlock, Paras,
 } from '../components.js'
 import { caseStudies } from '../data.js'
+import { journeyIcons, warningIcon } from '../caseStudyIcons.js'
 
 /**
  * One component renders all case studies from data. Adding a project means
@@ -109,6 +110,34 @@ export default function CaseStudy() {
                   </blockquote>
                 ))}
               </div>
+            )}
+            {s.journey && (
+              <div className="cs-journey">
+                {s.journey.map((step, i) => (
+                  <Fragment key={step.title}>
+                    {i > 0 ? <span className="cs-journey-arrow" aria-hidden="true">→</span> : null}
+                    <div className="cs-journey-step">
+                      <div className="cs-journey-icon">{journeyIcons[step.icon]}</div>
+                      <h5>{step.title}</h5>
+                      <p>{step.body}</p>
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+            )}
+            {s.painCards && (
+              <>
+                {s.painCardsLabel && <span className="cs-pain-label">{s.painCardsLabel}</span>}
+                <div className="cs-pain-grid">
+                  {s.painCards.map((c) => (
+                    <div className="cs-pain-card" key={c.title}>
+                      <div className="cs-pain-icon">{warningIcon}</div>
+                      <h5>{c.title}</h5>
+                      <p>{c.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
             {s.subsections && s.subsections.map((sub) => (
               <div key={sub.title}>
