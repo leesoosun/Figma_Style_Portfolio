@@ -253,12 +253,12 @@ const allCaseStudies = [
             image: { src: kryptosSmarterTransactions, alt: 'Kryptos transaction row flagging a missing price with an inline "Add Price" action', ratio: '1160 / 178' },
           },
           {
-            title: 'Connecting portfolio and tax',
+            title: 'Connecting portfolio data to tax reporting',
             paragraphs: [
-              'Tax reporting was treated as an extension of the portfolio rather than a separate product.',
-              'Uncategorized or uncertain transactions could be addressed earlier, reducing the chance of discovering data issues only when generating a report.',
+              'Accurate tax reporting starts with accurate transaction data. I connected the portfolio and tax workflows so users could identify and resolve missing information before generating their reports.',
+              'Review → Resolve → Report.',
             ],
-            image: { src: kryptosPortfolioTax, alt: 'Kryptos transaction detail showing fees, value, and gains for a swap', ratio: '1005 / 322' },
+            image: { src: kryptosPortfolioTax, alt: 'Kryptos flagging a transaction with a missing price next to a ready-to-download transactions report', ratio: '916 / 206' },
           },
         ],
       },
