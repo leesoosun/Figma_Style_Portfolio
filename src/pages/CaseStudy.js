@@ -194,6 +194,16 @@ export default function CaseStudy() {
               </div>
             )}
             {s.closing && <Paras items={s.closing} />}
+            {s.image && (
+              <img
+                className="cs-section-image"
+                src={s.image.src}
+                alt={s.image.alt}
+                draggable="false"
+                loading="lazy"
+                style={s.image.ratio ? { aspectRatio: s.image.ratio } : undefined}
+              />
+            )}
           </CaseBlock>
         ))}
 

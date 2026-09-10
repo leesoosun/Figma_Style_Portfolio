@@ -347,6 +347,9 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   .cs-image-strip-item img{ height:150px; }
 }
 
+/* A single real screenshot closing out a section, full column width. */
+.cs-section-image{ width:100%; display:block; border-radius:12px; margin-top:20px; }
+
 .cs-video{ margin:20px 0 0; max-width:600px; text-align:left; }
 .cs-video video{
   width:100%; display:block; border-radius:12px;

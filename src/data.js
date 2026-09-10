@@ -28,6 +28,7 @@ import kryptosEnterpriseTxnBefore from './assets/case-studies/kryptos-enterprise
 import kryptosEnterpriseColumnsPanel from './assets/case-studies/kryptos-enterprise-columns-panel.png'
 import kryptosEnterpriseTxnAfter from './assets/case-studies/kryptos-enterprise-txn-after.png'
 import kryptosEnterprisePrototypeVideo from './assets/case-studies/kryptos-enterprise-prototype.mp4'
+import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -387,6 +388,7 @@ const allCaseStudies = [
           'Empty and edge states',
         ],
         closing: ['This created a consistent foundation that could scale across different sports and features.'],
+        image: { src: ralloScalableSystem, alt: 'Reusable match, stats, and tournament card patterns in Rallo', ratio: '1130 / 570' },
       },
       {
         label: 'Prototyping & validation',
