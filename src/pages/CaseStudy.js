@@ -144,7 +144,7 @@ export default function CaseStudy() {
                 {s.oppCards.map((c) => (
                   <div className="cs-opp-card" key={c.problem}>
                     <p className="cs-opp-problem">{c.problem}</p>
-                    <span className="cs-opp-arrow" aria-hidden="true">→</span>
+                    <span className="cs-opp-arrow" aria-hidden="true">↓</span>
                     <p className="cs-opp-solution"><strong>{c.verb}</strong> {c.solution}</p>
                   </div>
                 ))}
