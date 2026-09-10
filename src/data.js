@@ -154,7 +154,7 @@ const allCaseStudies = [
     meta: [
       ['Role', 'Product Designer'],
       ['Platform', 'Web + Mobile'],
-      ['Focus', 'Product Strategy, UX, UI, Prototyping'],
+      ['Focus', 'Product Strategy, UX/UI Design'],
     ],
     overview: [
       'Kryptos is a crypto intelligence and financial management platform that brings data from exchanges, wallets, and other sources into one place.',
@@ -314,7 +314,7 @@ const allCaseStudies = [
     meta: [
       ['Role', 'Product Designer'],
       ['Platform', 'Mobile + Web'],
-      ['Focus', 'Product Strategy, UX, UI, Prototyping'],
+      ['Focus', 'Product Strategy, UX/UI Design'],
     ],
     overview: [
       'Rallo is a racquet-sports platform that brings tournaments, matches, opponents, scoring, payments, player profiles, and performance insights into one connected experience.',
