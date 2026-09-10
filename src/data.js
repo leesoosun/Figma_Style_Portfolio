@@ -29,6 +29,7 @@ import kryptosEnterpriseColumnsPanel from './assets/case-studies/kryptos-enterpr
 import kryptosEnterpriseTxnAfter from './assets/case-studies/kryptos-enterprise-txn-after.png'
 import kryptosEnterprisePrototypeVideo from './assets/case-studies/kryptos-enterprise-prototype.mp4'
 import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
+import ralloPrototypingValidation from './assets/case-studies/rallo-prototyping-validation.png'
 import claudeLogo from './assets/tools/claude.png'
 import chatgptLogo from './assets/tools/chatgpt.png'
 import figmaLogo from './assets/tools/figma.png'
@@ -403,6 +404,7 @@ const allCaseStudies = [
           "Does the profile tell a useful story?",
         ],
         closing: ['Feedback helped simplify flows, improve hierarchy, and remove unnecessary steps.'],
+        image: { src: ralloPrototypingValidation, alt: 'Rallo prototype screens used to validate flows with players', ratio: '1200 / 828' },
       },
       {
         label: 'The outcome',
