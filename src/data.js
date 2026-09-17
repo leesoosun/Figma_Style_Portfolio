@@ -292,14 +292,10 @@ const allCaseStudies = [
       {
         label: 'Impact',
         stats: [
-          { value: '35% faster', headline: 'Portfolio reconciliation and tax-report preparation' },
-          { value: '30% fewer', headline: 'Transactions requiring manual categorization' },
-          { value: '25% fewer', headline: 'Support requests related to missing or incorrect transaction data' },
+          { value: '40K+', headline: 'Monthly active users' },
+          { value: '100+', headline: 'Enterprise businesses' },
+          { value: '1B+', headline: 'Processed transactions' },
         ],
-        quote: {
-          label: 'Design principle',
-          text: 'The biggest shift was from helping users track crypto to helping them understand and manage their financial picture with confidence.',
-        },
       },
     ],
   },
