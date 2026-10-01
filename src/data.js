@@ -34,7 +34,9 @@ import kryptosPortfolioTax from './assets/case-studies/kryptos-portfolio-tax.png
 import kryptosWireframeDashboard from './assets/case-studies/kryptos-wireframe-dashboard.png'
 import kryptosWireframeIntegrations from './assets/case-studies/kryptos-wireframe-integrations.png'
 import kryptosWireframeTransactions from './assets/case-studies/kryptos-wireframe-transactions.png'
-import kryptosCleanWireframes from './assets/case-studies/kryptos-clean-wireframes.png'
+import kryptosHifiDashboard from './assets/case-studies/kryptos-hifi-dashboard.png'
+import kryptosHifiIntegrations from './assets/case-studies/kryptos-hifi-integrations.png'
+import kryptosHifiTransactions from './assets/case-studies/kryptos-hifi-transactions.png'
 import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
 import ralloPrototypingValidation from './assets/case-studies/rallo-prototyping-validation.png'
 import claudeLogo from './assets/tools/claude.png'
@@ -286,7 +288,11 @@ const allCaseStudies = [
             paragraphs: [
               'Once the core flows held up, I moved from rough sketches to a real visual system: a clean dashboard, integrations list, and transaction table.',
             ],
-            image: { src: kryptosCleanWireframes, alt: 'High-fidelity dashboard, integrations, and transactions screens for Kryptos', ratio: '1600 / 422' },
+            images: [
+              { src: kryptosHifiDashboard, alt: 'High-fidelity Kryptos dashboard with total net worth, overview, and tax optimization', ratio: '1200 / 924', caption: 'Dashboard' },
+              { src: kryptosHifiIntegrations, alt: 'High-fidelity Kryptos integrations list with connected exchanges and wallets', ratio: '1200 / 924', caption: 'Integrations' },
+              { src: kryptosHifiTransactions, alt: 'High-fidelity Kryptos transactions table with type, value, and gains columns', ratio: '1200 / 924', caption: 'Transactions' },
+            ],
           },
           {
             title: 'V1 — Establish the foundation',
