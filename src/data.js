@@ -288,11 +288,12 @@ const allCaseStudies = [
             paragraphs: [
               'Once the core flows held up, I moved from rough sketches to a real visual system: a clean dashboard, integrations list, and transaction table.',
             ],
-            images: [
-              { src: kryptosHifiDashboard, alt: 'High-fidelity Kryptos dashboard with total net worth, overview, and tax optimization', ratio: '1200 / 924', caption: 'Dashboard' },
-              { src: kryptosHifiIntegrations, alt: 'High-fidelity Kryptos integrations list with connected exchanges and wallets', ratio: '1200 / 924', caption: 'Integrations' },
-              { src: kryptosHifiTransactions, alt: 'High-fidelity Kryptos transactions table with type, value, and gains columns', ratio: '1200 / 924', caption: 'Transactions' },
-            ],
+            imageRowSize: 'sm',
+            imageRows: [[
+              { src: kryptosHifiDashboard, alt: 'High-fidelity Kryptos dashboard with total net worth, overview, and tax optimization', caption: 'Dashboard' },
+              { src: kryptosHifiIntegrations, alt: 'High-fidelity Kryptos integrations list with connected exchanges and wallets', caption: 'Integrations' },
+              { src: kryptosHifiTransactions, alt: 'High-fidelity Kryptos transactions table with type, value, and gains columns', caption: 'Transactions' },
+            ]],
           },
           {
             title: 'V1 — Establish the foundation',
