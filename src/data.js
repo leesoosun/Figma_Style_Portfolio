@@ -34,6 +34,7 @@ import kryptosPortfolioTax from './assets/case-studies/kryptos-portfolio-tax.png
 import kryptosWireframeDashboard from './assets/case-studies/kryptos-wireframe-dashboard.png'
 import kryptosWireframeIntegrations from './assets/case-studies/kryptos-wireframe-integrations.png'
 import kryptosWireframeTransactions from './assets/case-studies/kryptos-wireframe-transactions.png'
+import kryptosCleanWireframes from './assets/case-studies/kryptos-clean-wireframes.png'
 import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
 import ralloPrototypingValidation from './assets/case-studies/rallo-prototyping-validation.png'
 import claudeLogo from './assets/tools/claude.png'
@@ -279,6 +280,13 @@ const allCaseStudies = [
               { src: kryptosWireframeDashboard, alt: 'Early wireframe of the portfolio dashboard consolidating balances', caption: 'Consolidating balances' },
               { src: kryptosWireframeTransactions, alt: 'Early wireframe of the transactions table with type, label, and filter controls', caption: 'Reviewing transactions' },
             ]],
+          },
+          {
+            title: 'Moving to high fidelity',
+            paragraphs: [
+              'Once the core flows held up, I moved from rough sketches to a real visual system: a clean dashboard, integrations list, and transaction table.',
+            ],
+            image: { src: kryptosCleanWireframes, alt: 'High-fidelity dashboard, integrations, and transactions screens for Kryptos', ratio: '1600 / 422' },
           },
           {
             title: 'V1 — Establish the foundation',
