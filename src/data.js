@@ -31,6 +31,9 @@ import kryptosEnterprisePrototypeVideo from './assets/case-studies/kryptos-enter
 import kryptosUnifiedPortfolio from './assets/case-studies/kryptos-unified-portfolio.png'
 import kryptosSmarterTransactions from './assets/case-studies/kryptos-smarter-transactions.png'
 import kryptosPortfolioTax from './assets/case-studies/kryptos-portfolio-tax.png'
+import kryptosWireframeDashboard from './assets/case-studies/kryptos-wireframe-dashboard.png'
+import kryptosWireframeIntegrations from './assets/case-studies/kryptos-wireframe-integrations.png'
+import kryptosWireframeTransactions from './assets/case-studies/kryptos-wireframe-transactions.png'
 import ralloScalableSystem from './assets/case-studies/rallo-scalable-system.png'
 import ralloPrototypingValidation from './assets/case-studies/rallo-prototyping-validation.png'
 import claudeLogo from './assets/tools/claude.png'
@@ -271,6 +274,10 @@ const allCaseStudies = [
               'The first version focused on connecting accounts and consolidating balances.',
               "Testing revealed confusion around uncategorized and duplicate-looking transactions, showing that aggregation alone wasn't enough.",
             ],
+            images: [
+              { src: kryptosWireframeIntegrations, alt: 'Early wireframe of the integrations list for connecting wallets and exchanges', ratio: '900 / 501', caption: 'Connecting accounts' },
+              { src: kryptosWireframeDashboard, alt: 'Early wireframe of the portfolio dashboard consolidating balances', ratio: '900 / 739', caption: 'Consolidating balances' },
+            ],
           },
           {
             title: 'V2 — Add structure and control',
@@ -278,6 +285,7 @@ const allCaseStudies = [
               'I introduced a richer portfolio dashboard, automated transaction categorization, and manual correction flows.',
               'This improved usability but exposed a bigger challenge: users still needed confidence in the accuracy of their data.',
             ],
+            image: { src: kryptosWireframeTransactions, alt: 'Early wireframe of the transactions table with type, label, and filter controls', ratio: '1200 / 794' },
           },
           {
             title: 'V3 — Build trust',
