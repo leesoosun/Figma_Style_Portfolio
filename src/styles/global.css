@@ -347,17 +347,15 @@ footer{ border-top:1px solid var(--line); padding:44px 0 170px; }
   .cs-image-strip-item img{ height:150px; }
 }
 
+/* A smaller variant for a wireframe gallery, where several rough sketches
+   sit side by side rather than one or two detailed screenshots. */
+.cs-image-strip--sm .cs-image-strip-item img{ height:140px; }
+@media (max-width:760px){
+  .cs-image-strip--sm .cs-image-strip-item img{ height:110px; }
+}
+
 /* A single real screenshot closing out a section, full column width. */
 .cs-section-image{ width:100%; display:block; border-radius:12px; margin-top:20px; }
-
-/* Several full-width images stacked in sequence within one subsection
-   (e.g. successive wireframes), each with its own caption. */
-.cs-image-stack-item{ margin:0; }
-.cs-image-stack-item + .cs-image-stack-item{ margin-top:28px; }
-.cs-image-stack-item figcaption{
-  font-family:var(--mono); font-size:11.5px; color:var(--muted);
-  margin-top:10px;
-}
 
 .cs-video{ margin:20px 0 0; max-width:600px; text-align:left; }
 .cs-video video{

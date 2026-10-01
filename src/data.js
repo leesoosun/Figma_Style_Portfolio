@@ -269,14 +269,22 @@ const allCaseStudies = [
         label: 'Design evolution',
         subsections: [
           {
+            title: 'Early wireframes',
+            paragraphs: [
+              'Before any visual design, I sketched the core flows: connecting accounts, viewing the consolidated portfolio, and reviewing transactions.',
+            ],
+            imageRowSize: 'sm',
+            imageRows: [[
+              { src: kryptosWireframeIntegrations, alt: 'Early wireframe of the integrations list for connecting wallets and exchanges', caption: 'Connecting accounts' },
+              { src: kryptosWireframeDashboard, alt: 'Early wireframe of the portfolio dashboard consolidating balances', caption: 'Consolidating balances' },
+              { src: kryptosWireframeTransactions, alt: 'Early wireframe of the transactions table with type, label, and filter controls', caption: 'Reviewing transactions' },
+            ]],
+          },
+          {
             title: 'V1 — Establish the foundation',
             paragraphs: [
               'The first version focused on connecting accounts and consolidating balances.',
               "Testing revealed confusion around uncategorized and duplicate-looking transactions, showing that aggregation alone wasn't enough.",
-            ],
-            images: [
-              { src: kryptosWireframeIntegrations, alt: 'Early wireframe of the integrations list for connecting wallets and exchanges', ratio: '900 / 501', caption: 'Connecting accounts' },
-              { src: kryptosWireframeDashboard, alt: 'Early wireframe of the portfolio dashboard consolidating balances', ratio: '900 / 739', caption: 'Consolidating balances' },
             ],
           },
           {
@@ -285,7 +293,6 @@ const allCaseStudies = [
               'I introduced a richer portfolio dashboard, automated transaction categorization, and manual correction flows.',
               'This improved usability but exposed a bigger challenge: users still needed confidence in the accuracy of their data.',
             ],
-            image: { src: kryptosWireframeTransactions, alt: 'Early wireframe of the transactions table with type, label, and filter controls', ratio: '1200 / 794' },
           },
           {
             title: 'V3 — Build trust',

@@ -148,24 +148,11 @@ export default function CaseStudy() {
                     {sub.bullets.map((b) => <li key={b}>{b}</li>)}
                   </ul>
                 )}
-                {sub.images && sub.images.map((img) => (
-                  <figure className="cs-image-stack-item" key={img.src}>
-                    <img
-                      className="cs-section-image"
-                      src={img.src}
-                      alt={img.alt}
-                      draggable="false"
-                      loading="lazy"
-                      style={img.ratio ? { aspectRatio: img.ratio } : undefined}
-                    />
-                    {img.caption ? <figcaption>{img.caption}</figcaption> : null}
-                  </figure>
-                ))}
                 {sub.imageRows && sub.imageRows.map((row, i) => (
-                  <div className="cs-image-strip" key={i}>
+                  <div className={`cs-image-strip${sub.imageRowSize === 'sm' ? ' cs-image-strip--sm' : ''}`} key={i}>
                     {row.map((img, j) => (
                       <Fragment key={img.src}>
-                        {j > 0 ? <span className="cs-image-arrow" aria-hidden="true">→</span> : null}
+                        {j > 0 && sub.imageRowSize !== 'sm' ? <span className="cs-image-arrow" aria-hidden="true">→</span> : null}
                         <figure className="cs-image-strip-item">
                           <img src={img.src} alt={img.alt} draggable="false" loading="lazy" />
                           {img.caption ? <figcaption>{img.caption}</figcaption> : null}
