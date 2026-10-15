@@ -502,11 +502,11 @@ export function StatRow({ stats }) {
   )
 }
 
-/** One labelled block of a case study (01 — Problem, 02 — Process, …). */
-export function CaseBlock({ label, id, children }) {
+/** One block of a case study's body. Numbering/labeling now lives in the
+    CaseToc sidebar that sits alongside the whole body, not per block. */
+export function CaseBlock({ id, children }) {
   return (
     <div className="cs-block" id={id}>
-      <div className="b-label">{label}</div>
       <Reveal className="b-body">{children}</Reveal>
     </div>
   )
@@ -625,18 +625,13 @@ export const glyphs = {
 }
 
 /** Shared page shell: banner + topbar + content + footer + toolbar. */
-export function Page({ file, note, back = false, toc, children, footer = true }) {
+export function Page({ file, note, back = false, children, footer = true }) {
   useHideChromeOnScroll()
   return (
     <>
       <SampleBanner />
       {back ? <BackLink /> : null}
       {SHOW_TOPBAR ? <TopBar file={file} note={note} /> : null}
-      {/* Rendered as a sibling of <main>, not inside it — <main>'s page-fade
-          animation runs a transform, which would make it the containing
-          block for any position:fixed descendant (here, the toc sidebar)
-          instead of the viewport. BackLink/Toolbar avoid the same trap. */}
-      {toc ? <CaseToc items={toc} /> : null}
       <main className="page-fade">{children}</main>
       {footer ? <Footer /> : null}
       <Toolbar />
