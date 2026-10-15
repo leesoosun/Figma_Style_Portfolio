@@ -6,6 +6,30 @@ import {
 import { caseStudies } from '../data.js'
 import { journeyIcons, warningIcon } from '../caseStudyIcons.js'
 
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+
+/**
+ * The table of contents a case study's numbered blocks render, in the same
+ * order and under the same conditions as the JSX below — see the index
+ * bookkeeping in the component body for how each block picks its entry.
+ */
+function buildToc(cs) {
+  const labels = []
+  if (cs.overview) labels.push('Overview')
+  if (cs.ownership) labels.push('My role')
+  if (cs.trigger) labels.push('The trigger')
+  if (cs.problem) labels.push('Problem')
+  if (cs.sections) cs.sections.forEach((s) => labels.push(s.label))
+  if (cs.process) labels.push('Process')
+  if (cs.solution) labels.push('Solution')
+  if (cs.outcome) labels.push('Outcome')
+  return labels.map((label, i) => ({
+    id: `s-${slugify(label)}`,
+    num: String(i + 1).padStart(2, '0'),
+    label,
+  }))
+}
+
 /**
  * One component renders all case studies from data. Adding a project means
  * appending an object to `caseStudies` in data.js — no new file.
@@ -29,11 +53,22 @@ export default function CaseStudy() {
   // Sections are data-driven per project: a case study with real background
   // (overview/ownership/trigger) shows those instead of the generic Problem
   // block, so this component still renders every project's own shape.
-  let n = 0
-  const num = () => String((n += 1)).padStart(2, '0')
+  // tocEntries is the single source of truth for numbering and anchor ids —
+  // each block below pulls its entry in the same order buildToc assigned it.
+  const tocEntries = buildToc(cs)
+  let i = 0
+  const overviewEntry = cs.overview ? tocEntries[i++] : null
+  const ownershipEntry = cs.ownership ? tocEntries[i++] : null
+  const triggerEntry = cs.trigger ? tocEntries[i++] : null
+  const problemEntry = cs.problem ? tocEntries[i++] : null
+  const sectionsStart = i
+  if (cs.sections) i += cs.sections.length
+  const processEntry = cs.process ? tocEntries[i++] : null
+  const solutionEntry = cs.solution ? tocEntries[i++] : null
+  const outcomeEntry = cs.outcome ? tocEntries[i++] : null
 
   return (
-    <Page file={cs.fileLabel} note={cs.topNote} back>
+    <Page file={cs.fileLabel} note={cs.topNote} back toc={tocEntries}>
       <section className="wrap cs-head">
         <Eyebrow>// Case study</Eyebrow>
         <Reveal as="h1">{cs.title}</Reveal>
@@ -59,13 +94,13 @@ export default function CaseStudy() {
 
       <section className="wrap" style={{ paddingTop: 0 }}>
         {cs.overview && (
-          <CaseBlock label={`${num()} — Overview`}>
+          <CaseBlock id={overviewEntry.id} label={`${overviewEntry.num} — Overview`}>
             <Paras items={cs.overview} />
           </CaseBlock>
         )}
 
         {cs.ownership && (
-          <CaseBlock label={`${num()} — My role`}>
+          <CaseBlock id={ownershipEntry.id} label={`${ownershipEntry.num} — My role`}>
             {cs.ownershipIntro && <Paras items={cs.ownershipIntro} />}
             <ul>
               {cs.ownership.map((item) => <li key={item}>{item}</li>)}
@@ -74,7 +109,7 @@ export default function CaseStudy() {
         )}
 
         {cs.trigger && (
-          <CaseBlock label={`${num()} — The trigger`}>
+          <CaseBlock id={triggerEntry.id} label={`${triggerEntry.num} — The trigger`}>
             <Paras items={cs.trigger} />
             <div className="callout">
               <span className="callout-label">{cs.hypothesisLabel}</span>
@@ -85,7 +120,7 @@ export default function CaseStudy() {
         )}
 
         {cs.problem && (
-          <CaseBlock label={`${num()} — Problem`}>
+          <CaseBlock id={problemEntry.id} label={`${problemEntry.num} — Problem`}>
             <Paras items={cs.problem} />
           </CaseBlock>
         )}
@@ -94,8 +129,8 @@ export default function CaseStudy() {
             the fixed problem/process/solution/outcome shape below — an
             ordered list of paragraphs, a bullet list, titled subsections,
             and a closing quote, in any combination. */}
-        {cs.sections && cs.sections.map((s) => (
-          <CaseBlock label={`${num()} — ${s.label}`} key={s.label}>
+        {cs.sections && cs.sections.map((s, si) => (
+          <CaseBlock id={tocEntries[sectionsStart + si].id} label={`${tocEntries[sectionsStart + si].num} — ${s.label}`} key={s.label}>
             {s.paragraphs && <Paras items={s.paragraphs} />}
             {s.bullets && (
               <ul>
@@ -231,7 +266,7 @@ export default function CaseStudy() {
         ))}
 
         {cs.process && (
-          <CaseBlock label={`${num()} — Process`}>
+          <CaseBlock id={processEntry.id} label={`${processEntry.num} — Process`}>
             <Paras items={cs.process} />
             <div className="cs-img-row">
               {cs.processImages.map((t) => (
@@ -244,7 +279,7 @@ export default function CaseStudy() {
         )}
 
         {cs.solution && (
-          <CaseBlock label={`${num()} — Solution`}>
+          <CaseBlock id={solutionEntry.id} label={`${solutionEntry.num} — Solution`}>
             <Paras items={cs.solution} />
             <div className="cs-img-single">
               <Thumb label={`IMAGE PLACEHOLDER — ${cs.solutionImage}`} />
@@ -253,7 +288,7 @@ export default function CaseStudy() {
         )}
 
         {cs.outcome && (
-          <CaseBlock label={`${num()} — Outcome`}>
+          <CaseBlock id={outcomeEntry.id} label={`${outcomeEntry.num} — Outcome`}>
             <Paras items={cs.outcome} />
             <StatRow stats={cs.stats} />
           </CaseBlock>
