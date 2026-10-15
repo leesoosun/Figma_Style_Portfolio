@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import {
-  Page, Thumb, Eyebrow, Reveal, MetaRow, StatRow, CaseBlock, CaseToc, Paras,
+  Page, Thumb, Eyebrow, Reveal, MetaRow, StatRow, CaseBlock, Paras,
 } from '../components.js'
 import { caseStudies } from '../data.js'
 import { journeyIcons, warningIcon } from '../caseStudyIcons.js'
@@ -68,7 +68,7 @@ export default function CaseStudy() {
   const outcomeEntry = cs.outcome ? tocEntries[i++] : null
 
   return (
-    <Page file={cs.fileLabel} note={cs.topNote} back>
+    <Page file={cs.fileLabel} note={cs.topNote} back toc={tocEntries}>
       <section className="wrap cs-head">
         <Eyebrow>// Case study</Eyebrow>
         <Reveal as="h1">{cs.title}</Reveal>
@@ -93,17 +93,14 @@ export default function CaseStudy() {
       </div>
 
       <section className="wrap" style={{ paddingTop: 0 }}>
-        <div className="cs-body">
-          <CaseToc items={tocEntries} />
-          <div className="cs-content">
         {cs.overview && (
-          <CaseBlock id={overviewEntry.id}>
+          <CaseBlock id={overviewEntry.id} label={`${overviewEntry.num} — Overview`}>
             <Paras items={cs.overview} />
           </CaseBlock>
         )}
 
         {cs.ownership && (
-          <CaseBlock id={ownershipEntry.id}>
+          <CaseBlock id={ownershipEntry.id} label={`${ownershipEntry.num} — My role`}>
             {cs.ownershipIntro && <Paras items={cs.ownershipIntro} />}
             <ul>
               {cs.ownership.map((item) => <li key={item}>{item}</li>)}
@@ -112,7 +109,7 @@ export default function CaseStudy() {
         )}
 
         {cs.trigger && (
-          <CaseBlock id={triggerEntry.id}>
+          <CaseBlock id={triggerEntry.id} label={`${triggerEntry.num} — The trigger`}>
             <Paras items={cs.trigger} />
             <div className="callout">
               <span className="callout-label">{cs.hypothesisLabel}</span>
@@ -123,7 +120,7 @@ export default function CaseStudy() {
         )}
 
         {cs.problem && (
-          <CaseBlock id={problemEntry.id}>
+          <CaseBlock id={problemEntry.id} label={`${problemEntry.num} — Problem`}>
             <Paras items={cs.problem} />
           </CaseBlock>
         )}
@@ -133,7 +130,7 @@ export default function CaseStudy() {
             ordered list of paragraphs, a bullet list, titled subsections,
             and a closing quote, in any combination. */}
         {cs.sections && cs.sections.map((s, si) => (
-          <CaseBlock id={tocEntries[sectionsStart + si].id} key={s.label}>
+          <CaseBlock id={tocEntries[sectionsStart + si].id} label={`${tocEntries[sectionsStart + si].num} — ${s.label}`} key={s.label}>
             {s.paragraphs && <Paras items={s.paragraphs} />}
             {s.bullets && (
               <ul>
@@ -269,7 +266,7 @@ export default function CaseStudy() {
         ))}
 
         {cs.process && (
-          <CaseBlock id={processEntry.id}>
+          <CaseBlock id={processEntry.id} label={`${processEntry.num} — Process`}>
             <Paras items={cs.process} />
             <div className="cs-img-row">
               {cs.processImages.map((t) => (
@@ -282,7 +279,7 @@ export default function CaseStudy() {
         )}
 
         {cs.solution && (
-          <CaseBlock id={solutionEntry.id}>
+          <CaseBlock id={solutionEntry.id} label={`${solutionEntry.num} — Solution`}>
             <Paras items={cs.solution} />
             <div className="cs-img-single">
               <Thumb label={`IMAGE PLACEHOLDER — ${cs.solutionImage}`} />
@@ -291,7 +288,7 @@ export default function CaseStudy() {
         )}
 
         {cs.outcome && (
-          <CaseBlock id={outcomeEntry.id}>
+          <CaseBlock id={outcomeEntry.id} label={`${outcomeEntry.num} — Outcome`}>
             <Paras items={cs.outcome} />
             <StatRow stats={cs.stats} />
           </CaseBlock>
@@ -305,8 +302,6 @@ export default function CaseStudy() {
             </span>
             <span className="n-arrow">→</span>
           </Link>
-        </div>
-          </div>
         </div>
       </section>
     </Page>
