@@ -503,82 +503,12 @@ export function StatRow({ stats }) {
 }
 
 /** One labelled block of a case study (01 — Problem, 02 — Process, …). */
-export function CaseBlock({ label, id, children }) {
+export function CaseBlock({ label, children }) {
   return (
-    <div className="cs-block" id={id}>
+    <div className="cs-block">
       <div className="b-label">{label}</div>
       <Reveal className="b-body">{children}</Reveal>
     </div>
-  )
-}
-
-/**
- * Tracks which of the given element ids is currently "active" — the one
- * whose section occupies a thin band near the top of the viewport — for
- * highlighting the current item in a scroll-driven nav like CaseToc.
- */
-function useScrollSpy(ids) {
-  const [activeId, setActiveId] = useState(ids[0] || null)
-
-  useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined' || !ids.length) return
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean)
-    if (!els.length) return
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id)
-        })
-      },
-      { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
-    )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ids.join('|')])
-
-  return activeId
-}
-
-/**
- * Sticky left-side table of contents for a case study's numbered sections.
- * Highlights the section currently in view and smooth-scrolls to a section
- * on click. Hidden below 1440px — see the `.cs-toc` breakpoint in
- * global.css, where there isn't room beside the 1080px content column
- * without crowding the body text.
- */
-export function CaseToc({ items }) {
-  const ids = items.map((item) => item.id)
-  const activeId = useScrollSpy(ids)
-  const reduced = usePrefersReducedMotion()
-
-  if (!items.length) return null
-
-  const handleClick = (e, id) => {
-    e.preventDefault()
-    const el = document.getElementById(id)
-    if (!el) return
-    el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' })
-    window.history.replaceState(null, '', `#${id}`)
-  }
-
-  return (
-    <nav className="cs-toc" aria-label="Section navigation">
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <a
-              href={`#${item.id}`}
-              className={item.id === activeId ? 'active' : undefined}
-              onClick={(e) => handleClick(e, item.id)}
-            >
-              <span className="cs-toc-num">{item.num}</span>
-              <span className="cs-toc-label">{item.label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
   )
 }
 
@@ -625,18 +555,13 @@ export const glyphs = {
 }
 
 /** Shared page shell: banner + topbar + content + footer + toolbar. */
-export function Page({ file, note, back = false, toc, children, footer = true }) {
+export function Page({ file, note, back = false, children, footer = true }) {
   useHideChromeOnScroll()
   return (
     <>
       <SampleBanner />
       {back ? <BackLink /> : null}
       {SHOW_TOPBAR ? <TopBar file={file} note={note} /> : null}
-      {/* Rendered as a sibling of <main>, not inside it — <main>'s page-fade
-          animation runs a transform, which would make it the containing
-          block for any position:fixed descendant (here, the toc sidebar)
-          instead of the viewport. BackLink/Toolbar avoid the same trap. */}
-      {toc ? <CaseToc items={toc} /> : null}
       <main className="page-fade">{children}</main>
       {footer ? <Footer /> : null}
       <Toolbar />
